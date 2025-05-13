@@ -27,7 +27,6 @@ a:hover {
 
 .line-ver {
   width: 2px;
-  height: 80vh;
   background-color: brown;
 }
 
@@ -43,6 +42,7 @@ a:hover {
 .sidebar {
   display: flex;
   flex-direction: column;
+  height: 85vh;
 }
 
 .fase-1 {
@@ -134,17 +134,16 @@ td.bar-green::before {
   height: 100%;
 }
 
-/* Colors */
 td.bar-blue::before {
-  background-color: #3b82f6; /* Tailwind blue-500 */
+  background-color: #3b82f6;
 }
 
 td.bar-orange::before {
-  background-color: #f97316; /* Tailwind orange-500 */
+  background-color: #f97316;
 }
 
 td.bar-green::before {
-  background-color: #22c55e; /* Tailwind green-500 */
+  background-color: #22c55e;
 }
 
 .legend-container {

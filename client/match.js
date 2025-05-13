@@ -18,14 +18,17 @@ function stats() {
       <th>Ultimo 5</th>
     </tr>
     `
-  players.sort((a, b) => (b.elo) - (a.elo));
+  players.sort((a, b) => (b.points) - (a.points));
 
   players.forEach((player, index) => {
+    /*
     const wins = parseInt(player.win) || 0;
     const losses = parseInt(player.losser) || 0;
     const draws = parseInt(player.draw) || 0;
     const pj = wins + losses + draws;
     const pts = (wins * 3) + (draws * 1);
+    console.log(pts);
+    */
 
     // Mostrar últimos 5 como íconos
     const last = (player.lastMatches || []).map(r => {

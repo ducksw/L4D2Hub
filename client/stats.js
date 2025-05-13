@@ -13,6 +13,7 @@ function stats() {
       <th>Kills:</th>
       <th>Win:</th>
       <th>Loser:</th>
+      <th>Empate:</th>
       <th>Matchs:</th>
       <th>Rank:</th>
     </tr>
@@ -32,6 +33,7 @@ function stats() {
       <td>${player.kills}</td>
       <td>${player.win}</td>
       <td>${player.losser}</td>
+      <td>${player.draw}</td>
       <td>${player.match}</td>
       <td class="rank-color"><img class="rank-image" src="image/brozen.svg" style="max-width: 100%; width: 50px;"></td>
     </tr>`;
