@@ -1,4 +1,4 @@
-import { players } from './models/player.js'
+import { players } from '../models/player.js'
 
 function stats() {
   let res = document.getElementById('res');
@@ -25,7 +25,7 @@ function stats() {
     <tr>
       <td><b>${index + 1}</b></td>
       <td>${player.name}</td>
-      <td class="avatar"><img src="${player.avatar}"/></td>
+      <td class="avatar"><a target="_blank" href="${player.profileurl}"><img src="${player.avatar}"/></a></td>
       <td class="steamid">${player.steamId}</td>
       <td class="elo">${player.elo}</td>
       <td>${player.damage}</td>

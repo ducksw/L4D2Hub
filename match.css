@@ -1,0 +1,90 @@
+body {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: monospace;
+  font-size: 1.2em;
+}
+
+a {
+  color: black;
+  border-bottom: 1px solid red;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: rgba(165, 42, 42, 0.465);
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  margin-top: 10px;
+}
+
+.line-ver {
+  width: 2px;
+  height: 80vh;
+  background-color: black;
+}
+
+#match {
+  background-color: rgba(165, 42, 42, 0.465);
+}
+
+.main {
+  display: flex;
+  /* margin-top: 15px; */
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.fase-1 {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.fase-1 a {
+  display: flex;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  border-left: 4px solid #ff000066;
+  background-image: linear-gradient(145deg, #ff000000, #ff000066);
+  padding: 10px;
+}
+
+.fase-1 span {
+  display: flex;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  border-left: 4px solid #ff000066;
+  background-image: linear-gradient(145deg, #ff000000, #ff000066);
+  padding: 10px;
+}
+
+.title-match {
+  font-weight: bold;
+}
+
+.right-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 10px;
+  margin-top: 13px;
+}
+
+.liga-title {
+  font-size: 20px;
+  font-weight: bold;
+}

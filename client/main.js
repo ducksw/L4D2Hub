@@ -1,4 +1,4 @@
-import { players } from './models/player.js'
+import { players } from '../models/player.js'
 
 function player() {
   let pl = document.getElementById('player-cant');
