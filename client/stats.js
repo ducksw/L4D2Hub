@@ -26,7 +26,7 @@ function stats() {
       <td><b>${index + 1}</b></td>
       <td>${player.name}</td>
       <td class="avatar"><a target="_blank" href="${player.profileurl}"><img src="${player.avatar}"/></a></td>
-      <td class="steamid">${player.steamId}</td>
+      <td class="steamid" style="color: darkorange;">${player.steamId}</td>
       <td class="elo">${player.elo}</td>
       <td>${player.damage}</td>
       <td>${player.kills}</td>
@@ -46,6 +46,7 @@ function stats() {
     if (rank === "Brozen") {
       //el.src = "image/bronze.svg"
     } else if (rank === "Silver") {
+      el.src = "image/silver.svg"
       // el.classList.add('silver');
     } else if (rank === "Gold") {
       el.src = "image/gold.svg"

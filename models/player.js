@@ -13,7 +13,7 @@ export const players = [
     kills: "0",
     win: "0",
     losser: "0",
-    rank: "Brozen",
+    rank: "Bronze",
     coleccion: "",
   },
   {
@@ -27,7 +27,7 @@ export const players = [
     kills: "0",
     win: "0",
     losser: "0",
-    rank: "Brozen",
+    rank: "Bronze",
     coleccion: "",
   },
   {
@@ -41,7 +41,7 @@ export const players = [
     kills: "0",
     win: "0",
     losser: "0",
-    rank: "Brozen",
+    rank: "Bronze",
     coleccion: "",
   },
   {
@@ -55,7 +55,7 @@ export const players = [
     kills: "0",
     win: "0",
     losser: "0",
-    rank: "Brozen",
+    rank: "Bronze",
     coleccion: "",
   },
   {
@@ -69,7 +69,7 @@ export const players = [
     kills: "0",
     win: "0",
     losser: "0",
-    rank: "Brozen",
+    rank: "Bronze",
     coleccion: "",
   },
   {
@@ -83,7 +83,7 @@ export const players = [
     kills: "0",
     win: "0",
     losser: "0",
-    rank: "Brozen",
+    rank: "Bronze",
     coleccion: "",
   },
   {
@@ -97,7 +97,7 @@ export const players = [
     kills: "0",
     win: "0",
     losser: "0",
-    rank: "Brozen",
+    rank: "Bronze",
     coleccion: "",
   },
   {
@@ -111,7 +111,7 @@ export const players = [
     kills: "0",
     win: "0",
     losser: "0",
-    rank: "Brozen",
+    rank: "Bronze",
     coleccion: "",
   }
 ]
