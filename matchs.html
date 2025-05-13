@@ -19,7 +19,6 @@
 
 <div class="line"></div>
 
-
 <div class="main">
   <div class="sidebar">
     <br/>
@@ -29,15 +28,39 @@
       <span>Liga Bulls</span>
     </div>
     <div class="fase-1">
-      <a href="">Premier Bulls</a>
+      <a href="" id="ch">Champions Bulls</a>
     </div>
   </div>
   <div class="line-ver"></div>
   <div class="right-box">
     <span class="liga-title">Liga Bulls</span>
-    <div class="line"></div>
+    <br/>
+
+    <div class="boxx">
+      <div id="liga" class="tabla-container"></div>
+      <div class="legend-container">
+        <div class="legend-section">
+          <h4>Ascenso/descenso</h4>
+          <ul>
+            <li><span class="dot blue"></span>Fase de grupos de la Champions Bulls</li>
+            <li><span class="dot orange"></span>Fase de grupos de Premier League Bulls</li>
+            <!-- <li><span class="dot green"></span>Clasificados en Liga Conferencia</li> -->
+            <li><span class="dot red"></span>Descenso</li>
+          </ul>
+        </div>
+        <div class="legend-section">
+          <h4>Últimos 5 partidos</h4>
+          <ul>
+            <li><span class="circle win"></span>Ganó</li>
+            <li><span class="circle draw"></span>Empate</li>
+            <li><span class="circle lose"></span>Perdió</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<script src="client/match.js" type="module"></script>
 </body>
 </html>

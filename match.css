@@ -1,5 +1,5 @@
 body {
-  max-width: 1024px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   font-family: monospace;
@@ -84,9 +84,148 @@ a:hover {
   width: 100%;
   margin-left: 10px;
   margin-top: 13px;
+  overflow: auto;
 }
 
 .liga-title {
   font-size: 20px;
   font-weight: bold;
+}
+
+.tabla-container {
+  display: flex;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #202020;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #191919;
+}
+
+.avatar img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+/* Base style for the colored bar */
+td.bar-blue, td.bar-orange, td.bar-green {
+  position: relative;
+  padding-left: 10px;
+}
+
+td.bar-blue::before,
+td.bar-orange::before,
+td.bar-green::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+}
+
+/* Colors */
+td.bar-blue::before {
+  background-color: #3b82f6; /* Tailwind blue-500 */
+}
+
+td.bar-orange::before {
+  background-color: #f97316; /* Tailwind orange-500 */
+}
+
+td.bar-green::before {
+  background-color: #22c55e; /* Tailwind green-500 */
+}
+
+.legend-container {
+  display: flex;
+  gap: 50px;
+  background-color: #3a3a3a;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 600px;
+  margin-top: 30px;
+}
+
+.legend-section h4 {
+  margin-top: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.legend-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend-section li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.dot, .circle {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.blue { background-color: #448aff; }
+.orange { background-color: #ff9800; }
+.green { background-color: #00c853; }
+.red { background-color: #d32f2f; }
+
+.win { background-color: #66bb6a; }
+.draw { background-color: #b0bec5; }
+.lose { background-color: #ef5350; }
+
+.dot-win {
+  background-color: #22c55e;
+}
+
+.dot-loss {
+  background-color: #ef4444;
+}
+
+.dot-draw {
+  background-color: #b0bec5;
+}
+
+.dot-none {
+  background-color: #6b7280;
+  opacity: 0.5;
+}
+
+.match-form {
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
