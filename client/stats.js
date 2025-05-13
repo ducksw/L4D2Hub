@@ -33,28 +33,28 @@ function stats() {
       <td>${player.win}</td>
       <td>${player.losser}</td>
       <td>${player.match}</td>
-      <td class="rank-color">${player.rank}</td>
+      <td class="rank-color"><img class="rank-image" src="image/brozen.svg" style="max-width: 100%; width: 50px;"></td>
     </tr>`;
   });
   rec += "</table>";
 
   res.innerHTML = rec;
 
-  const rankElements = document.querySelectorAll('.rank-color');
+  const rankElements = document.querySelectorAll('.rank-image');
   rankElements.forEach((el, i) => {
     const rank = players[i].rank;
     if (rank === "Brozen") {
-      el.classList.add('brozen');
+      //el.src = "image/bronze.svg"
     } else if (rank === "Silver") {
-      el.classList.add('silver');
+      // el.classList.add('silver');
     } else if (rank === "Gold") {
-      el.classList.add('gold');
+      el.src = "image/gold.svg"
     } else if (rank === "Platinum") {
-      el.classList.add('platinum');
+      el.src = "image/platinum.svg"
     } else if (rank === "Diamond") {
-      el.classList.add('diamond');
+      el.src = "image/diamond.svg"
     } else if (rank === "Champions") {
-      el.classList.add('champions');
+      el.src = "image/champions.svg"
     }
   });
 }

@@ -4,10 +4,12 @@ body {
   padding: 20px;
   font-family: monospace;
   font-size: 1.2em;
+  background-color: black;
+  color: white;
 }
 
 a {
-  color: black;
+  color: white;
   border-bottom: 1px solid red;
   text-decoration: none;
 }
@@ -19,14 +21,14 @@ a:hover {
 .line {
   width: 100%;
   height: 1px;
-  background-color: black;
+  background-color: brown;
   margin-top: 10px;
 }
 
 .line-ver {
   width: 2px;
   height: 80vh;
-  background-color: black;
+  background-color: brown;
 }
 
 #match {
@@ -52,7 +54,7 @@ a:hover {
 
 .fase-1 a {
   display: flex;
-  color: black;
+  color: white;
   font-weight: bold;
   text-decoration: none;
   border: none;
@@ -63,7 +65,7 @@ a:hover {
 
 .fase-1 span {
   display: flex;
-  color: black;
+  color: white;
   font-weight: bold;
   text-decoration: none;
   border: none;
