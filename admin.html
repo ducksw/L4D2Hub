@@ -1,9 +1,72 @@
-ZOMBIEZ
-PROFUGO DE LA JUSTICIA -> 44
-OLIVER  AIKU -> 494
-DUCKS
-DINA PINGA FRIA
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADMIN 🤑🤑</title>
+<style>
+body {
+  font-family: monospace;
+}
+.pl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  width: 80%;
+}
+.pl img { max-width: 100%; width: 40px; }
+.pl:hover { background-color: black; color: white; }
+#player-list {
+  display: inline-block; 
+  flex-direction: column;
+  background-color: #eeeeee;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  max-height: 450px;
+  overflow: auto;
+  width: 400px;
+}
+#player-list h1 {
+  font-size: 200%;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+#box .pl {
+  width: auto;
+}
+#box2 .pl {
+  width: auto;
+}
+#box { width: 800px; height: 455px; background-color: rgba(0, 0, 255, 0.541); border: 1px solid black; padding: 5px; text-align: center; }
+#box2 { width: 800px; height: 455px; background-color: rgba(165, 42, 42, 0.541); border: 1px solid black; padding: 5px; text-align: center; }
+.main { display: flex; gap: 50px; }
+.boxxx { display: flex; gap: 10px; max-width: 100%; width: 1000px; }
+</style>
+</head>
+<body>
 
-HUMANOS
+<h1>ADMIN </h1>
+<p>Este es la zona de los admins.</p>
 
+<div class="main">
+<div id="player-list"></div>
 
+<div class="boxxx">
+<div id="box"><h1>Survivors</h1></div>
+<div id="box2"><h1>Infected</h1></div>
+</div>
+</div>
+<div id="selected-player">
+  <h2>Jugadores movidos Survivors:</h2>
+  <ul id="player-log"></ul>
+  <h2>Jugadores movidos Infected:</h2>
+  <ul id="player-log2"></ul>
+</div>
+
+<script src="../client/admin.js" type="module"></script>
+</body>
+</html>
