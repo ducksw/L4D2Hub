@@ -2,54 +2,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap');
 
 body {
-  margin: 0;
-  text-align: center;
-  font-family: 'Cascadia Mono';
-  color: white;
-  /* font-size: 1.2em; */
+    margin: 0;
+    text-align: center;
+    font-family: 'Cascadia Mono';
+    color: white;
+    /* font-size: 1.2em; */
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  /* background-image: radial-gradient(circle, #472525, #371d1f, #261619, #180e10, #000000); */
-  background: radial-gradient(circle at center, #1a0000 0%, #000000 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-image: radial-gradient(circle, #472525, #371d1f, #261619, #180e10, #000000); */
+    background: radial-gradient(circle at center, #1a0000 0%, #000000 100%);
 }
 
 .highlight {
-  color: #ff4444;
+    color: #ff4444;
 }
 
 a {
-  color: orange;
+    color: orange;
 }
 
 nav {
-  color: darkgrey;
+    color: darkgrey;
 }
 
 .h3 {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-  font-size: 23px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 23px;
 }
 
 .list {
-  margin-top: 10px;
-  color: darkgrey;
+    margin-top: 10px;
+    color: darkgrey;
 }
 
 .list span {
-  color: #ff4444;
-  font-size: 16px;
+    color: #ff4444;
+    font-size: 16px;
 }
 
 .vs-image {
-  max-width: 100%;
-  width: 150px;
+    max-width: 100%;
+    width: 150px;
 }
