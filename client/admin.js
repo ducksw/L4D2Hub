@@ -113,9 +113,7 @@ addEventListener("DOMContentLoaded", (event) => {
 });
 
 // prevenir a que se recargue la pagina
-/*
 window.addEventListener('beforeunload', function (e) {
   e.preventDefault();
   e.returnValue = '';
 });
-*/
