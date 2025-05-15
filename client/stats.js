@@ -10,7 +10,7 @@ function stats() {
       <th>Steam Id:</th>
       <th>Elo:</th>
       <th>Damage:</th>
-      <th>Kills:</th>
+      <th>Instant Kills:</th>
       <th>Win:</th>
       <th>Loser:</th>
       <th>Empate:</th>
@@ -125,7 +125,7 @@ function rankingKill() {
     <th class="th">#</th>
     <th class="th">Name:</th>
     <th class="th">Profile:</th>
-    <th class="th">Kills:</th>
+    <th class="th">Instant Kills:</th>
   </tr>
   `
   let topPlayers  = players.slice(0,5);
