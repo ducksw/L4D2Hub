@@ -3,7 +3,6 @@ import { players } from '../models/player.js'
 function enableDamageEdit(playerEl) {
   let damageSpan = playerEl.querySelector('.damage');
 
-  // No duplicar inputs si ya están
   if (playerEl.querySelector('.add-damage')) return;
 
   let input = document.createElement("input");
@@ -38,9 +37,9 @@ addEventListener("DOMContentLoaded", (event) => {
 
   for (let player of players) {
     ret += `<div class="pl" draggable="true">
-  <img src="${player.avatar}">
-  ${player.name} [💥<span class="damage">${player.damage}</span>]
-</div>`;
+    <img src="${player.avatar}">
+      ${player.name} [💥<span class="damage">${player.damage}</span>]
+    </div>`;
   }
 
   list.innerHTML = ret;
