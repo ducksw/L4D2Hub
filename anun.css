@@ -11,6 +11,10 @@ body {
   font-size: 13px;
 }
 
+p {
+    line-height: 1.6;
+}
+
 a {
   color: white;
   border-bottom: 1px solid red;
