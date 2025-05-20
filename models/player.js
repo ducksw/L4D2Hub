@@ -45,7 +45,7 @@ export const players = [
     elo: "300",
     points: "0",
     damage: "0",
-    kills: "0",
+    kills: "1",
     win: "0",
     losser: "0",
     draw: "0",
