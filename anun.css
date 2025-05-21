@@ -56,6 +56,20 @@ h2 {
   border-radius: 2px;
 }
 
+.anun2 {
+  border-bottom: 5px solid #ff000066; 
+  padding: 10px;
+}
+
+.anun2 img {
+  display: flex;
+  margin: auto;
+  max-width: 100%;
+  width: 500px;
+  box-shadow: 0px 0px 20px darkred;
+  border-radius: 2px;
+}
+
 .highlight-red {
   display: inline;
   border-bottom: 4px solid #ff000066;
