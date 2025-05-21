@@ -110,6 +110,10 @@ td, th {
   padding: 8px;
 }
 
+#liga {
+  background-color: black;
+}
+
 tr:nth-child(even) {
   background-color: #191919;
 }
@@ -243,4 +247,9 @@ td.bar-green::before {
   background-color: #222222;
   padding: 10px;
   border-radius: 10px;
+}
+
+.matchs-btn {
+  display: flex;
+  gap: 10px;
 }

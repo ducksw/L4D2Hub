@@ -43,7 +43,7 @@ function stats() {
   <tr>
     <td class="${getBarClass(index)}"><b>${index + 1}</b></td>
     <td>${player.name}</td>
-    <td class="avatar"><a target="_blank" href="${player.profileurl}"><img src="${player.avatar}"/></a></td>
+    <td class="avatar"><a target="_blank" href="${player.profileurl}"><img src="${player.avatar}" crossorigin="anonymous"/></a></td>
     <td class="steamid" style="color: darkorange;">${player.steamId}</td>
     <td class="elo">${player.points}</td>
     <td class="last-matches">${last}</td>
@@ -58,5 +58,31 @@ document.getElementById('ch').addEventListener('click', function() {
   alert("Primero, se deben clasificar los jugadores para que pueda comenzar la Champions Bulls.");
   preventDefault();
 })
+
+function capture() {
+  const div = document.getElementById("liga");
+  const date = new Date().toISOString().slice(0, 10);
+
+  setTimeout(() => {
+    html2canvas(div, {
+      useCORS: true,
+      allowTaint: false,
+      scale: 2
+    }).then(canvas => {
+      const imgURL = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = imgURL;
+      link.download = `stats_${date}.png`;
+      link.click();
+    });
+  }, 500);
+}
+
+document.getElementById("download-stats").addEventListener('click', function(e) {
+  e.preventDefault();
+  capture();
+});
+
+
 
 stats();
