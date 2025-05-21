@@ -4,7 +4,7 @@ let box = document.getElementById('boxx');
 let ret = "";
 for (let post of posts) {
   ret += `
-  <div class="anun2"
+  <div class="anun2">
     <a href="" class="title-anun"><b>${post.title}</b></a>
     <p>${post.parr}</p>
     <a href="${post.image}"><img src="${post.image}"></a>

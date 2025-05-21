@@ -14,7 +14,7 @@ function stats() {
       <th>Name:</th>
       <th>Profile:</th>
       <th>Steam Id:</th>
-      <th>Puntos:</th>
+      <th class="coin">Puntos</th>
       <th>Ultimo 5</th>
     </tr>
   `
@@ -45,7 +45,7 @@ function stats() {
     <td>${player.name}</td>
     <td class="avatar"><a target="_blank" href="${player.profileurl}"><img src="${player.avatar}" crossorigin="anonymous"/></a></td>
     <td class="steamid" style="color: darkorange;">${player.steamId}</td>
-    <td class="elo">${player.points}</td>
+    <td><div class="elo">${player.points}</div></td>
     <td class="last-matches">${last}</td>
   </tr>`;
   });

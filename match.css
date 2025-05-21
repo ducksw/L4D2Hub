@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap');
 
 body {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 20px;
   font-family: 'Cascadia Mono';
@@ -199,6 +199,22 @@ td.bar-green::before {
   border-radius: 50%;
 }
 
+.elo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111111;
+  border-radius: 10px;
+  padding: 5px;
+  color: gold;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.coin {
+  text-align: center;
+}
+
 .blue { background-color: #448aff; }
 .orange { background-color: #ff9800; }
 .green { background-color: #00c853; }
@@ -210,10 +226,12 @@ td.bar-green::before {
 
 .dot-win {
   background-color: #22c55e;
+  box-shadow: 0px 0px 10px green;
 }
 
 .dot-loss {
   background-color: #ef4444;
+  box-shadow: 0px 0px 10px brown;
 }
 
 .dot-draw {
