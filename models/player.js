@@ -111,7 +111,7 @@ export const players = [
     profileurl: "https://steamcommunity.com/profiles/76561199629243648",
     match: "2",
     elo: "300",
-    points: "0",
+    points: "1",
     damage: "2258",
     kills: "0",
     win: "0",
