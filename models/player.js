@@ -32,7 +32,7 @@ export const players = [
     win: "3", // ganar
     losser: "0", // perder
     draw: "0", // empate
-    lastMatches: ['W', 'W', 'W', 'N', 'N'],
+    lastMatches: ['W', 'W', 'W', 'W', 'N'],
     rank: "Bronze",
     coleccion: "",
   },
@@ -49,7 +49,7 @@ export const players = [
     win: "0",
     losser: "0",
     draw: "0",
-    lastMatches: ['N', 'N', 'N', 'N', 'N'],
+    lastMatches: ['L', 'L', 'L', 'L', 'L'],
     rank: "Bronze",
     coleccion: "",
   },
@@ -151,7 +151,7 @@ export const players = [
     win: "1",
     losser: "0",
     draw: "0",
-    lastMatches: ['W', 'N', 'N', 'N', 'N'],
+    lastMatches: ['W', 'L', 'L', 'L', 'L'],
     rank: "Bronze",
     coleccion: "",
   },
@@ -168,7 +168,7 @@ export const players = [
     win: "0",
     losser: "0",
     draw: "0",
-    lastMatches: ['N', 'N', 'N', 'N', 'N'],
+    lastMatches: ['L', 'L', 'L', 'L', 'L'],
     rank: "Bronze",
     coleccion: "",
   },
