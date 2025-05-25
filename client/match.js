@@ -57,7 +57,7 @@ function stats() {
 document.getElementById('ch').addEventListener('click', function() {
   alert("Primero, se deben clasificar los jugadores para que pueda comenzar la Champions Bulls.");
   preventDefault();
-})
+});
 
 function capture() {
   const div = document.getElementById("liga");
