@@ -15,7 +15,7 @@ export const players = [
     win: "1", // ganar
     losser: "1", // perder
     draw: "1", // empate
-    lastMatches: ['W', 'L', 'D', 'N', 'N'],
+    lastMatches: ['W', 'L', 'L', 'D', 'N'],
     rank: "Bronze",
     coleccion: "",
   },
@@ -77,7 +77,7 @@ export const players = [
     profileurl: "https://steamcommunity.com/profiles/76561199153288700",
     match: "4",
     elo: "330",
-    points: "6",
+    points: "9",
     damage: "4177",
     kills: "2",
     win: "3",
@@ -117,7 +117,7 @@ export const players = [
     win: "0",
     losser: "1",
     draw: "1",
-    lastMatches: ['L', 'L', 'D', 'N', 'N'],
+    lastMatches: ['L', 'L', 'L', 'D', 'N'],
     rank: "Bronze",
     coleccion: "",
   },
