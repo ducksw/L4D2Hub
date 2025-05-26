@@ -3,6 +3,23 @@ export const players = [
   ranks: bronze, silver, gold, platinum, diamond, champions
   */
   {
+    steamId: "76561199023262589",
+    name: "Yami",
+    avatar: "https://avatars.steamstatic.com/863fa87bc7178d879367b60e10c91a984c2d0c3a_full.jpg",
+    profileurl: "https://steamcommunity.com/profiles/76561199023262589/",
+    match: "0",
+    elo: "300",
+    points: "0",
+    damage: "0",
+    kills: "0",
+    win: "0", // ganar
+    losser: "0", // perder
+    draw: "0", // empate
+    lastMatches: ['N', 'N', 'N', 'N', 'N'],
+    rank: "Bronze",
+    coleccion: "",
+  },
+  {
     steamId: "76561199857774654",
     name: "Tyrone_FurroEroticoPro265",
     avatar: "https://avatars.steamstatic.com/46faafc0ed79463eaac686e7c1b0c9e18bd23436_full.jpg",
