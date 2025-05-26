@@ -168,7 +168,7 @@ export const players = [
     win: "0",
     losser: "0",
     draw: "0",
-    lastMatches: ['L', 'L', 'L', 'L', 'L'],
+    lastMatches: ['L', 'L', 'L', 'L', 'N'],
     rank: "Bronze",
     coleccion: "",
   },
