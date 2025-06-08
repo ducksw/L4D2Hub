@@ -1,89 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="stats.css">
-  <link rel="icon" href="icon.webp" type="image/gif" sizes="16x16">
-  <title>Stats</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Stats</title>
 </head>
 <body>
-<h1>L4D2 Hub Stats</h1>
-<nav>
-  <a href="index.html"><b>Home</b></a> |
-  <a href="stats.html" id="stats"><b>Stats</b></a> |
-  <a href="advertisement.html"><b>Anuncios</b></a> |
-  <a href="matchs.html"><b>Liga / Champions</b></a> |
-  <a href=""><b>Colección</b></a> 
+
+<header class="d-flex gap-4 bg bg-black border border-dark p-2 rounded mb-3">
+<img style="max-width: 100%; width: 200px;" src="./image/title.png">
+<nav class="d-flex flex-column">
+    <div class="d-flex gap-3">
+        <a href="index.html" class="text-danger text-decoration-none">[ Home ]</a>
+        <a href="stats.html" class="text-danger text-decoration-none">[ Stats ]</a>
+        <a href="rankings.html" class="text-danger text-decoration-none">[ Rankings ]</a>
+        <a href="noticias.html" class="text-danger text-decoration-none">[ Noticias ]</a>
+    </div>
+    <div class="d-flex gap-3">
+        <a href="liga.html" class="text-danger text-decoration-none">[ Liga/Champions ]</a>
+        <a href="admins.html" class="text-danger text-decoration-none">[ Admins ]</a>
+    </div>
 </nav>
+</header>
 
-<div class="line"></div>
 
-<p>Bienvenido a la sección de stats!</p>
-<p>Aquí podrás encontrar toda la información relevante sobre el rendimiento, progreso y datos clave que te ayudarán a tomar decisiones más inteligentes.</p>
-<p>
-* Datos acumulados, promedios y totales.<br/>
-* Mejores marcas, récords personales y comparativas.<br/>
-<span style="display: flex; gap: 5px;">* <img src="image/brozen.svg"> Brozen: comienza tu camino y adquiere experiencia.</span>
-<span style="display: flex; gap: 5px;">* <img src="image/silver.svg"> Silver: dominio básico del juego y mejora constante.</span>
-<span style="display: flex; gap: 5px;">* <img src="image/gold.svg"> Gold: buen manejo de mecánicas, estadísticas consistentes.</span>
-<span style="display: flex; gap: 5px;">* <img src="image/platinum.svg"> Platinum: alto rendimiento, estrategias pulidas.</span>
-<span style="display: flex; gap: 5px;">* <img src="image/diamond.svg"> Diamond: nivel élite, reservado para los mejores.</span>
-<span style="display: flex; gap: 5px;">* <img src="image/champions.svg"> Champions: la cima absoluta, representa a los mejores entre los mejores.</span>
-</p>
+<div class="d-none justify-content-between gap-4 bg bg-black border border-dark p-2 rounded mb-3 header">
+    <a href="" class="text-decoration-none"><h1 class="text-warning text-title">L4D2 Hub</h1></a>
+    <button class="btn btn-dark focus-ring focus-ring-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><i class="bi bi-list"></i></button>
+</div>
 
-<div class="line"></div>
+<div class="offcanvas offcanvas-top bg-gradient bg-black h-50" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+<div class="offcanvas-header text-center">
+    <h3 class="text-center text-warning text-title" id="offcanvasTopLabel">L4D2 Hub</h3>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body">
+<nav class="d-flex flex-column text-center">
+    <div class="d-flex flex-column gap-3">
+        <a href="index.html" class="text-danger text-decoration-none">[ Home ]</a>
+        <a href="stats.html" class="text-danger text-decoration-none">[ Stats ]</a>
+        <a href="rankings.html" class="text-danger text-decoration-none">[ Rankings ]</a>
+        <a href="noticias.html" class="text-danger text-decoration-none">[ Noticias ]</a>
+        <a href="liga.html" class="text-danger text-decoration-none">[ Liga/Champions ]</a>
+        <a href="admins.html" class="text-danger text-decoration-none">[ Admins ]</a>
+    </div>
+</nav>
+</div>
+</div>
 
-<h2>Stats global</h2>
-<p>En esta sección podrás ver tus estadísticas globales, incluyendo todos los puntos que has acumulado hasta ahora. Es el lugar ideal para llevar un control de tu progreso y rendimiento general.</p>
-<div id="res"></div>
 
-<br/>
-<div class="line"></div>
+<section class="bg bg-black p-2 mt-3 border border-dark rounded sec">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <a href="/stats" class="btn btn-success text-light rounded text-decoration-none focus-ring focus-ring-success">View Table</a>
+        </div>
+        <form method="GET" action="/stats" class="d-flex gap-2">
+            <input type="text" name="search" placeholder="Name" class="input form-control bg bg-dark text-light border border-black focus-ring focus-ring-secondary">
+            <button class="btn btn-primary focus-ring focus-rink-primary">Search</button>
+        </form>
+    </div>
+</section>
 
-<h3 id="elo_challenge">
-<a href="#elo_challenge">🟡 Elo Challenge</a>
-</h3>
+<section class="bg bg-black p-2 mt-3 border border-dark rounded sec" style="overflow: auto;">
+    <div id="res"></div>
+</section>
 
-<p>Los 5 jugadores mejor clasificados según su puntuación ELO</p>
-<div id="table-elo"></div>
 
-<div class="line"></div>
-
-<h3 id="damage_challenge">
-<a href="#damage_challenge">💥 Damage Challenge</a>
-</h3>
-
-<p>Los 5 jugadores mejor clasificados según el daño hecho.</p>
-<div id="table-damage"></div>
-
-<div class="line"></div>
-
-<h3 id="kills_challenge">
-<a href="#kills_challenge">💀 Instant Kills Challenge</a>
-</h3>
-
-<p>Estos son los 5 jugadores que tienen más instant kills.</p>
-<div id="table-kill"></div>
-
-<div class="line"></div>
-
-<h3 id="wins_challenge">
-<a href="#wins_challenge">🏆 Wins Challenge</a>
-</h3>
-
-<p>¡Descubre a los 5 campeones que dominaron la competencia con el mayor número de victorias!</p>
-<div id="table-win"></div>
-
-<div class="line"></div>
-
-<h3 id="losser_challenge">
-<a href="#losser_challenge">👎 Loser Challenge</a>
-</h3>
-
-<p>Estos son los 5 jugadores con la mayor cantidad de derrotas registradas.</p>
-<div id="table-loser"></div>
 
 <script src="client/stats.js" type="module"></script>
 </body>
 </html>
+
+
+
