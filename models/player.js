@@ -16,6 +16,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["W", "W", "W", "W", "L"],
         isAdmin: true,
+        clasificado: false,
         __v: 0
     },
     {
@@ -35,6 +36,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["L", "L", "W", "W", "W"],
         isAdmin: true,
+        clasificado: false,
         __v: 0
     },
     {
@@ -54,6 +56,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["L", "L", "W", "W", "W"],
         isAdmin: false,
+        clasificado: false,
         __v: 0
     },
     {
@@ -73,6 +76,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["W", "W", "L", "L", "W"],
         isAdmin: false,
+        clasificado: false,
         __v: 0
     },
     {
@@ -92,6 +96,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["W", "L", "L", "D", "L"],
         isAdmin: false,
+        clasificado: false,
         __v: 0
     },
     {
@@ -111,6 +116,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["W", "L", "L", "L", "W"],
         isAdmin: false,
+        clasificado: false,
         __v: 0
     },
     {
@@ -130,6 +136,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["W", "L", "L", "D", "W"],
         isAdmin: false,
+        clasificado: false,
         __v: 0
     },
     {
@@ -149,6 +156,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["N", "N", "N", "N", "N"],
         isAdmin: false,
+        clasificado: false,
         __v: 0
     },
     {
@@ -168,6 +176,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["N", "N", "N", "N", "N"],
         isAdmin: false,
+        clasificado: false,
         __v: 0
     },
     {
@@ -187,6 +196,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["W", "L", "L", "L", "W"],
         isAdmin: false,
+        clasificado: false,
         __v: 0
     },
     {
@@ -206,6 +216,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["D", "W", "N", "N", "N"],
         isAdmin: false,
+        clasificado: false,
         __v: 0
     }
 ]

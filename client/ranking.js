@@ -1,9 +1,9 @@
 import { players } from '../models/player.js'
 
 function rankingElo() {
-    let res_elo = document.getElementById('res-elo');
-    const topPlayer = [...players].sort((a, b) => b.elo - a.elo).slice(0, 1);
-    let ret = `
+  let res_elo = document.getElementById('res-elo');
+  const topPlayer = [...players].sort((a, b) => b.elo - a.elo).slice(0, 1);
+  let ret = `
     <div class="d-flex justify-content-between align-items-center text-light p-1">
         <div class="d-flex flex-column gap-2" style="width: 10%;">
             <span class="text-danger">#</span>
@@ -11,8 +11,8 @@ function rankingElo() {
         </div>
 
     `
-    topPlayer.forEach((player, index) => {
-        ret += `
+  topPlayer.forEach((player, index) => {
+    ret += `
         <div class="d-flex flex-column gap-2" style="width: 30%;">
             <span class="text-secondary">Profile</span>
             <div class="d-flex align-items-center gap-2">
@@ -34,16 +34,16 @@ function rankingElo() {
         </div>
 
         `
-    });
+  });
 
-    res_elo.innerHTML = ret;
+  res_elo.innerHTML = ret;
 }
 
 function rankingDamage() {
-    let res_damage = document.getElementById('res-damage');
-    const topPlayer = [...players].sort((a, b) => b.damage - a.damage).slice(0, 1);
-    
-    let ret = `
+  let res_damage = document.getElementById('res-damage');
+  const topPlayer = [...players].sort((a, b) => b.damage - a.damage).slice(0, 1);
+
+  let ret = `
         <div class="d-flex justify-content-between align-items-center text-light p-1">
             <div class="d-flex flex-column gap-2" style="width: 10%;">
                 <span class="text-danger">#</span>
@@ -51,8 +51,8 @@ function rankingDamage() {
             </div>
     `
 
-    topPlayer.forEach((player, index) => {
-        ret += `
+  topPlayer.forEach((player, index) => {
+    ret += `
             <div class="d-flex flex-column gap-2" style="width: 30%;">
                 <span class="text-secondary">Profile</span>
                 <div class="d-flex align-items-center gap-2">
@@ -74,16 +74,16 @@ function rankingDamage() {
             </div>
         </div>
         `
-    });
+  });
 
-    res_damage.innerHTML = ret;
+  res_damage.innerHTML = ret;
 }
 
 function rankingKills() {
-    let res_kill = document.getElementById('res-kill');
-    const topPlayer = [...players].sort((a, b) => b.kills - a.kills).slice(0, 1);
-    
-    let ret = `
+  let res_kill = document.getElementById('res-kill');
+  const topPlayer = [...players].sort((a, b) => b.kills - a.kills).slice(0, 1);
+
+  let ret = `
         <div class="d-flex justify-content-between align-items-center text-light p-1">
             <div class="d-flex flex-column gap-2" style="width: 10%;">
                 <span class="text-danger">#</span>
@@ -91,8 +91,8 @@ function rankingKills() {
             </div>
     `;
 
-    topPlayer.forEach((player, index) => {
-        ret += `
+  topPlayer.forEach((player, index) => {
+    ret += `
             <div class="d-flex flex-column gap-2" style="width: 30%;">
                 <span class="text-secondary">Profile</span>
                 <div class="d-flex align-items-center gap-2">
@@ -115,15 +115,15 @@ function rankingKills() {
         </div>
         `
 
-        res_kill.innerHTML = ret;
-    });
+    res_kill.innerHTML = ret;
+  });
 }
 
 function rankingWin() {
-    let res_win = document.getElementById('res-win');
-    const topPlayer = [...players].sort((a, b) => b.win - a.win).slice(0, 1);
+  let res_win = document.getElementById('res-win');
+  const topPlayer = [...players].sort((a, b) => b.win - a.win).slice(0, 1);
 
-    let ret = `
+  let ret = `
         <div class="d-flex justify-content-between align-items-center text-light p-1">
             <div class="d-flex flex-column gap-2" style="width: 10%;">
                 <span class="text-danger">#</span>
@@ -131,8 +131,8 @@ function rankingWin() {
             </div>
     `;
 
-    topPlayer.forEach((player, index) => {
-        ret += `
+  topPlayer.forEach((player, index) => {
+    ret += `
             <div class="d-flex flex-column gap-2" style="width: 30%;">
                 <span class="text-secondary">Profile</span>
                 <div class="d-flex align-items-center gap-2">
@@ -154,18 +154,18 @@ function rankingWin() {
             </div>
         </div>
         `
-    });
+  });
 
-    res_win.innerHTML = ret;
+  res_win.innerHTML = ret;
 }
 
 function renderLeaderboard(players, key, containerId, valueColor = 'text-danger') {
-    const sorted = [...players].sort((a, b) => b[key] - a[key]).slice(0, 10);
-    const container = document.getElementById(containerId);
+  const sorted = [...players].sort((a, b) => b[key] - a[key]).slice(0, 10);
+  const container = document.getElementById(containerId);
 
-    let html = '';
-    sorted.forEach((player, index) => {
-        html += `
+  let html = '';
+  sorted.forEach((player, index) => {
+    html += `
             <div class="d-flex justify-content-between p-1">
                 <div class="d-flex gap-2">
                     <span class="text-warning">#${index + 1}</span>
@@ -174,9 +174,9 @@ function renderLeaderboard(players, key, containerId, valueColor = 'text-danger'
                 <span class="${valueColor}">${player[key]}</span>
             </div>
         `;
-    });
+  });
 
-    if (container) container.innerHTML = html;
+  if (container) container.innerHTML = html;
 }
 
 
@@ -192,4 +192,3 @@ rankingWin();
 rankingKills();
 rankingDamage();
 rankingElo();
-
