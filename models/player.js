@@ -16,7 +16,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["W", "W", "W", "W", "L"],
         isAdmin: true,
-        clasificado: true,
+        clasificado: false,
         __v: 0
     },
     {
@@ -36,7 +36,7 @@ export const players = [
         rank: "Bronze",
         lastMatches: ["L", "L", "W", "W", "W"],
         isAdmin: true,
-        clasificado: true,
+        clasificado: false,
         __v: 0
     },
     {
