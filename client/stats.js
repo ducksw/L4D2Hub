@@ -3,7 +3,6 @@ import { players } from '../models/player.js';
 function stats() {
     const res = document.getElementById('res');
     
-    // Obtener el parámetro "search" de la URL
     const params = new URLSearchParams(window.location.search);
     const searchQuery = params.get("search")?.toLowerCase() || '';
 

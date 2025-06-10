@@ -13,12 +13,16 @@ function listClasif() {
                     • ${player.displayName}
                 </span>
             `;
+
+            console.log("JUGADOR CLASIFICADOS", player.displayName);
         } else {
             ret += `
                 <span class="list-group-item bg-gradient bg-black text-light p-2 rounded border border-dark">
                     • ......
                 </span>
             `;
+
+            console.log("JUGADOR NO CLASIFICADOS", player.displayName);
         }
     });
 
