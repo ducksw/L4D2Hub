@@ -142,6 +142,40 @@ function renderRankingNoob(title, players, key, subTitle, docId, porcent, porcen
   container.innerHTML = ret;
 }
 
+function selectListPlayer() {
+  const player = players;
+  player.sort((a, b) => (b.elo) - (a.elo));
+
+  let res = document.getElementById('res3')
+  let ret = `
+    <select id="select" class="form-select" aria-label="Default select example">
+      <option value="0">Select Players</option>
+  `;
+
+  for (const p of player) {
+    ret += `
+      <option value="${p.displayName}">${p.displayName}</option>
+    `
+  }
+
+  ret += `</select>`
+
+  res.innerHTML += ret;
+
+  let select = document.getElementById('select');
+
+  select.addEventListener('click', function(e) {
+    const selectValue = this.value;
+
+    for (const pl of player) {
+      if (selectValue === pl.displayName) {
+        window.location = `player.html?id=${pl.steamId}`;
+        break;
+      }
+    }
+  });
+}
+
 // only boards
 renderLeaderboard(players, 'elo', 'elo-leaderboard', 'text-warning');
 renderLeaderboard(players, 'win', 'wins-leaderboard', 'text-danger');
@@ -160,3 +194,5 @@ renderRankingNoob('🟡 Elo', players, 'elo', 'Elo', 'res-elo-noob', calculatePo
 renderRankingNoob('💥 Damage', players, 'damage', 'Damage', 'res-damage-noob', calculatePorcent('damage', true), 'Damage / d');
 renderRankingNoob('💀 Kills', players, 'kills', 'Kills', 'res-kill-noob', calculatePorcent('kills', true), 'Kills / k');
 renderRankingNoob('🏆 Wins', players, 'win', 'Wins', 'res-win-noob', calculatePorcent('win', true), 'Wins / w');
+
+selectListPlayer();

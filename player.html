@@ -66,72 +66,75 @@
       <div class="d-flex flex-column">
         <b class="text-secondary">Action</b>
         <a href="stats.html">Stats Global</a>
-        <a href="">Compartir</a>
       </div>
 
       <div class="d-flex flex-column">
-        <b class="text-secondary">Dowload</b>
-        <a href="">Image (PNG)</a>
+        <b class="text-secondary">Download</b>
+        <a href="#" id="download-stats">Image (PNG)</a>
       </div>
 
     </div>
     <div id="res"></div>
   </section>
 
-  <section class="d-flex bg bg-black p-2 border border-dark mt-3 rounded sec">
-    <div class="d-flex flex-column w-100">
-      <b class="w-100 p-2 text-light text-center rounded h4 ranking">Stats of <b><span
-            id="playerTitle"></span></b></b>
+  <main id="main" class="rounded" style="background-color: #121212;">
+    <section class="d-flex bg bg-black p-2 border border-dark mt-3 rounded sec">
+      <div class="d-flex flex-column w-100">
+        <b class="w-100 p-2 text-light text-center rounded h4 ranking">Stats of <b><span
+              id="playerTitle"></span></b></b>
 
-      <!-- ELO -->
-      <div id="res-elo"></div>
+        <!-- ELO -->
+        <div id="res-elo"></div>
 
-      <hr class="border border-secondary" />
+        <hr class="border border-secondary" />
 
-      <!-- DAMAGE -->
-      <div id="res-damage"></div>
+        <!-- DAMAGE -->
+        <div id="res-damage"></div>
 
-      <hr class="border border-secondary" />
+        <hr class="border border-secondary" />
 
-      <!-- KILL -->
-      <div id="res-kill"></div>
+        <!-- KILL -->
+        <div id="res-kill"></div>
 
-      <hr class="border border-secondary" />
+        <hr class="border border-secondary" />
 
-      <!-- WIN -->
-      <div id="res-win"></div>
+        <!-- WIN -->
+        <div id="res-win"></div>
 
-      <hr class="border border-secondary" />
+        <hr class="border border-secondary" />
 
-      <!-- loser -->
-      <div id="res-loser"></div>
+        <!-- loser -->
+        <div id="res-loser"></div>
 
-      <hr class="border border-secondary" />
+        <hr class="border border-secondary" />
 
-      <!-- draw -->
-      <div id="res-draw"></div>
+        <!-- draw -->
+        <div id="res-draw"></div>
 
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section class="d-flex bg bg-black p-2 border border-dark mt-3 rounded sec">
-    <div class="d-flex flex-column w-100">
-      <b class="w-100 p-2 text-light text-center rounded h4 ranking">Liga Bulls of <b><span
-            id="playerTitle"></span></b></b>
+    <section class="d-flex bg bg-black p-2 border border-dark mt-3 rounded sec">
+      <div class="d-flex flex-column w-100">
+        <b class="w-100 p-2 text-light text-center rounded h4 ranking">Liga Bulls of <b><span
+              id="playerTitle2"></span></b></b>
 
-      <!-- POINT -->
-      <div id="res-point"></div>
+        <!-- POINT -->
+        <div id="res-point"></div>
 
-      <hr class="border border-secondary" />
+        <hr class="border border-secondary" />
 
-      <!-- MATCHES -->
-      <div id="res-matches"></div>
+        <!-- MATCHES -->
+        <div id="res-matches"></div>
 
-    </div>
-  </section>
+      </div>
+    </section>
+  </main>
 
   </div>
 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="client/myStats.js" type="module"></script>
 </body>
 

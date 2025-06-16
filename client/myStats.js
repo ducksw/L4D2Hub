@@ -61,8 +61,10 @@ function selectListPlayer() {
 function renderPlayerDetails(player, key, subTitle, porcentTitle, porcent, containerId) {
   const container = document.getElementById(containerId);
   let playerTitle = document.getElementById('playerTitle');
+  let playerTitle2 = document.getElementById('playerTitle2');
 
   playerTitle.innerHTML = `<span class="text-warning">${player.displayName}</span>`
+  playerTitle2.innerHTML = `<span class="text-warning">${player.displayName}</span>`
 
   if (!player) {
     container.innerHTML += "<p>Jugador no encontrado</p>";
@@ -108,6 +110,30 @@ function renderPlayerDetails(player, key, subTitle, porcentTitle, porcent, conta
   container.innerHTML = ret;
 }
 
+function capture() {
+  const div = document.getElementById("main");
+  const date = new Date().toISOString().slice(0,10);
+
+  setTimeout(() => {
+    html2canvas(div, {
+      useCORS: true,
+      allowTaint: false,
+      scale: 2
+    }).then(canvas => {
+      const imgURL = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = imgURL;
+      link.download = `stats_${date}.png`
+      link.click();
+    });
+  }, 500)
+}
+
+document.getElementById("download-stats").addEventListener('click', function(e) {
+  e.preventDefault();
+  capture();
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
@@ -128,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPlayerDetails(player, 'draw', 'Draw', 'Draw / d', calculatePorcent(players, 'draw', player.draw), 'res-draw');
 
   renderPlayerDetails(player, 'points', 'Points', 'Poinst / p', calculatePorcent(players, 'points', player.points), 'res-point');
-  renderPlayerDetails(player, 'lastMatches', 'LastMatches', 'LastMatches / l', calculatePorcent(players, 'draw', player.lastMatches.length), 'res-matches');
+  renderPlayerDetails(player, 'lastMatches', 'Last Matches', 'LastMatches / l', calculatePorcent(players, 'draw', player.lastMatches.length), 'res-matches');
 
   selectListPlayer();
 });
