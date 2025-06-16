@@ -1,12 +1,12 @@
 import { players } from '../models/player.js';
 
 function stats() {
-    const res = document.getElementById('res');
-    
-    const params = new URLSearchParams(window.location.search);
-    const searchQuery = params.get("search")?.toLowerCase() || '';
+  const res = document.getElementById('res');
 
-    let ret = `<table class="table-dark w-100">
+  const params = new URLSearchParams(window.location.search);
+  const searchQuery = params.get("search")?.toLowerCase() || '';
+
+  let ret = `<table class="table-dark w-100">
     <thead>
           <tr class="text-center border-bottom border-dark text-danger">
                 <th scope="col">#</th>
@@ -23,14 +23,14 @@ function stats() {
     </thead>
     `;
 
-    players.sort((a, b) => b.elo - a.elo);
+  players.sort((a, b) => b.elo - a.elo);
 
-    const filteredPlayers = searchQuery
-        ? players.filter(player => player.displayName.toLowerCase().includes(searchQuery))
-        : players;
+  const filteredPlayers = searchQuery
+    ? players.filter(player => player.displayName.toLowerCase().includes(searchQuery))
+    : players;
 
-    filteredPlayers.forEach((player, index) => {
-        ret += `
+  filteredPlayers.forEach((player, index) => {
+    ret += `
       <tr class="text-center">
             <th class="p-3" scope="row">${index + 1}</th>
             <td><a href="${player.profileurl}"><img src="${player.avatar}" class="rounded" style="max-width: 100%; width: 25px;"></a></td>
@@ -44,14 +44,14 @@ function stats() {
             <td>${player.match}</td>
       </tr>
     `;
-    });
+  });
 
-    if (filteredPlayers.length === 0) {
-        ret += `<tr><td colspan="10" class="text-center text-light">No player found for "${searchQuery}"</td></tr>`;
-    }
+  if (filteredPlayers.length === 0) {
+    ret += `<tr><td colspan="10" class="text-center text-light">No player found for "${searchQuery}"</td></tr>`;
+  }
 
-    ret += `</table>`;
-    res.innerHTML = ret;
+  ret += `</table>`;
+  res.innerHTML = ret;
 }
 
 stats();

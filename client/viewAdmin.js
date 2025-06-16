@@ -16,8 +16,8 @@ function viewAdmin() {
           <th>${player.displayName}</th>
           <th>
             ${player.online
-              ? '<span class="text-success">Online</span>'
-              : '<span class="text-secondary">Offline</span>'}
+                ? '<span class="text-success">Online</span>'
+                : '<span class="text-secondary">Offline</span>'}
           </th>
         </tr>
     `;
