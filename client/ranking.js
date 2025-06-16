@@ -12,7 +12,6 @@ function calculatePorcent(key, low = false) {
     win: 10000,
   }
 
-
   if (low === true) {
     const topPlayer = [...players].sort((a, b) => a[key] - b[key])[0];
 
@@ -83,6 +82,7 @@ function renderRanking(title, players, key, subTitle, porcentTitle, porcent, doc
 
     container.innerHTML = ret;
 }
+
 function renderLeaderboard(players, key, containerId, valueColor = 'text-danger') {
   const sorted = [...players].sort((a, b) => b[key] - a[key]).slice(0, 10);
   const container = document.getElementById(containerId);
@@ -142,7 +142,7 @@ function renderRankingNoob(title, players, key, subTitle, docId, porcent, porcen
   container.innerHTML = ret;
 }
 
-
+// only boards
 renderLeaderboard(players, 'elo', 'elo-leaderboard', 'text-warning');
 renderLeaderboard(players, 'win', 'wins-leaderboard', 'text-danger');
 renderLeaderboard(players, 'damage', 'damage-leaderboard', 'text-danger');
@@ -151,12 +151,12 @@ renderLeaderboard(players, 'match', 'matchs-leaderboard', 'text-danger');
 renderLeaderboard(players, 'rank', 'rank-leaderboard', 'text-danger');
 renderLeaderboard(players, 'losser', 'loser-leaderboard', 'text-danger');
 
-renderRanking('🟡 Elo', players, 'elo', 'Elo', 'Elo/e', calculatePorcent('elo'), 'res-elo');
-renderRanking('💥 Damage', players, 'damage', 'Damage', 'Damage/d', calculatePorcent('damage'), 'res-damage');
-renderRanking('💀 Kills', players, 'kills', 'Kills', 'Kills/k', calculatePorcent('kills'), 'res-kill');
-renderRanking('🏆 Wins', players, 'win', 'Wins',  'Wins/w', calculatePorcent('win'), 'res-win');
+renderRanking('🟡 Elo', players, 'elo', 'Elo', 'Elo / e', calculatePorcent('elo'), 'res-elo');
+renderRanking('💥 Damage', players, 'damage', 'Damage', 'Damage / d', calculatePorcent('damage'), 'res-damage');
+renderRanking('💀 Kills', players, 'kills', 'Kills', 'Kills / k', calculatePorcent('kills'), 'res-kill');
+renderRanking('🏆 Wins', players, 'win', 'Wins',  'Wins / w', calculatePorcent('win'), 'res-win');
 
-renderRankingNoob('🟡 Elo', players, 'elo', 'Elo', 'res-elo-noob', calculatePorcent('elo', true), 'Elo/e');
-renderRankingNoob('💥 Damage', players, 'damage', 'Damage', 'res-damage-noob', calculatePorcent('damage', true), 'Damage/d');
-renderRankingNoob('💀 Kills', players, 'kills', 'Kills', 'res-kill-noob', calculatePorcent('kills', true), 'Kills/k');
-renderRankingNoob('🏆 Wins', players, 'win', 'Wins', 'res-win-noob', calculatePorcent('win', true), 'Wins/w');
+renderRankingNoob('🟡 Elo', players, 'elo', 'Elo', 'res-elo-noob', calculatePorcent('elo', true), 'Elo / e');
+renderRankingNoob('💥 Damage', players, 'damage', 'Damage', 'res-damage-noob', calculatePorcent('damage', true), 'Damage / d');
+renderRankingNoob('💀 Kills', players, 'kills', 'Kills', 'res-kill-noob', calculatePorcent('kills', true), 'Kills / k');
+renderRankingNoob('🏆 Wins', players, 'win', 'Wins', 'res-win-noob', calculatePorcent('win', true), 'Wins / w');

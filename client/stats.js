@@ -19,6 +19,7 @@ function stats() {
                 <th scope="col">Win</th>
                 <th scope="col">Loser</th>
                 <th scope="col">Match</th>
+                <th scope="col">Stats</th>
           </tr>
     </thead>
     `;
@@ -42,6 +43,7 @@ function stats() {
             <td>${player.win}</td>
             <td>${player.losser}</td>
             <td>${player.match}</td>
+            <td><a href="player.html?id=${player.steamId}">my stats</a></td>
       </tr>
     `;
   });
