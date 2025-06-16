@@ -10,6 +10,8 @@ function calculatePorcent(key, low = false) {
     damage: 200000,
     kills: 10000,
     win: 10000,
+    losser: 10000,
+    draw: 10000,
   };
 
   if (!players || players.length === 0) return "0.00";
@@ -51,7 +53,7 @@ function selectListPlayer() {
 
   ret += `</select>`
 
-  res.innerHTML = ret;
+  res.innerHTML += ret;
 
   let select = document.getElementById('select');
 
@@ -60,7 +62,7 @@ function selectListPlayer() {
 
     for (const pl of player) {
       if (selectValue === pl.displayName) {
-        window.location.href = `/player.html?id=${pl.steamId}`;
+        window.location.href = `player.html?id=${pl.steamId}`;
         break;
       }
     }
@@ -133,6 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPlayerDetails(player, 'damage', 'Damage', 'Damage / d', calculatePorcent('damage'), 'res-damage');
   renderPlayerDetails(player, 'kills', 'Kills', 'Kills / k', calculatePorcent('kills'), 'res-kill');
   renderPlayerDetails(player, 'win', 'Wins', 'Wins / w', calculatePorcent('win'), 'res-win');
+  renderPlayerDetails(player, 'losser', 'Loser', 'Loser / l', calculatePorcent('losser'), 'res-loser');
+  renderPlayerDetails(player, 'draw', 'Draw', 'Draw / d', calculatePorcent('draw'), 'res-draw');
 
   selectListPlayer();
 });
