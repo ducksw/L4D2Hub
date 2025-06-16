@@ -1,12 +1,14 @@
 import { players } from "../models/player.js";
 
-function calculatePorcent(key, low = false) {
+function calculatePorcent(players, key, value) {
+  if (!players || players.length === 0) return "0.00";
+
   const MAX_ELO = 20000;
   const BASE_ELO = 300;
 
   const MAX_VALUES = {
     elo: MAX_ELO,
-    points: 100000,
+    points: 1000,
     damage: 200000,
     kills: 10000,
     win: 10000,
@@ -14,30 +16,17 @@ function calculatePorcent(key, low = false) {
     draw: 10000,
   };
 
-  if (!players || players.length === 0) return "0.00";
-
-  const sortedPlayers = [...players].sort((a, b) =>
-    low ? a[key] - b[key] : b[key] - a[key]
-  );
-
-  const topPlayer = sortedPlayers[0];
-  const value = Number(topPlayer[key]) || 0;
-
-  if (key === "elo") {
-    const percentage = ((Math.max(value - BASE_ELO, 0)) / (MAX_ELO - BASE_ELO)) * 100;
-    return percentage.toFixed(2);
+  if (key === 'elo') {
+    return (((Math.max(value - BASE_ELO, 0)) / (MAX_ELO - BASE_ELO)) * 100).toFixed(2);
   }
 
-  const maxValue = MAX_VALUES[key];
-  if (typeof maxValue === "number" && maxValue > 0) {
-    return ((value / maxValue) * 100).toFixed(2);
-  }
-
-  return "0.00";
+  const max = MAX_VALUES[key] || 1;
+  return ((value / max) * 100).toFixed(2);
 }
 
 function selectListPlayer() {
   const player = players;
+  player.sort((a, b) => (b.elo) - (a.elo));
 
   let res = document.getElementById('res')
   let ret = `
@@ -131,12 +120,15 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  renderPlayerDetails(player, 'elo', 'Elo', 'Elo / e', calculatePorcent('elo'), 'res-elo');
-  renderPlayerDetails(player, 'damage', 'Damage', 'Damage / d', calculatePorcent('damage'), 'res-damage');
-  renderPlayerDetails(player, 'kills', 'Kills', 'Kills / k', calculatePorcent('kills'), 'res-kill');
-  renderPlayerDetails(player, 'win', 'Wins', 'Wins / w', calculatePorcent('win'), 'res-win');
-  renderPlayerDetails(player, 'losser', 'Loser', 'Loser / l', calculatePorcent('losser'), 'res-loser');
-  renderPlayerDetails(player, 'draw', 'Draw', 'Draw / d', calculatePorcent('draw'), 'res-draw');
+  renderPlayerDetails(player, 'elo', 'Elo', 'Elo / e', calculatePorcent(players, 'elo', player.elo), 'res-elo');
+  renderPlayerDetails(player, 'damage', 'Damage', 'Damage / d', calculatePorcent(players, 'damage', player.damage), 'res-damage');
+  renderPlayerDetails(player, 'kills', 'Kills', 'Kills / k', calculatePorcent(players, 'kills', player.kills), 'res-kill');
+  renderPlayerDetails(player, 'win', 'Wins', 'Wins / w', calculatePorcent(players, 'win', player.win), 'res-win');
+  renderPlayerDetails(player, 'losser', 'Loser', 'Loser / l', calculatePorcent(players, 'losser', player.losser), 'res-loser');
+  renderPlayerDetails(player, 'draw', 'Draw', 'Draw / d', calculatePorcent(players, 'draw', player.draw), 'res-draw');
+
+  renderPlayerDetails(player, 'points', 'Points', 'Poinst / p', calculatePorcent(players, 'points', player.points), 'res-point');
+  renderPlayerDetails(player, 'lastMatches', 'LastMatches', 'LastMatches / l', calculatePorcent(players, 'draw', player.lastMatches.length), 'res-matches');
 
   selectListPlayer();
 });
