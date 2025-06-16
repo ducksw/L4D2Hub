@@ -34,11 +34,44 @@ function calculatePorcent(key, low = false) {
   return "0.00";
 }
 
+function selectListPlayer() {
+  const player = players;
+
+  let res = document.getElementById('res')
+  let ret = `
+    <select id="select" class="form-select" aria-label="Default select example">
+      <option value="0">Select Players</option>
+  `;
+
+  for (const p of player) {
+    ret += `
+      <option value="${p.displayName}">${p.displayName}</option>
+    `
+  }
+
+  ret += `</select>`
+
+  res.innerHTML = ret;
+
+  let select = document.getElementById('select');
+
+  select.addEventListener('click', function(e) {
+    const selectValue = this.value;
+
+    for (const pl of player) {
+      if (selectValue === pl.displayName) {
+        window.location.href = `/player.html?id=${pl.steamId}`;
+        break;
+      }
+    }
+  });
+}
+
 function renderPlayerDetails(player, key, subTitle, porcentTitle, porcent, containerId) {
   const container = document.getElementById(containerId);
   let playerTitle = document.getElementById('playerTitle');
 
-  playerTitle.innerHTML = `${player.displayName}`
+  playerTitle.innerHTML = `<span class="text-warning">${player.displayName}</span>`
 
   if (!player) {
     container.innerHTML += "<p>Jugador no encontrado</p>";
@@ -100,4 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPlayerDetails(player, 'damage', 'Damage', 'Damage / d', calculatePorcent('damage'), 'res-damage');
   renderPlayerDetails(player, 'kills', 'Kills', 'Kills / k', calculatePorcent('kills'), 'res-kill');
   renderPlayerDetails(player, 'win', 'Wins', 'Wins / w', calculatePorcent('win'), 'res-win');
+
+  selectListPlayer();
 });

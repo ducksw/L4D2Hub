@@ -56,7 +56,7 @@ function renderRanking(title, players, key, subTitle, porcentTitle, porcent, doc
       </div>
     `
 
-    topPlayer.forEach((player, index) => {
+    topPlayer.forEach((player) => {
       ret += `
         <div class="d-flex flex-column gap-2" style="width: 30%;">
             <span class="text-secondary">Player</span>
@@ -115,7 +115,7 @@ function renderRankingNoob(title, players, key, subTitle, docId, porcent, porcen
       </div>
   `
 
-  topPlayer.forEach((player, index) => {
+  topPlayer.forEach((player) => {
       ret += `
         <div class="d-flex flex-column gap-2" style="width: 30%;">
             <span class="text-secondary">Player</span>
