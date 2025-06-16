@@ -62,7 +62,7 @@ function selectListPlayer() {
 
     for (const pl of player) {
       if (selectValue === pl.displayName) {
-        window.location.href = `player.html?id=${pl.steamId}`;
+        window.location = `player.html?id=${pl.steamId}`;
         break;
       }
     }
