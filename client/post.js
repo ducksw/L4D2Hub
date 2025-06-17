@@ -5,7 +5,7 @@ let ret = "";
 posts.reverse();
 
 for (let post of posts) {
-  ret += `
+    ret += `
     <div class="d-flex flex-column border border-dark p-2 rounded mt-3">
         <b class="text-light fs-3">${post.title}</b>
         <hr class="border border-danger"/>

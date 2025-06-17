@@ -12,20 +12,20 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 12px;
+    width: 12px;
 }
 
 body::-webkit-scrollbar-track {
-  background: #111111;
+    background: #111111;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #222222;
-  border-radius: 20px;
+    background-color: #222222;
+    border-radius: 20px;
 }
 
 #points {
-    font-family: "Coiny"; 
+    font-family: "Coiny";
     font-size: 18px;
 }
 
@@ -153,4 +153,3 @@ nav div a:hover {
         display: flex !important;
     }
 }
-
