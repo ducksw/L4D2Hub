@@ -136,7 +136,7 @@ document.getElementById("download-stats").addEventListener('click', function (e)
 
 document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+    const id = params.get("steamid");
 
     const player = players.find(p => p.steamId === id);
     const containerId = 'player-details';

@@ -36,10 +36,10 @@ addEventListener("DOMContentLoaded", () => {
 
     for (let player of players) {
         ret += `
-    <div class="pl" draggable="true">
-        <img src="${player.avatar}">
-        ${player.displayName} [💥<span class="damage">${player.damage}</span>]
-    </div>`;
+            <div class="pl" draggable="true">
+                <img src="${player.avatar}">
+                ${player.displayName} [💥<span class="damage">${player.damage}</span>]
+            </div>`;
     }
 
     list.innerHTML = ret;

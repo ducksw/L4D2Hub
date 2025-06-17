@@ -1,4 +1,13 @@
 import { posts } from '../models/posts.js';
+import { players } from '../models/player.js';
+
+function selectProfile() {
+    for (let pl of players) {
+        console.log(pl.displayName);
+    }
+}
+
+selectProfile();
 
 function onlyNews() {
     let only = document.getElementById('only');
@@ -9,12 +18,12 @@ function onlyNews() {
 
     onlyPost.forEach((post) => {
         ret += `
-      <div class="mt-2">
-          <h4>${post.title}</h4>
-          <p style="color: darkgrey;">${post.text}</p>
-          <img src="${post.imageLink}" style="display: flex; max-width: 100%; width: 300px; margin: auto;">
-      </div>
-  </div>
+        <div class="mt-2">
+            <h4>${post.title}</h4>
+            <p style="color: darkgrey;">${post.text}</p>
+            <img src="${post.imageLink}" style="display: flex; max-width: 100%; width: 300px; margin: auto;">
+        </div>
+    </div>
     `
 
         only.innerHTML = ret;
