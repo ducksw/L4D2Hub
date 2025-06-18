@@ -20,7 +20,7 @@ export const players = [
     {
         steamId: "76561199153288700",
         displayName: "Sabri Mil Poses",
-        avatar: "https://avatars.steamstatic.com/581c922e0e9b484fa5af14b601b8f147897c1bd7_full.jpg",
+        avatar: "https://avatars.steamstatic.com/6acfc76ecb1d6b07244f5bea7175567552295a8f_full.jpg",
         profileurl: "https://steamcommunity.com/profiles/76561199153288700",
         match: "9",
         elo: 395,

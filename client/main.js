@@ -52,7 +52,7 @@ function selectProfile() {
                   </div>
                   <div class="border border-danger"></div> 
                   <div>
-                    <a href="#" class="text-primary text-decoration-none me-2">Languages</a>
+                    <a href="${profile.profileurl}" class="text-primary text-decoration-none me-2">Steam Profile</a>
                     <a href="" id="logout" class="text-primary text-decoration-none">Logout</a>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ function viewProfile() {
 							</div>
 							<div class="border border-danger"></div> 
 							<div>
-								<a href="#" class="text-primary text-decoration-none me-2">Languages</a>
+								<a href="${profile.profileurl}" class="text-primary text-decoration-none me-2">Steam Profile</a>
 								<a href="" id="logout" class="text-primary text-decoration-none">Logout</a>
 							</div>
 						</div>
