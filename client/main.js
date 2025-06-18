@@ -32,7 +32,11 @@ function selectProfile() {
           steamId: pl.steamId,
           displayName: pl.displayName,
           avatar: pl.avatar,
+          profileurl: pl.profileurl,
+          match: pl.match,
           elo: pl.elo,
+          points: pl.points,
+          rank: pl.rank,
         }
 
         if (profile) {
