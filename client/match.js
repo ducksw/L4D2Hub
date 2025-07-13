@@ -28,7 +28,7 @@ function stats() {
       const pj = wins + losses + draws;
       const pts = (wins * 3) + (draws * 1);
       console.log(pts);
-    */
+      */
 
     // Mostrar últimos 5 como íconos
     const last = (player.lastMatches || []).map(r => {

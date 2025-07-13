@@ -148,7 +148,7 @@ function selectListPlayer() {
 
   let res = document.getElementById('res3')
   let ret = `
-        <select id="select" class="form-select" aria-label="Default select example">
+        <select id="select" class="form-select bg bg-dark border-0 text-light" aria-label="Default select example">
             <option value="0">Select Players</option>
     `;
 
@@ -164,7 +164,7 @@ function selectListPlayer() {
 
   let select = document.getElementById('select');
 
-  select.addEventListener('click', function (e) {
+  select.addEventListener('click', function () {
     const selectValue = this.value;
 
     for (const pl of player) {

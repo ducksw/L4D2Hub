@@ -12,9 +12,10 @@ function aea(e) {
 }
 
 function getBorderColor(index) {
-  if (index < 4) return "4px solid #448aff";
-  if (index === 4) return "4px solid orange";
-  if (index >= 7 && index <= 10) return "4px solid red";
+  if (index < 4) return "4px solid #448aff"; // champions bulls
+  if (index === 4) return "4px solid green"; // Play Off Champions bulls
+  if (index >= 5 && index <= 8) return "4px solid orange"; // Fase de grupos Marquez League
+  if (index >= 11 && index <= 14) return "4px solid red"; // Descenso
   return "none";
 }
 

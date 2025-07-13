@@ -22,6 +22,7 @@ function calculatePorcent(players, key, value) {
 
   const max = MAX_VALUES[key] || 1;
   return ((value / max) * 100).toFixed(2);
+
 }
 
 function selectListPlayer() {
@@ -30,7 +31,7 @@ function selectListPlayer() {
 
   let res = document.getElementById('res');
   let ret = `
-    <select id="select" class="d-flex form-select" aria-label="Default select example">
+    <select id="select" class="d-flex form-select bg bg-dark border-0 text-light" aria-label="Default select example">
         <option value="0">Select Players</option>
     `;
 
