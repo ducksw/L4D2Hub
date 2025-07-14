@@ -1,7 +1,5 @@
 import { players } from "../models/player.js";
 
-//var arr = JSON.parse(localStorage.getItem('profile')) || [];
-
 function viewOnlyProfile() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("steamid");
@@ -13,7 +11,7 @@ function viewOnlyProfile() {
     <div class="mx-auto bg bg-black border border-dark border-top-0 " style="max-width: 100%; width: 950px;">
     `
   for (let pl of players) {
-    if (pl.steamId == id) {
+    if (pl.steamId === id) {
       ret += `
         <title>Profile :: ${pl.displayName}</title>
         <div class="d-flex justify-content-between p-3" id="header">
@@ -57,17 +55,17 @@ function viewOnlyProfile() {
 
             <section class="d-flex gap-2 w-100 bg-profile p-2 rounded mt-3">
               <div class="d-flex align-items-center flex-column w-50 bg bg-black rounded">
-                <span class="fs-1">🔥</span>
+                <span class="fs-1">🏆</span>
                 <span class="fs-3"><b>${pl.win}</b></span>
                 <span class="text-secondary">Wins</span>
               </div>
               <div class="d-flex align-items-center flex-column w-50 bg bg-black rounded">
-                <span class="fs-1">🔥</span>
+                <span class="fs-1">👎</span>
                 <span class="fs-3"><b>${pl.losser}</b></span>
                 <span class="text-secondary">Loser</span>
               </div>
               <div class="d-flex align-items-center flex-column w-50 bg bg-black rounded">
-                <span class="fs-1">🔥</span>
+                <span class="fs-1">🇪</span>
                 <span class="fs-3"><b>${pl.draw}</b></span>
                 <span class="text-secondary">Empate</span>
               </div>
