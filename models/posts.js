@@ -47,7 +47,22 @@ export const posts = [
   {
     title: "Una Final Adelantada",
     text: "Falta poco por finalizar la liga bulls y los primeros clasificados para la champions bulls y los de Marquez Legue\nPrimer Lugar Seria ganador de la liga y clasifica a la champions bulls\ndel primero al 4to clasificados \ndel 5to play off jugara un duelo con el 4to lugar por arrebatar su clasificacion a champions bulls\ndel 6to a al 9ve Clasificados a Marquez Legue \n\nEL GANADOR DE LA LIGA DEBE LLEGAR A LOS 32 PUNTOS PARA GANAR LA LIGA\nEN CASO 2 FINALISTAS SE ENCUENTREN CERCA DEL 32 O MAS DEBE SUPERARLO POR ENCIMA DE 3 PUNTOS \nEN CASO UN JUGADOR ESTE INVICTO POR ENCIMA DE 12 PUNTOS POR ARRIBA DE TODOS ES GANADOR DE LA LIGA -DEBIDO QUE NO HAY OTRO JUGADOR LO SOBREPASE\n\n--Le Deseamos lo Mejor A todos ustedes que participaron en esta liga--",
-    imageLink: "image/champ.jpg"
+    imageLink: "https://left4dead2hub.onrender.com/image/champ.jpg"
+  },
+  {
+    title: "A veces las verdades duelen",
+    text: "Una derrota y una nueva victoria mas para el ultimo final de la liga se mostraran los resultados en unos instantes el ganador absoluto de todo y lo mejor de esta temporada 2025 que se sigue por mas\n\nSE QUE HABRA PRONTO Y NOS VEREMOS!! EN LA CHAMPIONS BULLS Y MARQUEZ LEAGUE\n\ny los clasificados al play off",
+    imageLink: "https://i.ibb.co/k6JXgrm1/edr.jpg"
+  },
+  {
+    title: "!!!!!!GANADOR DE LA LIGA BULLS!!!!!!",
+    text: "FELICIDADES LUIS PLACENSIA POR HABER CULMINADO TODO Y HABER GANADO LA LIGA BULLS Y EL MEJOR DE ESTA TEMPORADA POR ENCIMA DE TODOS",
+    imageLink: "https://i.ibb.co/qLKrjVGT/c.jpg"
+  },
+  {
+    title: "INICIOS DE PLAY OFF",
+    text: "P DIDDY VS HeiSenBerG\n\nP .DIDDY YA CLASIFICADO A LA CHAMPIONS BULLS CON 15 PUNTOS SE DEBE ENFRENTAR  A HeiSenBerG POR EL CUPO DE 4TO LUGAR \n\nPARA IR DIRECTO A LA CHAMPIONS BULLS Y EN CASO QUE EL JUGADOR DEL PLAY OFF GANE OCUPA LA 4TA PLAZA Y EL JUGADOR QUE ESTABA EN ESA PLAZA DESCIENDE A MARQUEZ LEAGUE POR EL ULTIMO DE LA TABLA DE MARQUEZ LEAGUE PARA OCUPAR LO MISMO OCURRE SI LLEGA A PERDER EL JUGADOR DEL PLAY OFF \n\nSUERTE :)",
+    imageLink: "https://i.ibb.co/7JP02XDx/pl.jpg"
   }
 ];
 
