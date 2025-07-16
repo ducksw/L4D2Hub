@@ -135,6 +135,19 @@ document.getElementById("download-stats").addEventListener('click', function (e)
   capture();
 });
 
+function viewProfile() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("steamid");
+
+  let link_profile = document.getElementById('link-profile');
+  for (const p of players) {
+    if (p.steamId === id) {
+      link_profile.innerHTML = `<a href="profile.html?steamid=${p.steamId}">Profile</a>`
+      console.log(link_profile);
+    } 
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("steamid");
@@ -158,4 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPlayerDetails(player, 'lastMatches', 'Last Matches', 'LastMatches / l', calculatePorcent(players, 'draw', player.lastMatches.length), 'res-matches');
 
   selectListPlayer();
+  viewProfile();
+
 });
+

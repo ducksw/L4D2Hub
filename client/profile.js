@@ -124,10 +124,10 @@ function viewRank() {
       if (player.rank === "Bronze") {
         rk.innerHTML = `<img id="image" src="image/brozen.svg">`;
       }
-      if (player.rank === "Silver") {
+      if (player.elo >= 1100) {
         rk.innerHTML = `<img id="image" src="image/silver.svg">`;
       }
-      if (player.rank === "Gold") {
+      if (player.elo >= 2000) {
         rk.innerHTML = `<img id="image" src="image/gold.svg">`;
       }
       if (player.rank === "Platinum") {
