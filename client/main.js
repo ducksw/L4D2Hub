@@ -4,14 +4,14 @@ import { players } from '../models/player.js';
 function selectProfile() {
   let res = document.getElementById('res');
   let ret = `
-<span class="text-danger fs-4">¿Que jugador eres?</span>
-<select id="select" class="form-select w-75 mx-auto mt-2 border-0 bg bg-dark text-light" aria-label="Default select example">
-<option value="0">Select Players</option>
-`;
+      <span class="text-danger fs-4">¿Que jugador eres?</span>
+      <select id="select" class="form-select w-75 mx-auto mt-2 border-0 bg bg-dark text-light" aria-label="Default select example">
+      <option value="0">Select Players</option>
+    `;
   for (let pl of players) {
     ret += `
-<option value="${pl.displayName}">${pl.displayName}</option>
-`
+      <option value="${pl.displayName}">${pl.displayName}</option>
+    `
   }
 
   ret += `</select>`;
@@ -42,11 +42,11 @@ function selectProfile() {
           res.style.display = "none";
           resProfile.innerHTML = `
             <div class="d-flex justify-content-center align-items-center w-100">
-                <div class="d-flex align-items-center mt-4 rounded">
-                    <img src="${profile.avatar}" class="rounded me-2 border border-danger" style="width: 100px; height: 100px; object-fit: cover;">
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-between gap-2">
-                            <span class="text-sencondary fw-bold">[<span class="text-danger">${profile.elo}</span>]</span>
+              <div class="d-flex align-items-center mt-4 rounded">
+                <img src="${profile.avatar}" class="rounded me-2 border border-danger" style="width: 100px; height: 100px; object-fit: cover;">
+                  <div class="d-flex flex-column">
+                    <div class="d-flex justify-content-between gap-2">
+                      <span class="text-sencondary fw-bold">[<span class="text-danger">${profile.elo}</span>]</span>
                             <span class="text-light fw-bold">${profile.displayName}</span>
                         </div>
                         <div class="border border-danger"></div> 
@@ -58,7 +58,6 @@ function selectProfile() {
                 </div>
             </div>
           `
-
           document.getElementById('logout').addEventListener('click', function(e) {
             localStorage.removeItem('profile');
             location.reload();
