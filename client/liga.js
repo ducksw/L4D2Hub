@@ -11,6 +11,7 @@ function aea(e) {
   e.preventDefault()
 }
 
+// colocar bordes a la tabla
 function getBorderColor(index) {
   if (index < 4) return "4px solid #448aff"; // champions bulls
   if (index === 4) return "4px solid green"; // Play Off Champions bulls
@@ -19,6 +20,7 @@ function getBorderColor(index) {
   return "none";
 }
 
+// renderizar los colores segun el match
 function renderMatchResult(letter) {
   let color = "#383b42", glow = "";
   if (letter === "W") {

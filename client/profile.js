@@ -8,7 +8,7 @@ function viewOnlyProfile() {
 
   let res = document.getElementById('pro');
   let ret = `
-    <div class="mx-auto bg bg-black border border-dark border-top-0 " style="max-width: 100%; width: 950px;">
+    <div class="mx-auto bg bg-black border border-dark border-top-0 " style="max-width: 100%; width: 950px;" id="profile">
     `
   for (let pl of players) {
     if (pl.steamId === id) {
@@ -22,12 +22,12 @@ function viewOnlyProfile() {
               <div class="d-flex gap-2 align-items-center" style="font-size: 14px;">
                 <span class="text-secondary"><a href="${pl.profileurl}">Steam Id</a></span> |
                 <a href="player.html?steamid=${pl.steamId}">Stats</a> |
-                <a href="">Download</a>
+                <a href="#" id="download">Download</a>
               </div>
             </div>
           </div>
           <div class="d-flex gap-2 align-items-center justify-content-center">
-            <span class="badge text-bg-danger fs-5">${pl.rank}</span>
+            <span id="rk"></span>
           </div>
         </div>
 
@@ -35,8 +35,7 @@ function viewOnlyProfile() {
           <section class="d-flex flex-column w-75" style="height: 100%;">
             <section class="d-flex flex-column gap-2 w-100 bg-profile rounded">
               <span class="bg bg-danger p-1 w-100" id="title-ins">Colección de insignias</span>
-              <div class="p-2">
-                No hay insignia...
+              <div class="p-2" id="box-insig">
               </div>
             </section>
 
@@ -77,8 +76,8 @@ function viewOnlyProfile() {
             <b class="text-danger" style="font-size: 14px;">Left 4 dead 2</b>
 
             <div class="d-flex flex-column mt-4">
-              <span class="d-flex align-items-center gap-2" style="font-size: 14px;"><a href="" class="text-light text-decoration-none">Insignias</a> <span class="fs-5 text-secondary">0</span></span>
-              <span style="font-size: 13px;">No hay insignia...</span>
+              <span class="d-flex align-items-center gap-2" style="font-size: 14px;"><a href="" class="text-light text-decoration-none">Insignias</a> <span class="fs-5 text-secondary" id="l-insig">0</span></span>
+              <span style="font-size: 13px;" id="insignia"></span>
             </div>
 
             <div class="d-flex flex-column mt-4">
@@ -106,7 +105,7 @@ function viewOnlyProfile() {
                   `).join('')}
               </div>
             </div>
-          </section>
+         </section>
         </section>
       </div>`
     }
@@ -114,5 +113,81 @@ function viewOnlyProfile() {
 
   res.innerHTML = ret;
 }
-
 viewOnlyProfile();
+
+function viewRank() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("steamid");
+  let rk = document.getElementById('rk');
+  for (const player of players) {
+    if (player.steamId == id) {
+      if (player.rank === "Bronze") {
+        rk.innerHTML = `<img id="image" src="image/brozen.svg">`;
+      }
+      if (player.rank === "Silver") {
+        rk.innerHTML = `<img id="image" src="image/silver.svg">`;
+      }
+      if (player.rank === "Gold") {
+        rk.innerHTML = `<img id="image" src="image/gold.svg">`;
+      }
+      if (player.rank === "Platinum") {
+        rk.innerHTML = `<img id="image" src="image/platinum.svg">`;
+      }
+      if (player.rank === "Diamond") {
+        rk.innerHTML = `<img id="image" src="image/diamond.svg">`;
+      }
+      if (player.rank === "Champions") {
+        rk.innerHTML = `<img id="image" src="image/champions.svg">`;
+      }
+    }
+  }
+}
+viewRank();
+
+function viewInsignia() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("steamid");
+
+  let l_insig = document.getElementById('l-insig');
+  let insig = document.getElementById('insignia');
+  let box_insig = document.getElementById('box-insig');
+
+  for (const player of players) {
+    if (player.steamId == id) {
+      if (player.allInsignias.toString() == "Liga Bulls") {
+        insig.innerHTML += `<figture id="photo" title="Campeón de la Liga Bulls"><img id="image-insig" src="image/liga-bulls-win.png"></figture>`;
+        box_insig.innerHTML += `<figture id="photo" title="Campeón de la Liga Bulls"><img id="image-insig" src="image/liga-bulls-win.png"></figture>`;
+        l_insig.innerHTML = player.allInsignias.length;
+      } else {
+        insig.innerHTML  = "No hay insignia...";
+        box_insig.innerHTML  = "No hay insignia...";
+      }
+    }
+  }
+}
+viewInsignia();
+
+function capture() {
+  const div = document.getElementById("profile");
+  const date = new Date().toISOString().slice(0, 10);
+
+  setTimeout(() => {
+    html2canvas(div, {
+      useCORS: true,
+      allowTaint: false,
+      scale: 2
+    }).then(canvas => {
+      const imgURL = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = imgURL;
+      link.download = `profile_${date}.png`
+      link.click();
+    });
+  }, 500)
+}
+
+document.getElementById("download").addEventListener('click', function (e) {
+  e.preventDefault();
+  capture();
+});
+

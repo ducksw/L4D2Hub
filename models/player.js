@@ -14,6 +14,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["L", "L", "L", "W", "W"],
+    allInsignias: [""],
     isAdmin: true,
     clasificado: false
   },
@@ -32,6 +33,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["W", "W", "L", "L", "L"],
+    allInsignias: [""],
     isAdmin: true,
     clasificado: false
   },
@@ -50,6 +52,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["W", "W", "L", "W", "W"],
+    allInsignias: ["Liga Bulls"],
     isAdmin: false,
     clasificado: false
   },
@@ -68,6 +71,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["L", "L", "W", "L", "D"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -86,6 +90,7 @@ export const players = [
     draw: "1",
     rank: "Bronze",
     lastMatches: ["L", "D", "W", "L", "N"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -104,6 +109,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["L", "L", "L", "L", "L"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -122,6 +128,7 @@ export const players = [
     draw: "1",
     rank: "Bronze",
     lastMatches: ["W", "L", "L", "W", "N"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -140,6 +147,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["L", "L", "L", "L", "N"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -158,6 +166,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["L", "L", "L", "L", "N"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -176,6 +185,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["L", "W", "L", "L", "L"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -194,6 +204,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["L", "L", "W", "L", "W"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -212,6 +223,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["W", "W", "L", "D", "N"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -230,6 +242,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["W", "W", "L", "D", "N"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -248,6 +261,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["L", "L", "W", "L", "N"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   },
@@ -266,6 +280,7 @@ export const players = [
     draw: "0",
     rank: "Bronze",
     lastMatches: ["L", "L", "W", "L", "N"],
+    allInsignias: [""],
     isAdmin: false,
     clasificado: false
   }

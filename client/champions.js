@@ -9,15 +9,15 @@ function listClasif() {
   topPlayer.forEach((player) => {
     if (player.clasificado === true) {
       ret += `
-                <span class="list-group-item bg-gradient bg-black text-light p-2 rounded border border-dark">
-                    • ${player.displayName}
-                </span>
-            `;
+        <span class="list-group-item bg-gradient bg-black text-light p-2 rounded border border-dark">
+            • ${player.displayName}
+      </span>
+      `;
 
       console.log("JUGADOR CLASIFICADOS", player.displayName);
     } else {
       ret += `
-                <span class="list-group-item bg-gradient bg-black text-light p-2 rounded border border-dark">
+            <span class="list-group-item bg-gradient bg-black text-light p-2 rounded border border-dark">
                     • ......
                 </span>
             `;
@@ -30,4 +30,4 @@ function listClasif() {
   list.innerHTML = ret;
 }
 
-listClasif();
+//listClasif();

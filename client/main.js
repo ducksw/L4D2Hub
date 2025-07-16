@@ -27,7 +27,6 @@ function selectProfile() {
 
     for (const pl of players) {
       if (selectValue === pl.displayName) {
-
         const profile = { 
           steamId: pl.steamId,
           displayName: pl.displayName,

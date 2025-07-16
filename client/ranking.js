@@ -90,14 +90,14 @@ function renderLeaderboard(players, key, containerId, valueColor = 'text-danger'
   let html = '';
   sorted.forEach((player, index) => {
     html += `
-            <div class="d-flex justify-content-between p-1">
-                <div class="d-flex gap-2">
-                    <span class="text-warning">#${index + 1}</span>
-                    <span>${player.displayName}</span>
-                </div>
-                <span class="${valueColor}">${player[key]}</span>
-            </div>
-        `;
+      <div class="d-flex justify-content-between p-1">
+        <div class="d-flex gap-2">
+          <span class="text-warning">#${index + 1}</span>
+          <span>${player.displayName}</span>
+        </div>
+        <span class="${valueColor}">${player[key]}</span>
+      </div>
+    `;
   });
 
   container.innerHTML = html;
@@ -108,13 +108,12 @@ function renderRankingNoob(title, players, key, subTitle, docId, porcent, porcen
   const container = document.getElementById(docId);
 
   let ret = `
-        <div class="d-flex justify-content-between align-items-center text-light p-1">
-            <div class="d-flex flex-column gap-2" style="width: 10%;">
-            <span class="text-danger">#</span>
-            <b class="text-warning">${title}</b>
+      <div class="d-flex justify-content-between align-items-center text-light p-1">
+        <div class="d-flex flex-column gap-2" style="width: 10%;">
+          <span class="text-danger">#</span>
+          <b class="text-warning">${title}</b>
         </div>
     `
-
   topPlayer.forEach((player) => {
     ret += `
         <div class="d-flex flex-column gap-2" style="width: 30%;">
