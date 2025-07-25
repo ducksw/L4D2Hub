@@ -98,7 +98,7 @@ function renderPlayerDetails(player, key, subTitle, porcentTitle, porcent, conta
 
     <div class="d-flex flex-column gap-2" style="width: 15%;">
         <span class="text-secondary">${porcentTitle}</span>
-        <span>${porcent}</span>
+        <span>${porcent}%</span>
     </div>
 
     <div class="d-flex flex-column gap-2" style="width: 15%;">

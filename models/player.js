@@ -1,7 +1,7 @@
 export const players = [
   {
     steamId: "76561199093444412",
-    displayName: "ducks",
+    displayName: "ducksbot",
     avatar: "https://avatars.steamstatic.com/7bd866ecfda45f05e1b45742bdf9ce678d6fdfdd_full.jpg",
     profileurl: "https://steamcommunity.com/id/TheDuckxd/",
     match: "13",
@@ -16,12 +16,15 @@ export const players = [
     lastMatches: ["L", "L", "L", "W", "W"],
     allInsignias: [""],
     isAdmin: true,
-    clasificado: false
+    fg_championsbulls: true,
+    playoff: false,
+    fg_marquez_league: false,
+    descenso: false,
   },
   {
     steamId: "76561199153288700",
     displayName: "Sabri Mil Poses",
-    avatar: "https://avatars.steamstatic.com/581c922e0e9b484fa5af14b601b8f147897c1bd7_full.jpg",
+    avatar: "https://avatars.fastly.steamstatic.com/6acfc76ecb1d6b07244f5bea7175567552295a8f_full.jpg",
     profileurl: "https://steamcommunity.com/profiles/76561199153288700",
     match: "13",
     elo: 410,
@@ -35,7 +38,10 @@ export const players = [
     lastMatches: ["W", "W", "L", "L", "L"],
     allInsignias: [""],
     isAdmin: true,
-    clasificado: false
+    fg_championsbulls: true,
+    playoff: false,
+    fg_marquez_league: false,
+    descenso: false,
   },
   {
     steamId: "76561199118824281",
@@ -54,7 +60,10 @@ export const players = [
     lastMatches: ["W", "W", "L", "W", "W"],
     allInsignias: ["Liga Bulls"],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: true,
+    playoff: false,
+    fg_marquez_league: false,
+    descenso: false,
   },
   {
     steamId: "76561198361277623",
@@ -73,7 +82,10 @@ export const players = [
     lastMatches: ["L", "L", "W", "L", "D"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: true,
+    fg_marquez_league: false,
+    descenso: false,
   },
   {
     steamId: "76561199857774654",
@@ -92,7 +104,10 @@ export const players = [
     lastMatches: ["L", "D", "W", "L", "N"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: false,
+    fg_marquez_league: true,
+    descenso: false,
   },
   {
     steamId: "76561199164549325",
@@ -111,7 +126,10 @@ export const players = [
     lastMatches: ["L", "L", "L", "L", "L"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: false,
+    fg_marquez_league: false,
+    descenso: false,
   },
   {
     steamId: "76561199629243648",
@@ -130,7 +148,10 @@ export const players = [
     lastMatches: ["W", "L", "L", "W", "N"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: false,
+    fg_marquez_league: true,
+    descenso: false,
   },
   {
     steamId: "76561199023262589",
@@ -149,7 +170,10 @@ export const players = [
     lastMatches: ["L", "L", "L", "L", "N"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: false,
+    fg_marquez_league: false,
+    descenso: true,
   },
   {
     steamId: "76561198998575258",
@@ -168,12 +192,15 @@ export const players = [
     lastMatches: ["L", "L", "L", "L", "N"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: false,
+    fg_marquez_league: false,
+    descenso: true,
   },
   {
     steamId: "76561199551960335",
-    displayName: "Pedro ta tite ",
-    avatar: "https://avatars.fastly.steamstatic.com/8cfdbaee8c16f2696082e60f233441b22fb15dec_full.jpg",
+    displayName: "Pedro basado",
+    avatar: "https://avatars.fastly.steamstatic.com/8ef9bfe897ccc3b9b22dac8d7212bf2905aecae2_full.jpg",
     profileurl: "https://steamcommunity.com/id/psyk3s07",
     match: "11",
     elo: 330,
@@ -187,7 +214,10 @@ export const players = [
     lastMatches: ["L", "W", "L", "L", "L"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: false,
+    fg_marquez_league: true,
+    descenso: false,
   },
   {
     steamId: "76561199153842229",
@@ -206,7 +236,10 @@ export const players = [
     lastMatches: ["L", "L", "W", "L", "W"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: true,
+    fg_marquez_league: false,
+    descenso: false,
   },
   {
     steamId: "76561199502583075",
@@ -225,7 +258,10 @@ export const players = [
     lastMatches: ["W", "W", "L", "D", "N"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: false,
+    fg_marquez_league: true,
+    descenso: false,
   },
   {
     steamId: "76561199553792162",
@@ -244,7 +280,10 @@ export const players = [
     lastMatches: ["W", "W", "L", "D", "N"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: false,
+    fg_marquez_league: false,
+    descenso: false,
   },
   {
     steamId: "76561199093672155",
@@ -263,7 +302,10 @@ export const players = [
     lastMatches: ["L", "L", "W", "L", "N"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: false,
+    fg_marquez_league: false,
+    descenso: true,
   },
   {
     steamId: "76561199223923610",
@@ -282,6 +324,9 @@ export const players = [
     lastMatches: ["L", "L", "W", "L", "N"],
     allInsignias: [""],
     isAdmin: false,
-    clasificado: false
+    fg_championsbulls: false,
+    playoff: false,
+    fg_marquez_league: false,
+    descenso: true,
   }
 ];

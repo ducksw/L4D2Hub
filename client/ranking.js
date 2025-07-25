@@ -71,7 +71,7 @@ function renderRanking(title, players, key, subTitle, porcentTitle, porcent, doc
             </div>
             <div class="d-flex flex-column gap-2" style="width: 15%;">
                 <span class="text-secondary">${porcentTitle}</span>
-                <span>${porcent}</span>
+                <span>${porcent}%</span>
             </div>
             <div class="d-flex flex-column gap-2" style="width: 15%;">
                 <span class="text-secondary">Rounds Played</span>
@@ -129,7 +129,7 @@ function renderRankingNoob(title, players, key, subTitle, docId, porcent, porcen
         </div>
         <div class="d-flex flex-column gap-2" style="width: 15%;">
             <span class="text-secondary">${porcentTitle}</span>
-            <span>${porcent}</span>
+            <span>${porcent}%</span>
         </div>
         <div class="d-flex flex-column gap-2" style="width: 15%;">
             <span class="text-secondary">Rounds Played</span>
