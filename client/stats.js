@@ -2,6 +2,22 @@ import { players } from '../models/player.js';
 
 function stats() {
   const res = document.getElementById('res');
+  const input = document.getElementById('input');
+
+  document.getElementById("form").addEventListener("submit", function(event) {
+  let input = document.getElementById("input").value.trim();
+  let al = document.getElementById("alert");
+
+  if (!input) {
+    event.preventDefault();
+    al.innerHTML = `
+    <div class="alert alert-danger" role="alert">
+      Debe ingresar el nombre del jugador.
+    </div>
+    `
+  }
+});
+
 
   const params = new URLSearchParams(window.location.search);
   const searchQuery = params.get("search")?.toLowerCase() || '';
@@ -35,7 +51,7 @@ function stats() {
     ret += `
       <tr class="text-center">
         <th class="p-3" scope="row">${index + 1}</th>
-        <td><a href="${player.profileurl}"><img src="${player.avatar}" class="rounded" style="max-width: 100%; width: 25px;"></a></td>
+        <td><a href="${player.profileurl}" target="_blank"><img src="${player.avatar}" class="rounded" style="max-width: 100%; width: 25px;"></a></td>
         <td class="text-light">${player.displayName}</td>
         <td class="text-warning">${player.steamId}</td>
         <td class="text-danger"><b>${player.elo}</b></td>
@@ -56,6 +72,7 @@ function stats() {
 
   ret += `</table>`;
   res.innerHTML = ret;
+  input.value = searchQuery;
 }
 
 stats();

@@ -61,7 +61,7 @@ function renderRanking(title, players, key, subTitle, porcentTitle, porcent, doc
             <div class="d-flex flex-column gap-2" style="width: 30%;">
                 <span class="text-secondary">Player</span>
                 <div class="d-flex align-items-center gap-2">
-                    <a href="${player.profileurl}"><img src="${player.avatar}" class="image-ranking rounded" style="max-width: 100%; width: 25px;"></a>
+                    <a href="${player.profileurl}" target="_blank"><img src="${player.avatar}" class="image-ranking rounded" style="max-width: 100%; width: 25px;"></a>
                     <span>${player.displayName}</span>
                 </div>
             </div>

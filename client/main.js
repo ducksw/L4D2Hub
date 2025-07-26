@@ -60,7 +60,7 @@ function selectProfile() {
                       </span>` : ''
                     }
                     ${profile.fg_marquez_league ? `
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
                         FG Marquez League
                       </span>` : ''
                     }
@@ -126,7 +126,7 @@ function viewProfile() {
                 </span>` : ''
               }
               ${profile.fg_marquez_league ? `
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
                   FG Marquez League
                 </span>` : ''
               }
@@ -183,7 +183,6 @@ function onlyNews() {
     `
 
     only.innerHTML = ret;
-    console.log(post.title);
   });
 }
 viewProfile();
@@ -218,7 +217,6 @@ function typesPhases() {
   const fWin = document.getElementById('fase-win');
 
   const playOffPlayers = players.filter(pl => pl.playoff);
-  console.log("players off", playOffPlayers);
 
   // play off versus
   if (playOffPlayers.length >= 2) {
@@ -234,9 +232,11 @@ function typesPhases() {
     image02.style.width = "35px";
     image02.style.height = "35px";
     name02.innerHTML = p2.displayName
+
+    // GANADOR
+    fWin.innerHTML = "-----";
   } 
 
-  fWin.innerHTML = "-----";
 }
 typesPhases();
 

@@ -52,7 +52,7 @@ function liga() {
       </td>
       <td style="padding: 10px;">${player.displayName}</td>
       <td style="text-align: center; padding: 10px;">
-          <a href="${player.profileurl}">
+          <a href="${player.profileurl}" target="_blank">
               <img src="${player.avatar}" alt="profile" class="rounded" style="max-width: 100%; width: 35px; border-radius: 5px;">
           </a>
       </td>

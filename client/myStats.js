@@ -84,7 +84,7 @@ function renderPlayerDetails(player, key, subTitle, porcentTitle, porcent, conta
         <div class="d-flex flex-column gap-2" style="width: 30%;">
             <span class="text-secondary">Player</span>
             <div class="d-flex align-items-center gap-2">
-                <a href="${player.profileurl}">
+                <a href="${player.profileurl}" target="_blank">
                     <img src="${player.avatar}" class="image-ranking rounded" style="max-width: 100%; width: 25px;">
                 </a>
             <span>${player.displayName}</span>

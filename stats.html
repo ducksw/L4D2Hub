@@ -69,6 +69,7 @@
     </div>
   </div>
 
+  <div id="alert"></div>
 
   <section class="bg bg-black p-2 mt-3 border border-dark rounded sec">
     <div class="d-flex justify-content-between align-items-center">
@@ -76,8 +77,8 @@
         <a href="stats.html"
           class="btn btn-success text-light rounded text-decoration-none focus-ring focus-ring-success">View Table</a>
       </div>
-      <form method="GET" action="stats.html" class="d-flex gap-2">
-        <input type="text" name="search" placeholder="Name"
+      <form method="GET" action="stats.html" class="d-flex gap-2" id="form">
+        <input type="text" name="search" placeholder="Name" id="input"
           class="input form-control bg bg-dark text-light border border-black focus-ring focus-ring-secondary">
         <button class="btn btn-primary focus-ring focus-rink-primary">Search</button>
       </form>
