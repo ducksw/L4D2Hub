@@ -12,7 +12,7 @@ function stats() {
     event.preventDefault();
     al.innerHTML = `
     <div class="alert alert-danger" role="alert">
-      Debe ingresar el nombre del jugador.
+      Debe ingresar el nombre de un jugador.
     </div>
     `
   }
