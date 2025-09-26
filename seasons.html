@@ -12,35 +12,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <link rel="icon" href="icon.webp" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="css/style.css">
-    <title>Liga Bulls</title>
+    <link rel="icon" href="icon.webp" type="image/gif" sizes="16x16">
 </head>
 
-<body id="body">
+<body>
 
     <header class="d-flex gap-4 bg bg-black border border-dark p-2 rounded mb-3" id="header"></header>
 
 
     <div class="d-none justify-content-between gap-4 bg bg-black border border-dark p-2 rounded mb-3 header"
-        id="mobile"></div>
-
-    <section class="bg bg-black p-2 mt-3 border border-dark rounded sec">
-        <div class="d-flex align-items-center justify-content-between">
-            <span class="text-light fs-4"><b>Liga Bulls</b></span>
-            <div>
-                <a href="#"
-                    class="btn btn-dark p-2 rounded text-decoration-none text-danger focus-ring focus-ring-secondary"
-                    id="download-stats">Descargar Stats</a>
-                <a href="champions.html"
-                    class="btn btn-dark p-2 rounded text-decoration-none text-danger focus-ring focus-ring-secondary"
-                    id="champions">Champions Bulls</a>
-                <a href=""
-                    class="btn btn-dark p-2 rounded text-decoration-none text-danger focus-ring focus-ring-secondary"
-                    id="aea">Ver matchs</a>
-            </div>
-        </div>
-    </section>
+        id="mobile">
+    </div>
 
     <section class="d-flex gap-3 align-items-center bg bg-black p-2 mt-3 border border-dark rounded sec"
         id="liga_season">
@@ -61,31 +44,10 @@
                 </thead>
                 <tbody id="liga-body"></tbody>
             </table>
-
-            <div class="legend-container">
-                <div class="legend-section">
-                    <span class="fs-5">Ascenso</span>
-                    <ul>
-                        <span class="dot blue"></span>Fase de grupos de la Champions Bulls<br /><br />
-                        <span class="dot green"></span>Play Off Champions Bulls<br /><br />
-                        <span class="dot orange"></span>Fase de grupos Marquez League<br /><br />
-                        <span class="dot red"></span>Descenso
-                    </ul>
-                </div>
-                <div class="legend-section">
-                    <span class="fs-5">Últimos 5 partidos</span>
-                    <ul>
-                        <li><span class="circle win"></span>Ganó</li>
-                        <li><span class="circle draw"></span>Empate</li>
-                        <li><span class="circle lose"></span>Perdió</li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="client/liga.js" type="module"></script>
+    <script src="client/seasons.js" type="module"></script>
     <script src="client/header.js"></script>
     <script src="client/layout_season.js"></script>
 </body>

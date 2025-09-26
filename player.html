@@ -2,145 +2,106 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <link rel="icon" href="icon.webp" type="image/gif" sizes="16x16">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="icon" href="icon.webp" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body id="body">
-  <header class="d-flex gap-4 bg bg-black border border-dark p-2 rounded mb-3">
-    <img style="max-width: 100%; width: 200px;" src="./image/title.png">
-    <nav class="d-flex flex-column">
-      <div class="d-flex gap-3">
-        <a href="index.html" class="text-danger text-decoration-none">[ Home ]</a>
-        <a href="stats.html" class="text-danger text-decoration-none">[ Stats ]</a>
-        <a href="rankings.html" class="text-danger text-decoration-none">[ Rankings ]</a>
-        <a href="noticias.html" class="text-danger text-decoration-none">[ Noticias ]</a>
-      </div>
-      <div class="d-flex gap-3">
-        <a href="liga.html" class="text-danger text-decoration-none">[ Liga/Champions ]</a>
-        <a href="teams.html" class="text-danger text-decoration-none">[ Teams ]</a>
-        <a href="admins.html" class="text-danger text-decoration-none">[ Admins ]</a>
-      </div>
-    </nav>
-  </header>
+    <header class="d-flex gap-4 bg bg-black border border-dark p-2 rounded mb-3" id="header"></header>
 
 
-  <div class="d-none justify-content-between gap-4 bg bg-black border border-dark p-2 rounded mb-3 header">
-    <a href="" class="text-decoration-none">
-      <h1 class="text-warning text-title">L4D2 Hub</h1>
-    </a>
-    <button class="btn btn-dark focus-ring focus-ring-secondary" type="button" data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><i class="bi bi-list"></i></button>
-  </div>
-
-  <div class="offcanvas offcanvas-top bg-gradient bg-black h-50" tabindex="-1" id="offcanvasTop"
-    aria-labelledby="offcanvasTopLabel">
-    <div class="offcanvas-header text-center">
-      <h3 class="text-center text-warning text-title" id="offcanvasTopLabel">L4D2 Hub</h3>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="d-none justify-content-between gap-4 bg bg-black border border-dark p-2 rounded mb-3 header"
+        id="mobile">
     </div>
-    <div class="offcanvas-body">
-      <nav class="d-flex flex-column text-center">
-        <div class="d-flex flex-column gap-3">
-          <a href="index.html" class="text-danger text-decoration-none">[ Home ]</a>
-          <a href="stats.html" class="text-danger text-decoration-none">[ Stats ]</a>
-          <a href="rankings.html" class="text-danger text-decoration-none">[ Rankings ]</a>
-          <a href="noticias.html" class="text-danger text-decoration-none">[ Noticias ]</a>
-          <a href="liga.html" class="text-danger text-decoration-none">[ Liga/Champions ]</a>
-          <a href="teams.html" class="text-danger text-decoration-none">[ Teams ]</a>
-          <a href="admins.html" class="text-danger text-decoration-none">[ Admins ]</a>
+
+    <section
+        class="d-flex justify-content-between bg bg-black p-2 border border-dark mt-3 rounded sec align-items-center">
+        <div class="d-flex justify-content-between w-25 gap-3">
+            <div class="d-flex flex-column">
+                <b class="text-secondary">Action</b>
+                <a href="stats.html">Stats Global</a>
+                <span id="link-profile"></span>
+            </div>
+
+            <div class="d-flex flex-column">
+                <b class="text-secondary">Download</b>
+                <a href="#" id="download-stats">Image (PNG)</a>
+            </div>
+
         </div>
-      </nav>
-    </div>
-  </div>
-
-  <section
-    class="d-flex justify-content-between bg bg-black p-2 border border-dark mt-3 rounded sec align-items-center">
-    <div class="d-flex justify-content-between w-25 gap-3">
-      <div class="d-flex flex-column">
-        <b class="text-secondary">Action</b>
-        <a href="stats.html">Stats Global</a>
-        <span id="link-profile"></span>
-      </div>
-
-      <div class="d-flex flex-column">
-        <b class="text-secondary">Download</b>
-        <a href="#" id="download-stats">Image (PNG)</a>
-      </div>
-
-    </div>
-    <div id="res"></div>
-  </section>
-
-  <main id="main" class="rounded" style="background-color: #121212;">
-    <section class="d-flex bg bg-black p-2 border border-dark mt-3 rounded sec">
-      <div class="d-flex flex-column w-100">
-        <b class="w-100 p-2 text-light text-center rounded h4 ranking">Stats of <b><span
-              id="playerTitle"></span></b></b>
-
-        <!-- ELO -->
-        <div id="res-elo"></div>
-
-        <hr class="border border-secondary" />
-
-        <!-- DAMAGE -->
-        <div id="res-damage"></div>
-
-        <hr class="border border-secondary" />
-
-        <!-- KILL -->
-        <div id="res-kill"></div>
-
-        <hr class="border border-secondary" />
-
-        <!-- WIN -->
-        <div id="res-win"></div>
-
-        <hr class="border border-secondary" />
-
-        <!-- loser -->
-        <div id="res-loser"></div>
-
-        <hr class="border border-secondary" />
-
-        <!-- draw -->
-        <div id="res-draw"></div>
-
-      </div>
+        <div id="res"></div>
     </section>
 
-    <section class="d-flex bg bg-black p-2 border border-dark mt-3 rounded sec">
-      <div class="d-flex flex-column w-100">
-        <b class="w-100 p-2 text-light text-center rounded h4 ranking">Liga Bulls of <b><span
-              id="playerTitle2"></span></b></b>
+    <main id="main" class="rounded" style="background-color: #121212;">
+        <section class="d-flex bg bg-black p-2 border border-dark mt-3 rounded sec">
+            <div class="d-flex flex-column w-100">
+                <b class="w-100 p-2 text-light text-center rounded h4 ranking">Stats of <b><span
+                            id="playerTitle"></span></b></b>
 
-        <!-- POINT -->
-        <div id="res-point"></div>
+                <!-- ELO -->
+                <div id="res-elo"></div>
 
-        <hr class="border border-secondary" />
+                <hr class="border border-secondary" />
 
-        <!-- MATCHES -->
-        <div id="res-matches"></div>
+                <!-- DAMAGE -->
+                <div id="res-damage"></div>
 
-      </div>
-    </section>
-  </main>
+                <hr class="border border-secondary" />
 
-  </div>
+                <!-- KILL -->
+                <div id="res-kill"></div>
+
+                <hr class="border border-secondary" />
+
+                <!-- WIN -->
+                <div id="res-win"></div>
+
+                <hr class="border border-secondary" />
+
+                <!-- loser -->
+                <div id="res-loser"></div>
+
+                <hr class="border border-secondary" />
+
+                <!-- draw -->
+                <div id="res-draw"></div>
+
+            </div>
+        </section>
+
+        <section class="d-flex bg bg-black p-2 border border-dark mt-3 rounded sec">
+            <div class="d-flex flex-column w-100">
+                <b class="w-100 p-2 text-light text-center rounded h4 ranking">Liga Bulls of <b><span
+                            id="playerTitle2"></span></b></b>
+
+                <!-- POINT -->
+                <div id="res-point"></div>
+
+                <hr class="border border-secondary" />
+
+                <!-- MATCHES -->
+                <div id="res-matches"></div>
+
+            </div>
+        </section>
+    </main>
+
+    </div>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="client/myStats.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="client/myStats.js" type="module"></script>
+    <script src="client/header.js"></script>
 </body>
 
 </html>

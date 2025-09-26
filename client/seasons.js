@@ -1,15 +1,7 @@
-import { players } from '../models/player.js';
+import { season_01 } from "../SEASONS/season_01.js";
 
-function champions(e) {
-    const msg = "Primero, se deben clasificar los jugadores para que pueda comenzar la Champions Bulls.";
-    alert(msg);
-    e.preventDefault()
-}
-
-function aea(e) {
-    alert("En proceso...");
-    e.preventDefault()
-}
+const params = new URLSearchParams(window.location.search);
+const id = params.get("temp");
 
 // colocar bordes a la tabla
 function getBorderColor(index) {
@@ -39,7 +31,7 @@ function renderMatchResult(letter) {
 
 function liga() {
     const tbody = document.getElementById("liga-body");
-    const topPlayer = [...players].sort((a, b) => b.points - a.points);
+    const topPlayer = [...season_01].sort((a, b) => b.points - a.points);
     tbody.innerHTML = "";
 
     topPlayer.forEach((player, index) => {
@@ -47,6 +39,7 @@ function liga() {
         tr.style.borderTop = "1px solid #222";
 
         tr.innerHTML = `
+            <title>L4D2 Hub | Temporada 01</title>
             <td style="text-align: center; padding: 10px; border-left: ${getBorderColor(index)};">
                 ${index + 1}
             </td>
@@ -71,29 +64,8 @@ function liga() {
     });
 }
 
-function capture() {
-    const div = document.getElementById("liga");
-    const date = new Date().toISOString().slice(0, 10);
-
-    setTimeout(() => {
-        html2canvas(div, {
-            useCORS: true,
-            allowTaint: false,
-            scale: 2
-        }).then(canvas => {
-            const imgURL = canvas.toDataURL("image/png");
-            const link = document.createElement("a");
-            link.href = imgURL;
-            link.download = `stats_${date}.png`
-            link.click();
-        });
-    }, 500)
+function init() {
+    liga();
 }
 
-document.addEventListener("DOMContentLoaded", liga);
-//document.getElementById('champions').addEventListener("click", champions);
-document.getElementById('aea').addEventListener("click", aea);
-document.getElementById("download-stats").addEventListener('click', function (e) {
-    e.preventDefault();
-    capture();
-});
+window.onload = init;
