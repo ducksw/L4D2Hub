@@ -133,14 +133,14 @@ function viewMatch(array) {
 			const infecteds_points = match.infecteds?.points;
 
 			if (survivors) {
-				image_player01.src = "../image/survivors.png";
+				image_player01.src = "./image/survivors.png";
 				image_player01.width = 140;
 				name_player01.innerHTML = "Survivors";
 				points_survivors.innerHTML = `<span class="fs-6">Points <span class="text-danger">${survivors_points}</span></span>`;
 			}
 
 			if (infecteds) {
-				image_player02.src = "../image/infected.webp";
+				image_player02.src = "./image/infected.webp";
 				image_player02.width = 140;
 				name_player02.innerHTML = "Infecteds";
 				points_infecteds.innerHTML = `<span class="fs-6">Points <span class="text-danger">${infecteds_points}</span></span>`;
