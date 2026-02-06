@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+																						 integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<link rel="icon" href="image/icon.webp" type="image/gif" sizes="16x16">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>L4D2 Hub</title>
+</head>
+
+<body>
+
+	<main class="d-flex">
+		<div class="d-flex flex-column w-100">
+			<header class="d-flex justify-content-between align-items-center w-100 bg-prin rounded-custom p-custom border border-black"
+					id="header">
+			</header>
+
+			<section class="d-flex w-100" style="gap: 20px; margin-top: 20px;">
+
+				<div class="d-flex flex-column osiii">
+
+					<!-- VERSUS -->
+					<div class="d-flex flex-column bg-prin rounded-custom p-custom border border-black">
+						<div class="title_aea justify-content-between align-items-center">
+							<b>Versus</b>
+							<div>
+								<a href="matches.html" class="btn btn-dark">Matches</a>
+							</div>
+						</div>
+
+						<div class="d-flex align-items-center justify-content-between gap-3">
+							<section class="d-flex flex-column justify-content-center gap-3">
+								<div class="d-flex justify-content-center align-items-center gap-3">
+									<img src="" id="image_player01" class="rounded">
+									<span id="name_player01" class="text-light fw-bold"></span>
+								</div>
+								<div id="points_survivors" class="badge text-bg-dark w-100"></div>
+							</section>
+
+							<!--<b class="fw-bold fs-2 text-warning">VS</b>-->
+							<img src="image/versus.svg" style="max-width: 100%; width: 60px;">
+
+							<section class="d-flex flex-column gap-3">
+								<div class="d-flex justify-content-center align-items-center gap-3">
+									<span id="name_player02" class="text-light fw-bold"></span>
+									<img src="" id="image_player02" class="rounded">
+								</div>
+								<div id="points_infecteds" class="justify-content-center badge text-bg-dark w-100"></div>
+							</section>
+						</div>
+
+					</div>
+
+					<!-- POLL -->
+					<div id="box_poll"></div>
+
+					<!-- NOTICIAS -->
+					<div class="d-flex flex-column bg-prin rounded-custom p-custom border border-black" style="margin-top: 20px;">
+						<b class="title_aea">Noticias de <b class="text-warning" style="text-shadow: 0 0 10px brown;">L4D2
+								Hub</b></b>
+						<div id="list_news" class="d-flex flex-column gap-2" style="overflow: auto;"></div>
+						<div class="d-flex justify-content-between align-items-center mt-3">
+							<a href="#" data-bs-toggle="modal" data-bs-target="#modalNews" class="btn btn-dark"><img
+																						   src="image/news.svg"> Ver más</a>
+							<span class="text-light">Publicado por <b class="text-warning" style="text-shadow: 0 0 10px brown;">L4D2
+									Hub</b></span>
+						</div>
+					</div>
+
+					<!-- CLIPS/VIDEOS -->
+					<div class="d-flex flex-column bg-prin rounded-custom p-custom border border-black" style="margin-top: 20px; height: 450px;">
+						<div class="title_aea justify-content-between align-items-center">
+							<b>Clips</b>
+							<div>
+								<a href="#" id="more_clip" class="btn btn-dark"><img src="image/clip.svg"> Ver más</a>
+							</div>
+						</div>
+						<p class="text-secondary">No hay <b>clips</b> publicados.</p>
+					</div>
+				</div>
+
+				<!-- PARTE DERECHA -->
+				<div class="d-flex flex-column aea">
+
+					<div class="d-flex flex-column bg-prin rounded-custom p-custom border border-black">
+						<b class="title_aea" id="title_aea">Selecciona tu perfil</b>
+
+						<button type="button" id="btn_player" class="btn btn-danger" data-bs-toggle="modal"
+																					 data-bs-target="#miModal">Selecciona tu perfil</button>
+
+						<div id="profile"></div>
+
+					</div>
+
+					<!-- WARNING -->
+					<div class="d-flex flex-column bg-prin rounded-custom p-custom"
+						 style="margin-top: 20px; border: 1px solid gold;">
+						<b class="title_aea">Warning</b>
+						<span style="color: darkgrey;">Si no encuentras tu perfil, comunícate con los admins (Aldo o
+							Ducks) para que te agreguen.</span>
+					</div>
+
+					<div class="d-flex flex-column bg-prin rounded-custom p-custom border border-black" style="margin-top: 20px;">
+						<b class="title_aea"><a href="" class="text-decoration-none text-white">Players</a></b>
+						<div id="list_players" class="d-flex flex-column gap-2" style="height: 450px; overflow: auto;">
+						</div>
+					</div>
+				</div>
+
+			</section>
+		</div>
+
+	</main>
+
+	<!-- Modal -->
+	<div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" style="max-width: 100%; width: 800px;">
+			<div class="modal-content bg bg-black text-light border border-dark">
+				<div class="modal-header border-bottom border-dark">
+					<b class="modal-title text-danger fs-3" id="miModalLabel">Selecciona tu perfil</b>
+					<button type="button" class="btn-close bg bg-danger" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+				</div>
+				<div class="modal-body">
+					<div id="list_modal_players" class="d-flex flex-column gap-2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal news -->
+	<div class="modal fade" id="modalNews" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" style="max-width: 100%; width: 800px;">
+			<div class="modal-content text-light border border-dark" style="background-color: #111111;">
+				<div class="modal-header border-bottom border-dark">
+					<b class="modal-title text-warning fs-3" id="miModalLabel"><img src="image/news.svg"
+																					style="max-width: 100%; width: 50px;"> Todas las noticias</b>
+					<button type="button" class="btn-close bg bg-danger" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+				</div>
+				<div class="modal-body">
+					<div id="list_modal_noticias" class="d-flex flex-column gap-2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="mt-4 text-center">
+		<b class="text-danger"><span class="text-warning">© 2025</span> L4D2 Hub <span class="text-secondary">|</span>
+			Liga Bulls</b>
+	</footer>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+			crossorigin="anonymous"></script>
+	<script src="./js/index.js" type="module"></script>
+	<script src="./js/header.js" type="module"></script>
+</body>
+
+</html>

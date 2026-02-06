@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+                                                                                         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/stats.css">
+    <link rel="icon" href="image/icon.webp" type="image/gif" sizes="16x16">
+    <title>L4D2 Hub</title>
+</head>
+
+<body>
+    <header class="d-flex justify-content-between align-items-center w-100 bg-prin rounded-custom p-custom border border-black" id="header">
+    </header>
+
+    <section class="d-flex align-items-center justify-content-center gap-3 bg-prin p-3 rounded border border-black" style="margin-top: 20px;">
+        <a href="" class="text-decoration-none" id="my_stats" style="display: none;"></a> |
+        <a href="rankings.html" class="text-decoration-none">Rankings</a> |
+        <a href="#" id="download_data" class="text-decoration-none">Data (JSON)</a> |
+    </section>
+
+    <section class="d-flex flex-column bg-prin p-2 rounded border border-black" style="margin-top: 20px;">
+        <div class="d-flex justify-content-between align-items-center gap-2 mb-4">
+            <div class="d-flex" style="gap: 120px;">
+                <span class="text-warning">Total Players: <b class="text-danger" id="player_total"></b></span>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="text-warning">Show</span>
+                    <select class="form-control form-control-sm bg bg-black text-light border border-dark focus-ring focus-ring-dark" id="select_value">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span class="text-warning">players</span>
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <span class="text-warning">Search:</span>
+                <input type="text" id="searchInput"
+                                   class="form-control form-control-sm bg bg-black border border-dark text-light focus-ring focus-ring-dark"
+                                   style="max-width: 100%; width: 200px;">
+            </div>
+        </div>
+        <div id="list_stats" style="overflow: auto;"></div>
+    </section>
+
+
+    <script src="js/stats.js" type="module"></script>
+    <script src="js/header.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="icon" href="image/icon.webp" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <header class="d-flex justify-content-between align-items-center w-100 bg-prin rounded-custom p-custom" id="header">
+  </header>
+
+  <section class="d-flex" style="margin-top: 20px; gap: 20px;">
+    <section class="d-flex flex-column bg-prin rounded-custom p-custom w-100" style="height: 100%;">
+      <b class="title_aea" id="title_post"></b>
+      <div id="post_view"></div>
+    </section>
+    <section class="d-flex flex-column bg-prin rounded-custom p-custom"
+      style="max-width: 100%; width: 600px; height: 100%;">
+      <b class="title_aea"><img src="image/news.svg"> Otras noticias</b>
+      <div id="list_news" class="d-flex flex-column gap-2" style="height: 450px; overflow: auto;"></div>
+    </section>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="./js/noticia.js" type="module"></script>
+  <script src="./js/header.js" type="module"></script>
+</body>
+
+</html>

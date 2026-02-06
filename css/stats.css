@@ -1,0 +1,26 @@
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 1rem;
+}
+
+#table_container {
+  overflow: auto;
+}
+
+tr:nth-child(even) {
+  /* background-color: #26262a; */
+  background-color: black;
+}
+
+#steamId {
+  color: orange;
+}
+
+.links {
+  color: #0d6efd;
+}

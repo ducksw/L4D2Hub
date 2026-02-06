@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 1rem;
+}
+
+#table_container {
+  overflow: auto;
+}
+
+tr:nth-child(even) {
+  background-color: black;
+}
+
+.points {
+  display: inline-block;
+  background-color: #111;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: #111111;
+  border: 1px solid #333;
+  font-weight: bold;
+  font-family: "Coiny";
+  color: gold;
+}

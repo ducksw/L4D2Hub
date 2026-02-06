@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+body {
+	padding: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: black;
+	max-width: 100%;
+	width: 1200px;
+	margin: auto;
+	font-family: "Inter";
+	font-size: 15px;
+
+	background-image: url("../image/bg.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-attachment: fixed;
+}
+
+body::-webkit-scrollbar {
+	width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+	background: #111111;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: #222222;
+	border-radius: 20px;
+}
+
+
+#box_players::-webkit-scrollbar {
+	width: 12px;
+}
+
+#box_players::-webkit-scrollbar-track {
+	/* background: #111111; */
+	background: black;
+}
+
+#box_players::-webkit-scrollbar-thumb {
+	background-color: #222222;
+	border-radius: 20px;
+}
+
+.bg-prin {
+	/*background-color: #18191A;*/
+	background-color: #111111;
+}
+
+.osiii {
+	width: 58%;
+}
+
+.aea {
+	width: 40.5%;
+	height: 100%;
+}
+
+.p-custom {
+	padding: 18px 24px;
+}
+
+.rounded-custom {
+	border-radius: 10px;
+}
+
+.title_aea {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 16px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #2A2A2A;
+	/* font-weight: 600; */
+	font-size: 24px;
+	line-height: 30px;
+	color: #FFFFFF;
+}
+
+#list_players::-webkit-scrollbar {
+	width: 12px;
+}
+
+#list_players::-webkit-scrollbar-track {
+	background: #111111;
+}
+
+#list_players::-webkit-scrollbar-thumb {
+	background-color: #222222;
+	border-radius: 20px;
+}
+
+.box-elo {
+	display: inline-block;
+	background-image: url("../image/elo.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 70px;
+	text-align: center;
+	line-height: 40px;
+	color: white;
+	font-weight: bold;
+	border-radius: 4px;
+}
+
+#list_news::-webkit-scrollbar {
+	width: 12px;
+}
+
+#list_news::-webkit-scrollbar-track {
+	background: #111111;
+}
+
+#list_news::-webkit-scrollbar-thumb {
+	background-color: #222222;
+	border-radius: 20px;
+}
+
+#box_poll {
+	display: none;
+}
+
+#nav a:hover {
+	text-decoration: underline !important;
+}
+
+.omg {
+	border-radius: 10px 10px 0px 0px;
+	-webkit-border-radius: 10px 10px 0px 0px;
+	-moz-border-radius: 10px 10px 0px 0px;
+}
+
+#box_survivor {
+	border-radius: 0px 0px 10px 10px;
+	-webkit-border-radius: 0px 0px 10px 10px;
+	-moz-border-radius: 0px 0px 10px 10px;
+	border-top: none !important;
+}
+
+#box_infected {
+	border-radius: 0px 0px 10px 10px;
+	-webkit-border-radius: 0px 0px 10px 10px;
+	-moz-border-radius: 0px 0px 10px 10px;
+	border-top: none !important;
+}
+
+#steamId::placeholder {
+	color: grey;
+}
+
+#password::placeholder {
+	color: grey;
+}
+
+.number_season {
+	display: inline-block;
+	background-color: #111;
+	padding: 6px 12px;
+	border-radius: 10px;
+	background: #111111;
+	border: 1px solid #333;
+	font-weight: bold;
+	font-family: "Coiny";
+	color: gold;
+}
+
+.glow_surv {
+	text-shadow: 0 0 15px blue;
+}
+
+.glow_inf {
+	text-shadow: 0 0 15px red;
+}
+
+.card_stats_profile {
+	max-width: 100%;
+	width: 255px;
+	margin: auto;
+}
