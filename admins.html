@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Overview - L4D2 HUB</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0a0a0a;
+      --bg-card: #121212;
+      --bg-header: #1a1a1a;
+      --border-color: #333333;
+      --accent-red: #d32f2f;
+      --accent-gold: #ffb300;
+      --text-main: #e0e0e0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar-custom {
+      background-color: var(--bg-card);
+      border-bottom: 2px solid var(--accent-red);
+    }
+
+    .sidebar {
+      background-color: var(--bg-card);
+      border-right: 1px solid var(--border-color);
+      min-height: calc(100vh - 56px);
+    }
+
+    .nav-link {
+      color: var(--text-main);
+      border-radius: 4px;
+      margin-bottom: 4px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background-color: #1f1f1f;
+      color: var(--accent-gold);
+      border-left: 3px solid var(--accent-red);
+    }
+
+    .card-custom {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header-custom {
+      background-color: var(--bg-header);
+      border-bottom: 1px solid var(--border-color);
+      color: var(--accent-gold);
+      font-weight: bold;
+    }
+
+    .btn-red {
+      background-color: var(--accent-red);
+      color: #fff;
+      border: none;
+    }
+
+    .btn-red:hover {
+      background-color: #b71c1c;
+      color: #fff;
+    }
+
+    .btn-gold {
+      background-color: var(--accent-gold);
+      color: #000;
+      border: none;
+      font-weight: bold;
+    }
+
+    .btn-gold:hover {
+      background-color: #ffa000;
+      color: #000;
+    }
+
+    .table-dark-custom {
+      --bs-table-bg: var(--bg-card);
+      --bs-table-border-color: var(--border-color);
+      color: var(--text-main);
+    }
+
+    /* Estilos para Tarjetas de Estadísticas */
+    .stat-card {
+      border-left: 4px solid var(--border-color);
+      transition: transform 0.2s;
+    }
+    .stat-card:hover {
+      transform: translateY(-3px);
+    }
+    .stat-card.red { border-left-color: var(--accent-red); }
+    .stat-card.gold { border-left-color: var(--accent-gold); }
+    .stat-card.blue { border-left-color: #0d6efd; }
+    .stat-card.green { border-left-color: #198754; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom px-3">
+    <a class="navbar-brand fw-bold text-danger fs-4" href="index.html">L4D2 <span class="text-warning">HUB</span></a>
+    <div class="ms-auto d-flex align-items-center">
+      <span class="me-3 text-warning"><i class="bi bi-person-fill"></i> ducks basado <span class="badge bg-danger">ADMIN</span></span>
+      <button class="btn btn-sm btn-outline-danger">Cerrar Sesión</button>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      
+      <nav class="col-md-2 d-none d-md-block sidebar p-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="players.html"><i class="bi bi-people-fill me-2"></i> Jugadores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="posts.html"><i class="bi bi-newspaper me-2"></i> Noticias / Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="matches.html"><i class="bi bi-controller me-2"></i> Matches / Versus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="polls.html"><i class="bi bi-bar-chart-line-fill me-2"></i> Encuestas</a>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="col-md-10 ms-sm-auto px-md-4 py-4">
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="text-warning m-0"><i class="bi bi-speedometer2"></i> Vista General del Sistema</h3>
+          <span class="text-secondary small">Panel Informativo</span>
+        </div>
+
+        <div class="row g-3 mb-4">
+          
+          <div class="col-md-3">
+            <div class="card card-custom stat-card gold p-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="text-secondary mb-1">Total Jugadores</h6>
+                  <h2 class="text-warning fw-bold mb-0">24</h2>
+                </div>
+                <i class="bi bi-people-fill text-warning fs-1"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card card-custom stat-card red p-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="text-secondary mb-1">Posts Publicados</h6>
+                  <h2 class="text-danger fw-bold mb-0">12</h2>
+                </div>
+                <i class="bi bi-newspaper text-danger fs-1"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card card-custom stat-card blue p-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="text-secondary mb-1">Matches Registrados</h6>
+                  <h2 class="text-primary fw-bold mb-0">8</h2>
+                </div>
+                <i class="bi bi-controller text-primary fs-1"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card card-custom stat-card green p-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="text-secondary mb-1">Encuestas Activas</h6>
+                  <h2 class="text-success fw-bold mb-0">3</h2>
+                </div>
+                <i class="bi bi-bar-chart-line-fill text-success fs-1"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card card-custom mb-4">
+          <div class="card-header card-header-custom d-flex justify-content-between align-items-center">
+            <span><i class="bi bi-trophy-fill"></i> Top Jugadores</span>
+            <a href="players.html" class="btn btn-sm btn-gold"><i class="bi bi-gear-fill"></i> Administrar Jugadores</a>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-dark-custom align-middle mb-0">
+                <thead class="table-dark">
+                  <tr>
+                    <th>#</th>
+                    <th>Jugador</th>
+                    <th>Puntos</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td><strong>Helikoptero matafamosos</strong></td>
+                    <td><span class="text-warning font-monospace">410</span></td>
+                    <td><span class="badge bg-success">Online</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td><strong>ducks basado</strong></td>
+                    <td><span class="text-warning font-monospace">380</span></td>
+                    <td><span class="badge bg-secondary">Offline</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          
+          <div class="col-md-6 mb-3 mb-md-0">
+            <div class="card card-custom h-100">
+              <div class="card-header card-header-custom d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-controller"></i> Último Match Registrado</span>
+                <a href="matches.html" class="btn btn-sm btn-outline-warning">Gestionar</a>
+              </div>
+              <div class="card-body">
+                <p class="mb-1 text-secondary">Enfrentamiento Versus:</p>
+                <h5 class="text-light">Equipo A (P DIDDY) <span class="text-danger fw-bold">VS</span> Equipo B (HeiSenBerG)</h5>
+                <hr class="border-secondary">
+                <p class="mb-0 text-secondary">Estado / Resultado: <span class="text-warning font-monospace fw-bold">Victoria Equipo A</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card card-custom h-100">
+              <div class="card-header card-header-custom d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-bar-chart-line-fill"></i> Encuesta Destacada</span>
+                <a href="polls.html" class="btn btn-sm btn-outline-warning">Gestionar</a>
+              </div>
+              <div class="card-body">
+                <h6 class="text-light">¿Quién gana la Champions Bulls?</h6>
+                <div class="mt-3">
+                  <div class="d-flex justify-content-between small text-secondary mb-1">
+                    <span>Opción 1: P DIDDY</span>
+                    <span class="text-warning">65%</span>
+                  </div>
+                  <div class="progress mb-2" style="height: 6px;">
+                    <div class="progress-bar bg-warning" style="width: 65%"></div>
+                  </div>
+                  <div class="d-flex justify-content-between small text-secondary mb-1">
+                    <span>Opción 2: HeiSenBerG</span>
+                    <span class="text-danger">35%</span>
+                  </div>
+                  <div class="progress" style="height: 6px;">
+                    <div class="progress-bar bg-danger" style="width: 35%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card card-custom mb-4">
+          <div class="card-header card-header-custom d-flex justify-content-between align-items-center">
+            <span><i class="bi bi-newspaper"></i> Última Publicación</span>
+            <a href="posts.html" class="btn btn-sm btn-red"><i class="bi bi-plus-circle"></i> Crear Nuevo Post</a>
+          </div>
+          <div class="card-body">
+            <h5 class="text-warning">INICIOS DE PLAY OFF</h5>
+            <p class="text-secondary small mb-2"><i class="bi bi-clock"></i> Publicado recientemente</p>
+            <p class="card-text text-light">
+              P DIDDY VS HeiSenBerG. P DIDDY ya clasificado a la Champions Bulls con 15 puntos se debe enfrentar a HeiSenBerG por el cupo del 4to lugar...
+            </p>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+import { API_URL } from "./config.js";
+// import { players } from '../models/player.js';
+
+function champions(e) {
+  const msg = "Primero, se deben clasificar los jugadores para que pueda comenzar la Champions Bulls.";
+  alert(msg);
+  e.preventDefault()
+}
+
+function aea(e) {
+  alert("En proceso...");
+  e.preventDefault()
+}
+
+// colocar bordes a la tabla
+function getBorderColor(index) {
+  if (index < 4) return "4px solid #448aff"; // champions bulls
+  if (index === 4) return "4px solid green"; // Play Off Champions bulls
+  if (index >= 5 && index <= 8) return "4px solid orange"; // Fase de grupos Marquez League
+  if (index >= 11 && index <= 14) return "4px solid red"; // Descenso
+  return "none";
+}
+
+// renderizar los colores segun el match
+function renderMatchResult(letter) {
+  let color = "#383b42", glow = "";
+  if (letter === "W") {
+    color = "#66bb6a";
+    glow = "limegreen";
+  } else if (letter === "L") {
+    color = "#ef5350";
+    glow = "red";
+  } else if (letter === "D") {
+    color = "#b0bec5";
+    glow = "gray";
+  }
+
+  return `<span style="display:inline-block;width:10px;height:10px;background-color:${color};border-radius:50%;margin:2px;${glow ? `box-shadow: 0px 0px 10px ${glow};` : ''}"></span>`;
+}
+
+async function liga(players) {
+  const tbody = document.getElementById("liga-body");
+  const topPlayer = [...players].sort((a, b) => b.points - a.points);
+  tbody.innerHTML = "";
+
+  topPlayer.forEach((player, index) => {
+    const tr = document.createElement("tr");
+    tr.style.borderTop = "1px solid #222";
+
+    tr.innerHTML = `
+            <td style="text-align: center; padding: 10px; border-left: ${getBorderColor(index)};">
+                ${index + 1}
+            </td>
+            <td style="padding: 10px;">${player.displayName}</td>
+            <td style="text-align: center; padding: 10px;">
+                <a href="${player.profileurl}" target="_blank">
+                    <img src="${player.avatar}" alt="profile" class="rounded" style="max-width: 100%; width: 35px; border-radius: 5px;">
+                </a>
+            </td>
+            <td style="padding: 10px; color: orange;">${player.steamId}</td>
+            <td style="text-align: center; padding: 10px;">
+                <span class="bg-black text-warning" style="display: inline-block; background-color: #111; padding: 6px 12px; border-radius: 10px; background: #111; border: 1px solid #333; font-weight: bold;" id="points">
+                    ${player.points}
+                </span>
+            </td>
+            <td style="text-align: center; padding: 10px;">
+                ${player.lastMatches.map(renderMatchResult).join('')}
+            </td>
+        `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+function capture() {
+  const div = document.getElementById("liga");
+  const date = new Date().toISOString().slice(0, 10);
+
+  setTimeout(() => {
+    html2canvas(div, {
+      useCORS: true,
+      allowTaint: false,
+      scale: 2
+    }).then(canvas => {
+      const imgURL = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = imgURL;
+      link.download = `stats_${date}.png`
+      link.click();
+    });
+  }, 500)
+}
+
+//document.getElementById('champions').addEventListener("click", champions);
+document.getElementById('aea').addEventListener("click", aea);
+document.getElementById("download-stats").addEventListener('click', function (e) {
+  e.preventDefault();
+  capture();
+});
+
+async function init() {
+  const response = await fetch(API_URL + "/players");
+  const players = await response.json();
+
+  liga(players);
+}
+
+window.onload = init;

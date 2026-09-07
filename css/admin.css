@@ -1,0 +1,180 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+  --bg-main: #0a0a0a;
+  --bg-card: #121212;
+  --bg-header: #1a1a1a;
+  --border-color: #333333;
+  --accent-red: #d32f2f;
+  --accent-gold: #ffb300;
+  --text-main: #e0e0e0;
+}
+
+body {
+  /* padding: 10px; */
+  /* background-color: #121212; */
+  /* background-color: #0A0B0B; */
+  background-color: #121212;
+  /* background-color: black; */
+  /* font-family: "Inter", sans-serif; */
+  font-family: "JetBrains Mono";
+  /* font-family: "Source Code Pro"; */
+  /* font-family: "Cascadia Mono"; */
+  /* font-family: "Inter"; */
+  max-width: 100%;
+  /* width: 1500px; */
+  /* width: 1600px; */
+  /* width: 1700px; */
+  /* width: 1800px; */
+  /* width: 1300px; */
+  margin: auto;
+  /* font-size: .415; */
+  /* font-size: 15px; */
+  /* font-size: 14px; */
+  /* font-size: 14pt; */
+  /* font-size: 1.2em; */
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #222222;
+  border-radius: 20px;
+}
+
+.bg-prin {
+  background-color: #131312;
+}
+
+.border_custom {
+  border: 1px solid #333333;
+}
+
+.sidebar {
+  /* min-height: calc(100vh - 56px); */
+  height: 100%;
+  /* position: sticky;
+  top: 0; */
+}
+
+.nav-link {
+  color: white !important;
+  border-radius: 4px !important;
+  margin-bottom: 4px !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  /* background-color: #1f1f1f !important; */
+  background-color: #1a1a1a;
+  color: #ffb300 !important;
+  border-left: 3px solid #d32f2f !important;
+}
+
+.nav-link img {
+  max-width: 100%;
+  width: 20px;
+}
+
+.image_icon {
+  max-width: 100%;
+  width: 30px;
+}
+
+.color_glow {
+  text-shadow: 0 0 5px orange;
+}
+
+.card-custom {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card-header-custom {
+  background-color: var(--bg-header);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--accent-gold);
+  font-weight: bold;
+}
+
+.stat-card.gold {
+  border-left-color: var(--accent-gold);
+}
+
+.stat-card {
+  border-left: 4px solid var(--border-color);
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.stat-card.red {
+  border-left-color: var(--accent-red);
+}
+
+.stat-card.gold {
+  border-left-color: var(--accent-gold);
+}
+
+.stat-card.blue {
+  border-left-color: #0d6efd;
+}
+
+.stat-card.green {
+  border-left-color: #198754;
+}
+
+.title_custom {
+  padding: 10px;
+  /* background-color: #1A1B1B; */
+  background-color: #111111;
+  -webkit-border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  -moz-border-radius-topright: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+
+}
+
+tr:nth-child(even){background-color: #0c0c0c;}
+
+#posts_hover:hover {
+  background-color: #0a0a0a !important;
+  transition: all 500ms !important;
+}
+
+#posts_hover {
+  transition: all 500ms !important;
+}
+
+.posts_hover_bg {
+  /* background-color: #1a1a1a !important; */
+  background-color: #0c0c0c;
+}
+.post-editing {
+    /* background-color: black !important; */
+    background-color: #222222;
+}
+
+#nav_bar {
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh;
+  align-self: flex-start;
+}

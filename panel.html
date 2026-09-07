@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="icon" href="icon.webp" type="image/gif" sizes="16x16">
+  <title>L4D2 Hub - panel</title>
+</head>
+
+<body>
+  <header id="header_admin"></header>
+
+  <section class="d-flex">
+    <div id="nav_bar"></div>
+
+    <main class="w-100 p-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="text-warning m-0">
+          <img src="image/dashboard_icon.svg" class="image_icon"></i> Vista General del Sistema
+        </h3>
+        <a href="index.html" target="_blank" class="text-danger text-decoration-none small">L4D2Hub</a>
+      </div>
+
+      <div class="row g-3 mb-4">
+
+        <div class="col-md-3">
+          <div class="card card-custom stat-card gold p-3 bg bg-black">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="text-secondary mb-1">Players</h6>
+                <h2 class="text-warning fw-bold mb-0" id="stat_player"></h2>
+              </div>
+              <i class="bi bi-people-fill text-warning fs-1"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card card-custom stat-card red p-3 bg bg-black">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="text-secondary mb-1">Posts</h6>
+                <h2 class="text-danger fw-bold mb-0" id="stat_post"></h2>
+              </div>
+              <i class="bi bi-newspaper text-danger fs-1"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card card-custom stat-card blue p-3 bg bg-black">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="text-secondary mb-1">Matches</h6>
+                <h2 class="text-primary fw-bold mb-0" id="stat_match"></h2>
+              </div>
+              <i class="bi bi-controller text-primary fs-1"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card card-custom stat-card green p-3 bg bg-black">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="text-secondary mb-1">Poll</h6>
+                <h2 class="text-success fw-bold mb-0" id="stat_poll"></h2>
+              </div>
+              <i class="bi bi-bar-chart-line-fill text-success fs-1"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TABLE PLAYER -->
+
+      <div id="latest_player"></div>
+
+      <!-- ULTIMA NOTICIA -->
+
+      <div id="latest_news"></div>
+
+    </main>
+
+  </section>
+
+  <script src="client/panel.js" type="module"></script>
+  <script src="client/header_admin.js" type="module"></script>
+
+</body>
+
+</html>
