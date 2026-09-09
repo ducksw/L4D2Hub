@@ -8,9 +8,9 @@ footer.innerHTML = `
         <i class="text-secondary">L4D2Hub competitive</i>
       </div>
       <div class="d-flex gap-5">
-        <a href="../faq.html" class="text-light text-decoration-none footer-link-hover">FAQ</a>
-        <a href="" class="text-light text-decoration-none footer-link-hover">Rules</a>
-        <a href="" class="text-light text-decoration-none footer-link-hover">Contact</a>
+        <a href="../faq.html" class="text-secondary text-decoration-none footer-link-hover">FAQ</a>
+        <a href="" class="text-secondary text-decoration-none footer-link-hover">Rules</a>
+        <a href="" class="text-secondary text-decoration-none footer-link-hover">Contact</a>
       </div>
     </div>
 

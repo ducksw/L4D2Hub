@@ -17,7 +17,7 @@ nav_bar.innerHTML = `
     <a href="panel.html" class="d-flex gap-2 nav-link p-2"><img src="../image/dashboard_icon.svg">Dashboard</a>
     <a href="../panel_players.html" class="d-flex gap-2 nav-link p-2"><img src="../image/users_icon.svg">Players</a>
     <a href="../panel_posts.html" class="d-flex gap-2 nav-link p-2"><img src="../image/news_icon.svg">Posts</a>
-    <a href="" class="d-flex gap-2 nav-link p-2"><img src="../image/game_icon.svg">Matches</a>
+    <a href="../panel_matches.html" class="d-flex gap-2 nav-link p-2"><img src="../image/game_icon.svg">Matches</a>
     <a href="" class="d-flex gap-2 nav-link p-2"><img src="../image/poll_icon.svg">Poll</a>
   </div>
 `;

@@ -523,6 +523,16 @@ font-weight: bold !important;
   #footer_copy {
     text-align: center;
   }
+
+  #box_image_anuncio {
+    max-width: 100% !important;
+    width: 150px !important;
+  }
+
+  #box_anuncio {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 }
 
 @keyframes blink {

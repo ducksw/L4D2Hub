@@ -95,7 +95,13 @@ function viewProfile(players) {
         <!-- avatar -->
         <div class="position-relative me-3" style=" width: 90px; height: 90px; flex-shrink: 0; " >
           <div class="border border-secondary" style=" position: absolute; width: 100%; height: 100%; transform: rotate(3deg);"></div>
-          <img src="${profile.avatar}" alt="${profile.displayName}" class="border border-dark" style=" position: relative; width: 90px; height: 90px; object-fit: cover;"></div>
+          <img src="${profile.avatar}" alt="${profile.displayName}" class="border border-dark" style=" position: relative; width: 90px; height: 90px; object-fit: cover;">
+
+
+          <span class="position-absolute top-0 start-100 translate-middle">
+            <img src="image/rank_${profile.rank.toLowerCase()}.svg" class="image_rank" style="width: 40px; height: 40px;">
+          </span>
+        </div>
         
         <!-- INFO -->
         <div class="d-flex flex-column" style="min-width: 0; flex: 1;">
@@ -178,16 +184,21 @@ async function list_players_index(players) {
   }
 
   cant_players.innerHTML = players.length;
-
 }
 
-async function viewMatch(matchs) {
+async function viewMatch(matchs, players) {
   if (matchs.length) {
     for (const match of matchs.slice(0, 1).reverse()) {
       const survivors = match.survivors?.players;
       const infecteds = match.infecteds?.players;
       const survivors_points = match.survivors?.points;
       const infecteds_points = match.infecteds?.points;
+      const live = match.live;
+
+      if (live) {
+        live_icon.src = "./image/live.svg";
+        live_icon.classList.add("live-blink");
+      }
 
       // cantidad total de players en el match
       cant_in_game.innerHTML = survivors.length + infecteds.length;
@@ -206,7 +217,35 @@ async function viewMatch(matchs) {
         points_infecteds.innerHTML = `<span class="text-light">Score: <span style="color: #555555;">[<span class="text-danger">${infecteds_points}</span>]</span></span>`
       }
 
-      console.log("S", survivors, "I", infecteds);
+      /** **** CHAT LOG **** **/
+
+      const log_survivors = document.getElementById("log_survivors");
+      const log_infecteds = document.getElementById("log_infecteds");
+      const timeStr = getCurrentTime()
+
+      let ret = "";
+
+      ret += `<div class="d-flex align-items-center gap-1 mb-1">`;
+      ret += `  <span class="text-secondary">${timeStr}</span>`;
+      ret += `  <span class="fw-bold ms-1 text-warning">L4D2Hub:</span>`;
+      ret += `  <span class="fw-bold text-primary">Survivors</span>`;
+
+      for (const s of survivors) {
+        // const p = players.find(player => player.id === s.id || player.displayName === s.displayName);
+
+        // const avatarUrl = p.avatar
+        // ret += `
+        //   <span class="d-inline-flex align-items-center bg-dark text-light px-1 rounded border border-secondary" style="font-size: 12px;">
+        //     <img src="${avatarUrl}" width="16" height="16" class="rounded-circle me-1">
+        //     ${s.displayName}
+        //     <span class="text-muted ms-1">[R]</span>
+        //   </span>
+        // `;
+      }
+
+      ret += `</div>`;
+
+      log_survivors.innerHTML = ret;
     }
   }
 
@@ -214,6 +253,13 @@ async function viewMatch(matchs) {
     survivol_image.src = "../image/none.jpg";
     infected_image.src = "../image/none.jpg"
   }
+
+}
+
+function getCurrentTime() {
+  const now = new Date();
+  console.log(now);
+  return now.toTimeString().substring(0, 5);
 }
 
 function logout() {
@@ -239,7 +285,7 @@ async function init() {
 
   selectProfile(players);
   list_players_index(players);
-  viewMatch(matchs);
+  viewMatch(matchs, players);
 
   if (steam_id) {
     viewProfile(players);

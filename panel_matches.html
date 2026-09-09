@@ -19,44 +19,56 @@
 
 <body>
   <header id="header_admin"></header>
-
   <section class="d-flex">
 
     <div id="nav_bar"></div>
-
     <div class="w-100 p-4">
-      <div class="d-flex justify-content-between">
-        <h3 class="text-warning"><img src="image/news_icon.svg" style="max-width: 100%; width: 30px;"> Posts</h3>
-        <div>
-          <button class="btn btn-primary" id="btn_create">Create</button>
-          <button class="btn btn-success" id="btn_update">Update</button>
+      <h3 class="text-warning">Matches</h3>
+
+      <div class="d-flex align-items-center gap-3 w-100 mt-4 bg bg-black p-3 rounded border border-dark">
+
+        <!-- SURVIVORS -->
+        <div class="d-flex flex-column flex-fill" style="min-width: 0;">
+          <div id="select_suvivors"></div>
+          <span class="mt-5 text-primary text-center fs-2">SURVIVORS</span>
+          <div id="box_suvivors" class="d-flex flex-column gap-2 border border-dark rounded p-2 mt-2" style="height: 400px; background-color: #111111;">
+          </div>
         </div>
+
+        <div class="d-flex flex-column text-center">
+          <span class="text-warning fs-2">VERSUS</span>
+          <button class="btn btn-danger focus-ring focus-ring-danger" id="create_match">CREAR MATCH!!</button>
+          <div id="select_maps"></div>
+        </div>
+
+        <!-- INFECTEDS -->
+        <div class="d-flex flex-column flex-fill" style="min-width: 0;">
+          <div id="select_infecteds"></div>
+          <span class="mt-5 text-danger text-center fs-2">INFECTEDS</span>
+          <div id="box_infecteds" class="d-flex flex-column gap-2  border border-dark rounded p-2 mt-2" style="height: 400px; background-color: #111111;"></div>
+        </div>
+
       </div>
 
-      <div class="d-flex flex-column mt-3">
-        <input type="text" class="bg bg bg-black border border-dark focus-ring focus-ring-dark p-2 rounded text-danger" id="title_input" placeholder="Título"> 
-        <textarea name="" class="mt-3 bg bg bg-black border border-dark focus-ring focus-ring-dark p-2 rounded text-light" id="text_input" style="height: 500px; resize: none;" placeholder="Texto"></textarea>
-
-        <input type="text" class="bg bg bg-black border border-dark focus-ring focus-ring-dark p-2 rounded text-danger mt-3" id="image_link_input" placeholder="Link de la imagen"> 
-      </div>
 
       <div class="d-flex flex-column bg bg-black rounded border border-dark mt-4">
         <div class="d-flex justify-content-between title_custom align-items-center">
           <div>
-            <img src="/image/news_icon.svg" style="max-width: 100%; width: 30px;">
-            <span class="text-warning">Últimos Posts</span>
+            <img src="image/icon-cham.svg" style="max-width: 100%; width: 30px;">
+            <span class="text-warning">Matches</span>
           </div>
         </div>
 
         <div class="d-flex flex-column">
-          <div id="box_posts" class="d-flex flex-column gap-2 p-3"></div>
+          <div id="box_matches"></div>
         </div>
 
       </div>
+    </div>
 
   </section>
-
   <script src="client/header_admin.js" type="module"></script>
-  <script src="client/panel_posts.js" type="module"></script>
+  <script src="client/panel_matches.js" type="module"></script>
 </body>
+
 </html>
