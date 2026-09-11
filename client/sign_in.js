@@ -1,15 +1,12 @@
 import { API_URL } from "./config.js";
 
 const box_players = document.getElementById("box_players");
-let id_global = null;
 
 async function init() {
   const response = await fetch(API_URL + "/players");
   const players = await response.json();
 
   for (const key of players) {
-    id_global = key.steamId;
-
     box_players.innerHTML += `
       <div class="d-flex rounded" style="max-width: 100%; width: 235px; background-color: #111111;">
         <div class="d-flex flex-column rounded w-100">
@@ -31,7 +28,6 @@ async function init() {
   select.forEach(btn => {
     const steamId = btn.getAttribute("data-id");
 
-
     btn.onclick = () => {
       select.forEach(otherBtn => {
         if (otherBtn !== btn) {
@@ -42,7 +38,7 @@ async function init() {
       });
 
       localStorage.setItem("steamid", steamId);
-      btn.textContent = "Cargando info..."
+      btn.textContent = "Load info..."
 
       callback(steamId, () => { 
         btn.textContent = "Sign in..."

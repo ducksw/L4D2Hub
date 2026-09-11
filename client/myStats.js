@@ -203,9 +203,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const players = await response.json();
-    const params = new URLSearchParams(
-      window.location.search
-    );
+    const params = new URLSearchParams(window.location.search);
 
     const id = params.get("steamid");
 

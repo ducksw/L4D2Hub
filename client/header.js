@@ -8,11 +8,11 @@ header.innerHTML = `
   <nav class="d-flex align-items-center w-100 gap-2">
     <img style="max-width: 100%; width: 200px;" class="p-2" src="./image/title.png">
     <div class="d-flex gap-3">
-      <a href="index.html" class="text-light text-decoration-none">Home</a>
-      <a href="stats.html" class="text-light text-decoration-none">Stats</a>
-      <a href="rankings.html" class="text-light text-decoration-none">Rankings</a>
-      <a href="noticias.html" class="text-light text-decoration-none">Noticias</a>
-      <a href="liga.html" class="text-light text-decoration-none">Liga/Champions</a>
+      <a href="index.html" class="text-warning text-decoration-none">Home</a>
+      <a href="stats.html" class="text-warning text-decoration-none">Stats</a>
+      <a href="noticias.html" class="text-warning text-decoration-none">Noticias</a>
+      <a href="liga.html" class="text-warning text-decoration-none">Liga/Champions</a>
+      <a href="faq.html" class="text-warning text-decoration-none">FAQ</a>
     </div>
 
     <div class="d-flex ms-auto" id="prof">
@@ -65,7 +65,7 @@ async function osi() {
     if (get_profile == key.steamId) {
       ret += `
         <div class="d-flex align-items-center gap-2" style="margin-left: 10px; white-space: normal; word-break: break-word; }">
-          <a href="${key.profileurl}" target="_blank" style="width: 30px; height: 30px;"><img src="${key.avatar}" style="max-width: 100%; width: 30px; height: 30px;" class="rounded border border-dark"></a>
+          <a href="profile.html?steamid=${key.steamId}" style="width: 30px; height: 30px;"><img src="${key.avatar}" style="max-width: 100%; width: 30px; height: 30px;" class="rounded border border-dark"></a>
           <span class="text-danger">${key.displayName}</span>
           <span class="text-secondary">(<span class="text-danger">${key.elo}</span>)</span>
         </div>

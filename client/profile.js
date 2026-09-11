@@ -1,193 +1,222 @@
-import { players } from "../models/player.js";
+import { API_URL } from "./config.js";
 
-function viewOnlyProfile() {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("steamid");
+const params = new URLSearchParams(window.location.search);
+const id = params.get("steamid");
 
-  console.log("ID", id);
+const pf = document.getElementById("profile");
+const stat = document.getElementById("stat");
 
-  let res = document.getElementById('pro');
-  let ret = `
-    <div class="mx-auto bg bg-black border border-dark border-top-0 " style="max-width: 100%; width: 950px;" id="profile">
-    `
-  for (let pl of players) {
-    if (pl.steamId === id) {
-      ret += `
-                <title>Profile :: ${pl.displayName}</title>
-                <div class="d-flex justify-content-between p-3" id="header">
-                <div class="d-flex gap-3">
-                    <a href="${pl.avatar}"><img src="${pl.avatar}" class="rounded border border-dark" style="max-width: 100%; width: 150px; height: 150px;"></a>
-                    <div class="d-flex flex-column">
-                    <span class="d-flex align-items-center gap-2 text-light mt-2 fs-4"><b>${pl.displayName}</b> <span class="badge bg bg-dark" style="font-size: 13px;">${pl.elo}</span></span>
-                    <div class="d-flex gap-2 align-items-center" style="font-size: 14px;">
-                        <span class="text-secondary"><a href="${pl.profileurl}">Steam Id</a></span> |
-                        <a href="player.html?steamid=${pl.steamId}">Stats</a> |
-                        <a href="#" id="download">Download</a>
-                    </div>
-                    </div>
-                </div>
-                <div class="d-flex gap-2 align-items-center justify-content-center">
-                    <span id="rk"></span>
-                </div>
-                </div>
+function calculateWinRate(profile) {
 
-                <section class="d-flex gap-3 text-light p-3">
-                <section class="d-flex flex-column w-75" style="height: 100%;">
-                    <section class="d-flex flex-column gap-2 w-100 bg-profile rounded">
-                    <span class="bg bg-danger p-1 w-100" id="title-ins">Colección de insignias</span>
-                    <div class="p-2" id="box-insig">
-                    </div>
-                    </section>
+  const wins = Number(profile.win) || 0;
+  const losses = Number(profile.losser) || 0;
+  const draws = Number(profile.draw) || 0;
 
-                    <section class="d-flex gap-2 w-100 bg-profile p-2 rounded mt-3">
-                    <div class="d-flex align-items-center flex-column w-50 bg bg-black rounded">
-                        <span class="fs-1">☀️</span>
-                        <span class="fs-3"><b>${pl.elo}</b></span>
-                        <span class="text-secondary">Elo</span>
-                    </div>
-                    <div class="d-flex align-items-center flex-column w-50 bg bg-black rounded">
-                        <span class="fs-1">🔥</span>
-                        <span class="fs-3"><b>${pl.points}</b></span>
-                        <span class="text-secondary">Liga Points</span>
-                    </div>
-                    </section>
+  const total = wins + losses + draws;
+  console.log("total", total);
 
-                    <section class="d-flex gap-2 w-100 bg-profile p-2 rounded mt-3">
-                    <div class="d-flex align-items-center flex-column w-50 bg bg-black rounded">
-                        <span class="fs-1">🏆</span>
-                        <span class="fs-3"><b>${pl.win}</b></span>
-                        <span class="text-secondary">Wins</span>
-                    </div>
-                    <div class="d-flex align-items-center flex-column w-50 bg bg-black rounded">
-                        <span class="fs-1">👎</span>
-                        <span class="fs-3"><b>${pl.losser}</b></span>
-                        <span class="text-secondary">Loser</span>
-                    </div>
-                    <div class="d-flex align-items-center flex-column w-50 bg bg-black rounded">
-                        <span class="fs-1">🇪</span>
-                        <span class="fs-3"><b>${pl.draw}</b></span>
-                        <span class="text-secondary">Empate</span>
-                    </div>
-                    </section>
-                </section>
-
-                <section class="d-flex flex-column w-50 bg-profile p-2 rounded">
-                    <span class="fs-3">Jugador de L4D2 Hub</span>
-                    <b class="text-danger" style="font-size: 14px;">Left 4 dead 2</b>
-
-                    <div class="d-flex flex-column mt-4">
-                    <span class="d-flex align-items-center gap-2" style="font-size: 14px;"><a href="" class="text-light text-decoration-none">Insignias</a> <span class="fs-5 text-secondary" id="l-insig">0</span></span>
-                    <span style="font-size: 13px;" id="insignia"></span>
-                    </div>
-
-                    <div class="d-flex flex-column mt-4">
-                    <span class="d-flex align-items-center gap-2" style="font-size: 14px;"><a href="" class="text-light text-decoration-none">Team</a> <span class="fs-5 text-secondary">0</span></span>
-                    <div class="d-flex align-items-center mt-2 bg bg-dark rounded p-1 gap-2">
-                        <img src="image/noicon-team.png" style="max-width: 100%; width: 50px;">
-                        <span style="font-size: 14px;">No team</span>
-                    </div>
-                    </div>
-
-                    <div class="d-flex flex-column mt-4">
-                    <span class="d-flex align-items-center gap-2" style="font-size: 14px;"><a href="" class="text-light text-decoration-none">Amigos</a> <span class="fs-5 text-secondary">${players.length}</span></span>
-                    <div class="d-flex flex-column gap-2 mt-3">
-                        ${players.slice(0, 5).map(p => `
-                        <div class="d-flex gap-2 justify-content-between">
-                            <div>
-                            <img src="${p.avatar}" class="rounded" style="max-width: 100%; width: 30px;">
-                            <span style="font-size: 13px;"><a href="profile.html?steamid=${p.steamId}" class="text-decoration-none text-light">${p.displayName}</a></span>
-                            </div>
-
-                            <div>
-                            <span class="badge bg bg-dark">${p.elo}</span>
-                            </div>
-                        </div>
-                        `).join('')}
-                    </div>
-                    </div>
-                </section>
-                </section>
-            </div>`
-    }
+  if (total === 0) {
+    return "0%";
   }
 
-  res.innerHTML = ret;
+  return ((wins / total) * 100).toFixed(1) + "%";
 }
-viewOnlyProfile();
 
-function viewRank() {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("steamid");
-  let rk = document.getElementById('rk');
-  for (const player of players) {
-    if (player.steamId == id) {
-      if (player.rank === "Bronze") {
-        rk.innerHTML = `<img id="image" src="image/brozen.svg">`;
-      }
-      if (player.elo >= 1100) {
-        rk.innerHTML = `<img id="image" src="image/silver.svg">`;
-      }
-      if (player.elo >= 2000) {
-        rk.innerHTML = `<img id="image" src="image/gold.svg">`;
-      }
-      if (player.rank === "Platinum") {
-        rk.innerHTML = `<img id="image" src="image/platinum.svg">`;
-      }
-      if (player.rank === "Diamond") {
-        rk.innerHTML = `<img id="image" src="image/diamond.svg">`;
-      }
-      if (player.rank === "Champions") {
-        rk.innerHTML = `<img id="image" src="image/champions.svg">`;
-      }
-    }
+async function profile(player) {
+  let ac = "";
+  let ret = "";
+
+  if (player.active) {
+    ac = `<span class="online fw-bold">Online</span>`;
+  } else {
+    ac = `<span class="offline fw-bold">Offline</span>`;
   }
-}
-viewRank();
 
-function viewInsignia() {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("steamid");
+  ret += `
+    <div class="d-flex justify-content-between align-items-center p-2">
+      <div class="d-flex position-relative me-3 gap-3 align-items-center">
+      <div class="border rounded border-secondary" style=" position: absolute; width: 133px; height: 133px; transform: rotate(3deg);"></div>
+        <img src="${player.avatar}" class="rounded" style=" position: relative; width: 130px; object-fit: cover;">
 
-  let l_insig = document.getElementById('l-insig');
-  let insig = document.getElementById('insignia');
-  let box_insig = document.getElementById('box-insig');
+        <span class="position-absolute translate-middle" style="left: 130px; top: 10px;">
+          <img src="image/rank_${player.rank.toLowerCase()}.svg" class="image_rank" style="width: 40px; height: 40px;">
+        </span>
+        <div class="d-flex flex-column justify-content-center">
+          <span class="text-light fs-2 fw-bold" style="white-space: normal;word-break: break-word;">${player.displayName}</span>
+          <span class="text-secondary small">${player.steamId}</span>
+        </div>
+      </div>
+      
+      <div class="d-flex align-items-start gap-3">
+        <div class="d-flex justify-content-center align-items-center card_elo flex-column">
+          <div class="fw-bold text-light border-bottom border-dark w-100 pb-1">ELO</div>
+          <div class="text-secondary d-flex align-items-center justify-content-center mt-2 w-100 bg-osi p-1 rounded">
+            (<span class="text-danger">${player.elo}</span>)
+          </div>
+        </div>
 
-  for (const player of players) {
-    if (player.steamId == id) {
-      if (player.allInsignias.toString() == "Liga Bulls") {
-        insig.innerHTML += `<figture id="photo" title="Campeón de la Liga Bulls"><img id="image-insig" src="image/liga-bulls-win.png"></figture>`;
-        box_insig.innerHTML += `<figture id="photo" title="Campeón de la Liga Bulls"><img id="image-insig" src="image/liga-bulls-win.png"></figture>`;
-        l_insig.innerHTML = player.allInsignias.length;
-      } else {
-        insig.innerHTML = "No hay insignia...";
-        box_insig.innerHTML = "No hay insignia...";
-      }
-    }
-  }
-}
-viewInsignia();
+        <div class="d-flex justify-content-center align-items-center card_steam flex-column">
+          <div class="fw-bold text-light border-bottom border-dark w-100 pb-1">STEAM</div>
+          <a href="${player.profileurl}" class="d-flex gap-2 text-light text-decoration-none d-flex align-items-center justify-content-center mt-2 w-100 bg-osi p-1 rounded steam_link">
+            <img src="../image/steam_icon.svg"> Profile
+          </a>
+        </div>
 
-function capture() {
-  const div = document.getElementById("profile");
-  const date = new Date().toISOString().slice(0, 10);
+        <div class="d-flex justify-content-center align-items-center card_status flex-column">
+          <div class="fw-bold text-light border-bottom border-dark w-100 pb-1">STATUS</div>
+          <div class="text-secondary d-flex align-items-center justify-content-center mt-2 w-100 bg-osi p-1 rounded">
+            <span>${ac}</span>
+          </div>
+        </div>
 
-  setTimeout(() => {
-    html2canvas(div, {
-      useCORS: true,
-      allowTaint: false,
-      scale: 2
-    }).then(canvas => {
-      const imgURL = canvas.toDataURL("image/png");
-      const link = document.createElement("a");
-      link.href = imgURL;
-      link.download = `profile_${date}.png`
-      link.click();
+      </div>
+    </div>
+  `
+
+  pf.innerHTML = ret;
+
+  stat.innerHTML = `
+    <div class="d-flex flex-column p-3">
+      <nav class="d-flex gap-2 mb-3">
+        <button class="nav_link active text-light d-flex align-items-center gap-2 border-0" data-target="stats">
+          <span class="circle_red"></span> Competitive Stats
+        </button>
+        <button class="nav_link text-light d-flex align-items-center gap-2  border-0" data-target="badges">
+          <span class="circle_red"></span> League Badges
+        </button>
+        <button class="nav_link text-light d-flex align-items-center gap-2 border-0" data-target="matches">
+          <span class="circle_red"></span> Matches
+        </button>
+      </nav>
+
+      <!-- Contenedores de contenido -->
+      <div id="stats" class="tab-content mt-3">
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <!-- POINTS -->
+          <div class="box_stat">
+            <div class="stat_title">Liga Points</div>
+            <div class="stat_value">${player.points ?? 0}</div>
+            <div class="stat_description">TOTAL</div>
+          </div>
+
+          <!-- ELO -->
+          <div class="box_stat">
+            <div class="stat_title">ELO Rating</div>
+            <div class="stat_value">${player.elo ?? 300}</div>
+            <div class="stat_description">RATING</div>
+          </div>
+
+          <!-- RANK -->
+          <div class="box_stat">
+            <div class="stat_title">Rank</div>
+            <div class="stat_value">${player.rank ?? "Bronze"}</div>
+            <div class="stat_description">CURRENT RANK</div>
+          </div>
+
+          <!-- GAMES -->
+          <div class="box_stat">
+            <div class="stat_title">Games Played</div>
+            <div class="stat_value">${player.match ?? 0}</div>
+            <div class="stat_description">TOTAL</div>
+          </div>
+
+          <!-- DAMAGE -->
+          <div class="box_stat">
+            <div class="stat_title">Damage</div>
+            <div class="stat_value">${player.damage ?? 0}</div>
+            <div class="stat_description">TOTAL DAMAGE</div>
+          </div>
+
+          <!-- KILLS -->
+          <div class="box_stat">
+            <div class="stat_title">Instant Kills</div>
+            <div class="stat_value">${player.kills ?? 0}</div>
+            <div class="stat_description">TOTAL INSTANT KILLS</div>
+          </div>
+
+          <!-- WINS -->
+          <div class="box_stat">
+            <div class="stat_title">Wins</div>
+            <div class="stat_value">${player.win ?? 0}</div>
+            <div class="stat_description">MATCHES WON</div>
+          </div>
+
+          <!-- LOSSES -->
+          <div class="box_stat">
+            <div class="stat_title">Losses</div>
+            <div class="stat_value">${player.losser ?? 0}</div>
+            <div class="stat_description">MATCHES LOST</div>
+          </div>
+
+          <!-- DRAWS -->
+          <div class="box_stat">
+            <div class="stat_title">Draws</div>
+            <div class="stat_value">${player.draw ?? 0}</div>
+            <div class="stat_description">MATCHES DRAWN</div>
+          </div>
+
+          <!-- WIN RATE -->
+          <div class="box_stat">
+            <div class="stat_title">Win Rate</div>
+            <div class="stat_value">
+              ${calculateWinRate(player)}
+            </div>
+            <div class="stat_description">WIN PERCENTAGE</div>
+          </div>
+
+          <!-- LAST MATCH -->
+          <div class="box_stat">
+            <div class="stat_title">Last Match</div>
+            <div class="stat_value">
+              ${player.lastMatches?.[0] ?? "N"}
+            </div>
+            <div class="stat_description">LATEST RESULT</div>
+          </div>
+
+          <!-- ACTIVE -->
+          <div class="box_stat">
+            <div class="stat_title">Status</div>
+            <div class="stat_value">
+              ${player.active ? "Active" : "Inactive"}
+            </div>
+            <div class="stat_description">PLAYER STATUS</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="badges" class="tab-content mt-3 d-none">
+        <p class="text-light">Aquí se muestran las insignias y medallas de la liga.</p>
+      </div>
+
+      <div id="matches" class="tab-content d-none mt-3">
+        <p class="text-light">Aquí se muestran los partidos recientes.</p>
+      </div>
+    </div>
+  `;
+
+  stat.querySelectorAll('.nav_link').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const targetId = e.currentTarget.getAttribute('data-target');
+
+      stat.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('d-none');
+      });
+
+      stat.querySelector(`#${targetId}`).classList.remove('d-none');
+
+      stat.querySelectorAll('.nav_link').forEach(btn => btn.classList.remove('active'));
+      e.currentTarget.classList.add('active');
     });
-  }, 500)
+  });
 }
 
-document.getElementById("download").addEventListener('click', function (e) {
-  e.preventDefault();
-  capture();
-});
+async function init() {
+  const response = await fetch(API_URL + "/players?steamid="+id)
+  const player = await response.json();
 
+  profile(player)
+
+  title.textContent = "Profile - " + player.displayName; // title html
+}
+
+window.onload = init;

@@ -23,40 +23,6 @@ function up_arrow() {
   });
 }
 
-async function selectProfile(players) {
-  let res = document.getElementById('res');
-
-  let ret = `
-    <span class="text-danger fs-4">Selecciona Tu Perfil</span>
-
-    <select id="select"
-      class="form-select w-75 mx-auto mt-2 border-0 bg-dark text-light">
-      <option value="0">Select Players</option>
-  `;
-
-  for (let pl of players) {
-    ret += `
-      <option value="${pl.steamId}">
-        ${pl.displayName}
-      </option>
-    `;
-  }
-
-  ret += `</select>`;
-  res.innerHTML = ret;
-
-  let select = document.getElementById('select');
-  select.addEventListener('change', function () {
-    const steamId = this.value;
-
-    if (steamId === "0") return;
-
-    localStorage.setItem("steamid", steamId); // solo se guarda el steamId
-
-    window.location.reload();
-  });
-}
-
 function viewProfile(players) {
   const steamId = localStorage.getItem("steamid");
 
@@ -96,7 +62,7 @@ function viewProfile(players) {
         <!-- avatar -->
         <div class="position-relative me-3" style=" width: 90px; height: 90px; flex-shrink: 0; " >
           <div class="border border-secondary" style=" position: absolute; width: 100%; height: 100%; transform: rotate(3deg);"></div>
-          <img src="${profile.avatar}" alt="${profile.displayName}" class="border border-dark" style=" position: relative; width: 90px; height: 90px; object-fit: cover;">
+          <a href="profile.html?steamid=${profile.steamId}"><img src="${profile.avatar}" alt="${profile.displayName}" class="border border-dark" style=" position: relative; width: 90px; height: 90px; object-fit: cover;"></a>
 
 
           <span class="position-absolute top-0 start-100 translate-middle">
@@ -244,7 +210,7 @@ async function viewMatch(matchs, players) {
         ret += `
           <div class="d-flex" style="margin-left: 10px;">
             <span class="d-inline-flex gap-2 align-items-center text-light p-1 rounded" style="background-color: #222222;">
-              <img src="${s.avatar}" width="20" height="20" class="rounded">
+              <a href="profile.html?steamid=${s.steamId}"><img src="${s.avatar}" width="20" height="20" class="rounded"></a>
               ${s.displayName}
               <span class="text-secondary ms-1">(<span class="text-danger">${elos}</span>)</span>
             </span>
@@ -270,7 +236,7 @@ async function viewMatch(matchs, players) {
           retInfecteds += `
             <div class="d-flex" style="margin-left: 10px;">
               <span class="d-inline-flex gap-2 p-1 align-items-center text-light rounded" style="background-color: #222222;">
-                <img src="${inf.avatar}" width="20" height="20" class="rounded">
+                <a href="profile.html?steamid=${inf.steamId}"><img src="${inf.avatar}" width="20" height="20" class="rounded"></a>
                 ${inf.displayName}
                 <span class="text-secondary ms-1">(<span class="text-danger">${elos}</span>)</span>
               </span>
@@ -287,9 +253,10 @@ async function viewMatch(matchs, players) {
       retMap += `<div class="d-flex align-items-center gap-2 mb-1">`;
       retMap += `  <span class="text-secondary">${timeStr}</span>`;
       retMap += `  <span class="fw-bold ms-1 text-warning">L4D2Hub:</span>`;
-      retMap += `  <span class="ms-1 text-light">Mapa seleccionado <b class="text-info">${map_name}</b>.</span>`;
+      retMap += `  <span class="ms-1 text-light">Mapa seleccionado <b class="text-info">${map_name}</b></span>`;
 
       log_map.innerHTML = retMap;
+
     }
   }
 
@@ -327,7 +294,6 @@ async function init() {
   const posts = await response_post.json();
   const matchs = await response_match.json();
 
-  // selectProfile(players);
   list_players_index(players);
   viewMatch(matchs, players);
 
