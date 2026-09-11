@@ -121,10 +121,6 @@ async function select_players(players, maps) {
           <img src="${player.avatar}" style="width: 45px; height: 45px; object-fit: cover;" class="rounded" >
           <b class="small ms-2" style="white-space: normal; word-break: break-word;"> ${player.displayName} </b>
         </div>
-
-        <div class="ms-3">
-          <span class="badge text-bg-dark fs-7"> ${player.elo} </span>
-        </div>
       </div>
     `;
 
@@ -169,10 +165,6 @@ async function select_players(players, maps) {
         <div class="d-flex align-items-center">
           <img src="${player.avatar}" style="width: 45px; height: 45px; object-fit: cover;" class="rounded" >
           <b class="small ms-2" style="white-space: normal; word-break: break-word;"> ${player.displayName} </b>
-        </div>
-
-        <div class="ms-3">
-          <span class="badge text-bg-dark fs-7"> ${player.elo} </span>
         </div>
       </div>
     `;
@@ -288,7 +280,7 @@ async function view_match(matches) {
         <td><span class="small">${match._id}</span> </td>
         <td><button class="btn btn-sm btn-dark small"> Download </button></td>
         <td class="small">${formatDate(match.createdAt)}</td>
-        <td><div class="d-flex flex-column align-items-center"><img src="${match.map_image}" width="100" height="55" class="rounded" style="object-fit: cover;"> <span class="small mt-1">${match.map_name}</span></div>
+        <td><div class="d-flex flex-column align-items-center"><span class="small mt-1 text-info fw-bold">${match.map_name}</span></div>
         </td>
         <td>${match.live ? `<span class="badge text-bg-danger small">LIVE</span>` : `<span class="badge text-bg-dark small">FINISHED</span>`}</td>
         <td class="small">${survivors}</td>
@@ -296,7 +288,7 @@ async function view_match(matches) {
         <td><span class="badge text-bg-primary small"> ${match.survivors.points}</span></td>
         <td><span class="badge text-bg-danger small"> ${match.infecteds.points}</span></td>
         <td>
-          <button class="btn btn-sm btn-outline-warning edit-match" data-id="${match._id}"> <i class="bi bi-pencil"></i>Edit</button>
+          <a href="../panel_matches_edit.html?gameid=${match._id}" class="btn btn-sm btn-outline-warning edit-match focus-ring focus-ring-warning" data-id="${match._id}">EDIT</a>
         </td>
       </tr>
     `;

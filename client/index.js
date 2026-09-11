@@ -76,6 +76,7 @@ function viewProfile(players) {
   }
 
   res.style.display = "none";
+  res.classList.remove("d-flex");
 
   resProfile.innerHTML = `
     <div class="d-flex flex-column w-100">
@@ -138,7 +139,7 @@ function onlyNews(posts) {
   let only = document.getElementById('only');
 
   let ret = `
-  <div class="border border-dark w-100 p-2 rounded">
+  <div class=" w-100">
     <b class="d-flex justify-content-center fs-4 rounded p-2 w-100 title_osi" style="background: linear-gradient(135deg, #1a0000 0%, darkred 50%, #080808 100%);">
         Ultimas Noticias
     </b>
@@ -148,7 +149,7 @@ function onlyNews(posts) {
 
   onlyPost.forEach((post) => {
     ret += `
-      <div class="mt-2">
+      <div class="p-2 mt-2">
         <h4 class="text-warning">
           ${post.title}
         </h4>
@@ -188,12 +189,17 @@ async function list_players_index(players) {
 
 async function viewMatch(matchs, players) {
   if (matchs.length) {
-    for (const match of matchs.slice(0, 1).reverse()) {
+    for (const match of matchs.reverse().slice(0, 1)) {
       const survivors = match.survivors?.players;
       const infecteds = match.infecteds?.players;
       const survivors_points = match.survivors?.points;
       const infecteds_points = match.infecteds?.points;
       const live = match.live;
+      const map_name = match.map_name;
+
+      console.log("MATCH ->", match)
+
+      console.log("points", survivors_points, infecteds_points);
 
       if (live) {
         live_icon.src = "./image/live.svg";
@@ -221,6 +227,7 @@ async function viewMatch(matchs, players) {
 
       const log_survivors = document.getElementById("log_survivors");
       const log_infecteds = document.getElementById("log_infecteds");
+      const log_map = document.getElementById("log_map");
       const timeStr = getCurrentTime()
 
       let ret = "";
@@ -231,21 +238,58 @@ async function viewMatch(matchs, players) {
       ret += `  <span class="fw-bold text-primary">Survivors</span>`;
 
       for (const s of survivors) {
-        // const p = players.find(player => player.id === s.id || player.displayName === s.displayName);
+        const p = players.find(player => player._id === s._id || player.steamId === s.steamId);
+        const elos = p.elo
 
-        // const avatarUrl = p.avatar
-        // ret += `
-        //   <span class="d-inline-flex align-items-center bg-dark text-light px-1 rounded border border-secondary" style="font-size: 12px;">
-        //     <img src="${avatarUrl}" width="16" height="16" class="rounded-circle me-1">
-        //     ${s.displayName}
-        //     <span class="text-muted ms-1">[R]</span>
-        //   </span>
-        // `;
+        ret += `
+          <div class="d-flex" style="margin-left: 10px;">
+            <span class="d-inline-flex gap-2 align-items-center text-light p-1 rounded" style="background-color: #222222;">
+              <img src="${s.avatar}" width="20" height="20" class="rounded">
+              ${s.displayName}
+              <span class="text-secondary ms-1">(<span class="text-danger">${elos}</span>)</span>
+            </span>
+          </div>
+        `;
       }
 
       ret += `</div>`;
-
       log_survivors.innerHTML = ret;
+
+      // --- LOG INFECTEDS ---
+      let retInfecteds = "";
+      retInfecteds += `<div class="d-flex align-items-center gap-2 mb-1">`;
+      retInfecteds += `  <span class="text-secondary">${timeStr}</span>`;
+      retInfecteds += `  <span class="fw-bold ms-1 text-warning">L4D2Hub:</span>`;
+      retInfecteds += `  <span class="fw-bold text-danger">Infecteds</span>`;
+
+      if (infecteds && Array.isArray(infecteds)) {
+        for (const inf of infecteds) {
+          const p = players.find(player => player._id === inf._id || player.steamId === inf.steamId);
+          const elos = p?.elo ?? "N/A";
+
+          retInfecteds += `
+            <div class="d-flex" style="margin-left: 10px;">
+              <span class="d-inline-flex gap-2 p-1 align-items-center text-light rounded" style="background-color: #222222;">
+                <img src="${inf.avatar}" width="20" height="20" class="rounded">
+                ${inf.displayName}
+                <span class="text-secondary ms-1">(<span class="text-danger">${elos}</span>)</span>
+              </span>
+            </div>
+          `;
+        }
+      }
+
+      retInfecteds += `</div>`;
+      log_infecteds.innerHTML = retInfecteds;
+
+      // --- LOG MAP ---
+      let retMap = "";
+      retMap += `<div class="d-flex align-items-center gap-2 mb-1">`;
+      retMap += `  <span class="text-secondary">${timeStr}</span>`;
+      retMap += `  <span class="fw-bold ms-1 text-warning">L4D2Hub:</span>`;
+      retMap += `  <span class="ms-1 text-light">Mapa seleccionado <b class="text-info">${map_name}</b>.</span>`;
+
+      log_map.innerHTML = retMap;
     }
   }
 
@@ -283,7 +327,7 @@ async function init() {
   const posts = await response_post.json();
   const matchs = await response_match.json();
 
-  selectProfile(players);
+  // selectProfile(players);
   list_players_index(players);
   viewMatch(matchs, players);
 

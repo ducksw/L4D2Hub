@@ -7,12 +7,12 @@ header.innerHTML = `
 <div class="d-flex w-100">
   <nav class="d-flex align-items-center w-100 gap-2">
     <img style="max-width: 100%; width: 200px;" class="p-2" src="./image/title.png">
-    <div class="d-flex gap-2">
-      <a href="index.html" class="text-warning text-decoration-none">[Home]</a>
-      <a href="stats.html" class="text-warning text-decoration-none">[Stats]</a>
-      <a href="rankings.html" class="text-warning text-decoration-none">[Rankings]</a>
-      <a href="noticias.html" class="text-warning text-decoration-none">[Noticias]</a>
-      <a href="liga.html" class="text-warning text-decoration-none">[Liga/Champions]</a>
+    <div class="d-flex gap-3">
+      <a href="index.html" class="text-light text-decoration-none">Home</a>
+      <a href="stats.html" class="text-light text-decoration-none">Stats</a>
+      <a href="rankings.html" class="text-light text-decoration-none">Rankings</a>
+      <a href="noticias.html" class="text-light text-decoration-none">Noticias</a>
+      <a href="liga.html" class="text-light text-decoration-none">Liga/Champions</a>
     </div>
 
     <div class="d-flex ms-auto" id="prof">
