@@ -6,7 +6,7 @@ const mobile = document.getElementById("mobile");
 header.innerHTML = `
 <div class="d-flex w-100">
   <nav class="d-flex align-items-center w-100 gap-2">
-    <img style="max-width: 100%; width: 200px;" class="p-2" src="./image/title.png">
+    <a href="index.html"><img style="max-width: 100%; width: 200px;" class="p-2" src="./image/title.png"></a>
     <div class="d-flex gap-3">
       <a href="index.html" class="text-warning text-decoration-none">Home</a>
       <a href="stats.html" class="text-warning text-decoration-none">Stats</a>

@@ -9,23 +9,23 @@
 
 body {
   padding: 10px;
-  background-color: #121212;
+  /*background-color: #121212;*/
   /* background-color: #0C0C0C; */
-  /* background-color: black; */
+  background-color: black;
   /* font-family: "Inter", sans-serif; */
   /* font-family: "JetBrains Mono"; */
   /* font-family: "Source Code Pro"; */
   font-family: "Cascadia Mono";
   /* font-family: "Inter"; */
   max-width: 100%;
-  /* width: 1500px; */
-  width: 1600px;
+  width: 1500px;
+  /*width: 1600px;*/
   /* width: 1700px; */
   /* width: 1800px; */
   /* width: 1300px; */
   margin: auto;
   /* font-size: .415; */
-  font-size: 15px;
+  font-size: 14px;
   /* font-size: 14px; */
   /* font-size: 14pt; */
   /* font-size: 1.2em; */
@@ -38,11 +38,21 @@ body {
 
 .bg-prin {
   /* background-color: #101011 !important; */
-  /* background-color: #111111 !important; */
+  /*background-color: #111111 !important;*/
+  background-color: #111111c4 !important;
   /* background-color: #141515 !important; */
-  background: linear-gradient(135deg, rgb(15, 15, 15) 0%, rgb(15, 15, 15) 100%) !important;
-  border: 1px solid color-mix(in srgb, rgb(30, 30, 30) 60%, transparent);
+  /*background: linear-gradient(135deg, rgb(15, 15, 15) 0%, rgb(15, 15, 15) 100%) !important;*/
+  /*border: 1px solid color-mix(in srgb, rgb(30, 30, 30) 60%, transparent);*/
   /* border: 1px solid #222222; */
+}
+
+.p-custom {
+  /*padding: 10px 10px;*/
+  padding: 18px 24px;
+}
+
+.rounded-custom {
+  border-radius: 16px;
 }
 
 .button_select_profile {
@@ -74,14 +84,6 @@ body {
 	background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), -webkit-gradient(linear, left top, left bottom, from(#FC0732), to(#6E0102));
 	background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), -o-linear-gradient(top, #FC0732 0%, #6E0102 100%);
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(180deg, #FC0732 0%, #6E0102 100%);
-}
-
-.p-custom {
-  padding: 18px 24px;
-}
-
-.rounded-custom {
-  border-radius: 10px;
 }
 
 .profile-container {
@@ -137,6 +139,14 @@ nav div a:hover {
 
 .link_hover:hover {
   text-decoration: underline !important;
+}
+
+.link_hover_players {
+  padding: 8px 5px;
+}
+.link_hover_players:hover {
+  background-color: #111111;
+  border-radius: 12px;
 }
 
 #circle_online {

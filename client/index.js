@@ -1,4 +1,5 @@
 import { API_URL } from "./config.js";
+import { formatDate } from "./helpers.js";
 
 const iconArrow = document.getElementById("icon_arrow");
 let ultimoScroll = 0;
@@ -123,6 +124,15 @@ function onlyNews(posts) {
           ${post.text}
         </p>
         <img src="${post.imageLink}" style="display: flex; max-width: 100%; margin: auto;">
+
+        <div class="d-flex justify-content-between mt-5">
+          <div>
+            <a class="text-decoration-none text-secondary link_hover" href="noticia.html?news=${post._id}">[View Post]</a>
+          </div>
+          <div>
+            <span class="text-danger">${formatDate(post.createdAt)}</span>
+          </div>
+        </div>
       </div>
     `;
   });
@@ -138,15 +148,15 @@ async function list_players_index(players) {
 
   for (const key of players.sort((a, b) => b.elo - a.elo)) {
     list_players.innerHTML += `
-      <div class="d-flex justify-content-between gap-1 align-items-center">
+      <a href="profile.html?steamid=${key.steamId}" class="d-flex link_hover_players text-decoration-none text-light justify-content-between align-items-center">
         <div class="d-flex gap-2 align-items-center">
           <img src="${key.avatar}" class="rounded" style="max-width: 100%; width: 30px; height: 30px;">
-          <b style="white-space: normal; word-break: break-word;">${key.displayName}</b>
+          <span style="white-space: normal; word-break: break-word;">${key.displayName}</span>
         </div>
         <div class="d-flex" style="margin-right: 5px;">
           <span class="text-secondary">(<span class="text-danger">${key.elo}</span>)</span>
         </div>
-      </div>
+      </a>
     `;
   }
 
@@ -154,6 +164,14 @@ async function list_players_index(players) {
 }
 
 async function viewMatch(matchs, players) {
+
+  // not matchs 
+  if (!matchs.length) {
+    game_match.classList.remove("d-flex");
+    game_match.classList.add("d-none");
+    console.log("osi");
+  }
+
   if (matchs.length) {
     for (const match of matchs.reverse().slice(0, 1)) {
       const survivors = match.survivors?.players;
@@ -170,6 +188,11 @@ async function viewMatch(matchs, players) {
       if (live) {
         live_icon.src = "./image/live.svg";
         live_icon.classList.add("live-blink");
+      }
+
+      if (!live) {
+        game_match.classList.remove("d-flex");
+        game_match.classList.add("d-none");
       }
 
       // cantidad total de players en el match

@@ -19,11 +19,11 @@
 
 <body id="body">
 
-  <header class="d-flex gap-2 justify-content-between bg bg-black p-2 rounded border border-dark  mb-3" id="header">
+  <header class="d-flex gap-2 justify-content-between bg-prin p-custom rounded-custom mb-3" id="header">
   </header>
 
 
-  <div class="d-none justify-content-between gap-4 bg bg-black border border-dark p-2 rounded mb-3 header" id="mobile">
+  <div class="d-none justify-content-between gap-4 bg-prin p-custom rounded-custom mb-3 header" id="mobile">
   </div>
 
   <!-- MAIN -->
@@ -33,7 +33,7 @@
     <div class="d-flex gap-3 w-100" id="box_main_second">
 
       <!-- QUE ES L4D2Hub -->
-      <div class="bg bg-black w-50 p-2 text-center rounded border border-dark" id="l4d2hub_box">
+      <div class="bg-prin w-50 p-custom text-center rounded-custom" id="l4d2hub_box">
         <h5 class="text-primary title_osi">¿Que es L4D2 Hub?</h5>
         <div class="text-light">
           <p>Una página donde se recopilan y muestran estadísticas del <br /><b class="text-warning">modo
@@ -44,7 +44,7 @@
       </div>
 
       <!-- VERSUS / VIEW MATCH -->
-      <div class="bg bg-black w-50 p-2 text-center rounded border border-dark" id="versus_box">
+      <div class="bg-prin w-50 p-custom text-center rounded-custom" id="versus_box">
         <div class="d-flex align-items-center justify-content-between position-relative mb-3">
 
           <div>
@@ -101,7 +101,7 @@
     </div>
 
     <!-- SELECT PROFILE -->
-    <div class="profile-container bg bg-black w-50 text-center rounded border border-dark" id="box_profile">
+    <div class="profile-container bg-prin w-50 text-center rounded-custom" id="box_profile">
       <div class="d-flex flex-column justify-content-center align-items-center" id="res">
         <span class="text-danger fs-3 title_osi">Selecciona Tu Perfil</span>
         <a href="sign_in.html" class="d-flex align-items-center button_select_profile mb-4 mt-5">Select players</a>
@@ -116,7 +116,7 @@
   <!-- ANUNCIO BOX -->
 
   <div class="d-flex gap-3" id="second_box">
-    <section class="d-flex flex-column gap-2 mt-3 text-light bg bg-black rounded p-2 border border-dark" style="max-width: 100%; width: 100%;">
+    <section class="d-flex flex-column gap-2 mt-3 text-light bg-prin rounded-custom p-custom" style="max-width: 100%; width: 100%;">
       <b class="d-flex justify-content-center w-100 rounded p-2 mx-auto fs-4 title_osi" style="background: linear-gradient(135deg, #1a0000 0%, darkred 50%, #080808 100%);">Anuncio</b>
 
 
@@ -146,10 +146,10 @@
     </section>
 
     <!-- PLAYERS -->
-    <section class="d-flex flex-column gap-2 mt-3 text-light bg bg-black rounded p-2 border border-dark" id="box_players_second" style="max-width: 100%; width: 40%; height: 100%;">
+    <section class="d-flex flex-column gap-2 mt-3 text-light bg-prin rounded-custom p-custom" id="box_players_second" style="max-width: 100%; width: 40%; height: 100%;">
       <b class="d-flex justify-content-center w-100 rounded p-2 mx-auto fs-4 title_osi" style="background: linear-gradient(135deg, #1a0000 0%, darkred 50%, #080808 100%);">Players</b>
 
-      <div id="list_players" class="d-flex flex-column gap-2 p-1" style="height: 400px; overflow: auto;"></div>
+      <div id="list_players" class="d-flex flex-column" style="height: 400px; overflow: auto;"></div>
       <div class="mt-2">
         <div class="d-flex align-items-center gap-2">
           <span id="circle_online"></span>
@@ -163,12 +163,12 @@
           </div>
         </div>
       </div>
-
     </section>
+
   </div>
 
   <!-- GAME!! MATCH BOX VIEW -->
-  <section class="d-flex flex-column gap-2 justify-content-between mt-3 text-light bg bg-black border border-dark rounded p-2 sec">
+  <section class="d-flex flex-column gap-2 justify-content-between mt-3 text-light bg-prin rounded-custom p-custom sec" id="game_match">
     <b class="d-flex justify-content-center w-100 rounded p-2 mx-auto fs-4 title_osi" style="background: linear-gradient(135deg, #1a0000 0%, darkred 50%, #080808 100%);">Panel Game</b>
     <div class="d-flex flex-column p-4 rounded bg-prin gap-2" style="overflow: auto;">
       <div id="log_survivors"></div>
@@ -179,14 +179,15 @@
 
   <!-- NOTICIAS -->
 
-  <section class="d-flex gap-2 justify-content-between mt-3 text-light bg bg-black rounded p-2 sec ">
+  <section class="d-flex gap-2 justify-content-between mt-3 text-light bg-prin rounded-custom p-custom sec ">
     <div id="only"></div>
+
   </section>
 
-  <section class="d-flex flex-column gap-2 mt-3 text-light bg bg-black border border-dark rounded p-2 sec sec2">
+  <section class="d-flex flex-column gap-2 mt-3 text-light bg-prin rounded-custom p-custom sec sec2">
     <b class="d-flex justify-content-center w-100 rounded p-2 mx-auto fs-4 title_osi"
       style="background: linear-gradient(135deg, #1a0000 0%, darkred 50%, #080808 100%);">Clips</b>
-    <span class="d-flex align-items-center gap-2" style="color: darkgray" class="mt-1"><i class="bi bi-camera-video-off-fill fs-4"></i> No hay <b class="text-secondary">clips</b> publicados.</span>
+    <span class="d-flex align-items-center gap-2 p-2" style="color: darkgray" class="mt-1"><i class="bi bi-camera-video-off-fill fs-4"></i> No hay <b class="text-secondary">clips</b> publicados.</span>
   </section>
 
 

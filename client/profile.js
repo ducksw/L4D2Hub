@@ -22,7 +22,7 @@ function calculateWinRate(profile) {
   return ((wins / total) * 100).toFixed(1) + "%";
 }
 
-async function profile(player) {
+async function profile(player, match) {
   let ac = "";
   let ret = "";
 
@@ -38,8 +38,8 @@ async function profile(player) {
       <div class="border rounded border-secondary" style=" position: absolute; width: 133px; height: 133px; transform: rotate(3deg);"></div>
         <img src="${player.avatar}" class="rounded" style=" position: relative; width: 130px; object-fit: cover;">
 
-        <span class="position-absolute translate-middle" style="left: 130px; top: 10px;">
-          <img src="image/rank_${player.rank.toLowerCase()}.svg" class="image_rank" style="width: 40px; height: 40px;">
+        <span class="position-absolute translate-middle" style="left: 130px; top: 15px;">
+          <img src="image/rank_${player.rank.toLowerCase()}.svg" class="image_rank" style="width: 50px; height: 50px;">
         </span>
         <div class="d-flex flex-column justify-content-center">
           <span class="text-light fs-2 fw-bold" style="white-space: normal;word-break: break-word;">${player.displayName}</span>
@@ -185,14 +185,37 @@ async function profile(player) {
       </div>
 
       <div id="badges" class="tab-content mt-3 d-none">
-        <p class="text-light">Aquí se muestran las insignias y medallas de la liga.</p>
+        <p class="text-light">No tienes <b class="text-danger">badges</b> ganados.</p>
       </div>
 
       <div id="matches" class="tab-content d-none mt-3">
-        <p class="text-light">Aquí se muestran los partidos recientes.</p>
+        <div id="box_match"></div>
       </div>
     </div>
   `;
+
+  const box_match = document.getElementById("box_match");
+
+  const matchesFound = match.filter(match =>
+		match.survivors.players.some(s => s.steamId === id) ||
+		match.infecteds.players.some(i => i.steamId === id)
+	);
+
+  if (!matchesFound.length) {
+		box_match.innerHTML = `<span class="text-secondary">No hay partidas.</span>`;
+		return;
+	}
+
+  for (const m of matchesFound.reverse()) {
+    const allPlayersInMatch = [...m.survivors.players, ...m.infecteds.players];
+
+    for (const p of allPlayersInMatch) {
+      if (p.steamId === player.steamId) {
+        console.log(m);
+        break;
+      }
+    }
+  }
 
   stat.querySelectorAll('.nav_link').forEach(button => {
     button.addEventListener('click', (e) => {
@@ -212,9 +235,14 @@ async function profile(player) {
 
 async function init() {
   const response = await fetch(API_URL + "/players?steamid="+id)
-  const player = await response.json();
+  const response_match = await fetch(API_URL + "/match");
 
-  profile(player)
+  const player = await response.json();
+  const match = await response_match.json();
+
+  console.log(match);
+
+  profile(player, match)
 
   title.textContent = "Profile - " + player.displayName; // title html
 }

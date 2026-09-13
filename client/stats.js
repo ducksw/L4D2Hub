@@ -33,7 +33,6 @@ async function renderTable(array) {
         <th scope="col">Loser</th>
         <th scope="col">Match</th>
         <th scope="col">Stats</th>
-        <th scope="col">Report</th>
       </tr>
     </thead>
   `;
@@ -53,7 +52,6 @@ async function renderTable(array) {
         <td>${player.losser}</td>
         <td>${player.match}</td>
         <td><a href="player.html?steamid=${player.steamId}" class="text-decoration-none" id="stats_link">Stats</a></td>
-        <td><a href="" class="text-decoration-none text-warning" id="stats_link">Report</a></td>
       </tr>
     `;
   });

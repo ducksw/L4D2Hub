@@ -11,7 +11,7 @@ async function init() {
   const post = await response.json();
 
   post_box.innerHTML = `
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column p-2">
       <h2 class="text-warning color_glow_warning title_osi">${post.title}</h2>
       <p style="color: darkgrey;">${post.text}</p>
       <div class="d-flex justify-content-center">
