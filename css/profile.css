@@ -77,6 +77,17 @@
   letter-spacing: 0.3px;
 }
 
+#nav_profile_stat button:hover,
+#nav_profile_stat button.active {
+  background-color: #222222;
+  transition: all 1s;
+}
+
+#nav_profile_stat button {
+  transition: all 1s;
+}
+
+
 @media (max-width: 1000px) {
   .stats_grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -99,6 +110,26 @@
 @media (max-width: 420px) {
   .stats_grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  #box_profile_res {
+    display: flex;
+    flex-direction: column;
+  }
+  #box_stat_res {
+    margin-top: 40px;
+    width: 100%;
+  }
+  .card_elo {
+    width: 100%;
+  }
+  .card_steam {
+    width: 100%;
+  }
+  .card_status {
+    width: 100%;
   }
 }
 
@@ -188,4 +219,16 @@
   background-color: red;
   width: 5px;
   height: 5px;
+}
+
+.custom-tooltip {
+  --bs-tooltip-bg: #ffffff;
+  --bs-tooltip-color: #0056b3; /* Color azul del texto */
+  --bs-tooltip-opacity: 1;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2); /* Sombra opcional para resaltarlo */
+}
+
+/* Cambia el color de la flechita superior al color blanco del fondo */
+.custom-tooltip .tooltip-arrow::before {
+  border-bottom-color: #ffffff !important;
 }

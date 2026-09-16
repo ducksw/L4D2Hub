@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+  background-color: #121212;
+  font-family: "Inter";
+}
+
+table {
+  max-width: 100%;
+  width: 1000px;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #2A2B2B;
+  color: white;
+  border-bottom: 1px solid #424243;
+}
+
+thead tr th {
+  padding: 10px;
+}
+
+tr th {
+  padding: 10px;
+  border: 1px solid #424243;
+  color: white;
+}
+
+td {
+  border: 1px solid #424243;
+  color: white;
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: #262626;
+}

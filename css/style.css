@@ -25,7 +25,7 @@ body {
   /* width: 1300px; */
   margin: auto;
   /* font-size: .415; */
-  font-size: 14px;
+  font-size: 13px;
   /* font-size: 14px; */
   /* font-size: 14pt; */
   /* font-size: 1.2em; */
@@ -47,7 +47,12 @@ body {
 }
 
 .p-custom {
-  /*padding: 10px 10px;*/
+  /* padding: 10px 10px; */
+  /* padding: 18px 24px; */
+  padding: 12px;
+}
+
+.p-custom2 {
   padding: 18px 24px;
 }
 
@@ -90,6 +95,26 @@ body {
   border-left: 4px solid #dc3545 !important;
 }
 
+.more_box {
+  background-color: #111111;
+}
+
+.dropdown-item {
+  padding: 5px;
+  transition: all 1s;
+}
+
+.dropdown-item:hover {
+  background-color: #222222 !important;
+  text-decoration: none !important;
+  border-radius: 10px;
+  transition: all 1s;
+}
+
+.dropdown-item {
+  font-size: 13px !important;
+}
+
 body::-webkit-scrollbar {
   width: 12px;
 }
@@ -116,7 +141,11 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
 }
 
-#header {
+#nav {
+  font-size: 13px;
+}
+
+#prof {
   font-size: 13px;
 }
 
@@ -127,6 +156,10 @@ nav div a:hover {
 
 .elo {
   font-size: 14px;
+}
+
+.bg_other_ranking {
+  background-color: #111111;
 }
 
 .badge_test {

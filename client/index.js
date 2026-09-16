@@ -81,7 +81,7 @@ function viewProfile(players) {
           <!-- ELO -->
           <div class="mt-3">
             <span style=" color: #555558; font-size: 13px; " > ELO </span>
-            <span class="ms-2 fw-bold text-secondary fs-6">(<span class="text-danger">${profile.elo}</span>)</span>
+            <span class="ms-2 fw-bold text-secondary fs-6">[<span class="text-danger">${profile.elo}</span>]</span>
           </div>
         </div>
       </div>
@@ -89,10 +89,10 @@ function viewProfile(players) {
       <div class="mt-2" style=" height: 1px; margin: 0 15px; background: linear-gradient( 90deg, #dc3545, #333, transparent); " ></div>
 
       <div class="d-flex align-items-center justify-content-between px-3 py-2 small" >
-        <a href="${profile.profileurl}" target="_blank" class="text-primary text-decoration-none" style=" font-size: 13px; font-weight: 500; " > Steam Profile </a>
+        <a href="profile.html?steamid=${profile.steamId}" class="text-primary text-decoration-none border border-dark rounded p-1"><img src="./image/profile.svg" style="max-width: 100%; width: 25px;"></a>
         <span style=" color: #333;">//</span>
 
-        <a href="#" id="log_out" class="text-primary text-decoration-none" style=" font-size: 13px; font-weight: 500;">Logout</a>
+        <a href="#" id="log_out" class="text-primary text-decoration-none border border-dark rounded p-1"><img src="./image/log_out.svg" style="max-width: 100%; width: 25px;"></a>
       </div>
 
     </div>
@@ -154,7 +154,7 @@ async function list_players_index(players) {
           <span style="white-space: normal; word-break: break-word;">${key.displayName}</span>
         </div>
         <div class="d-flex" style="margin-right: 5px;">
-          <span class="text-secondary">(<span class="text-danger">${key.elo}</span>)</span>
+          <span class="text-secondary">[<span class="text-danger">${key.elo}</span>]</span>
         </div>
       </a>
     `;
@@ -169,7 +169,6 @@ async function viewMatch(matchs, players) {
   if (!matchs.length) {
     game_match.classList.remove("d-flex");
     game_match.classList.add("d-none");
-    console.log("osi");
   }
 
   if (matchs.length) {
@@ -181,9 +180,8 @@ async function viewMatch(matchs, players) {
       const live = match.live;
       const map_name = match.map_name;
 
-      console.log("MATCH ->", match)
-
-      console.log("points", survivors_points, infecteds_points);
+      // cantidad total de players en el match
+      cant_in_game.innerHTML = survivors.length + infecteds.length;
 
       if (live) {
         live_icon.src = "./image/live.svg";
@@ -193,10 +191,8 @@ async function viewMatch(matchs, players) {
       if (!live) {
         game_match.classList.remove("d-flex");
         game_match.classList.add("d-none");
+        cant_in_game.innerHTML = "0";
       }
-
-      // cantidad total de players en el match
-      cant_in_game.innerHTML = survivors.length + infecteds.length;
 
       if (survivors) {
         survivol_image.src = "./image/survivors.png";
@@ -235,7 +231,7 @@ async function viewMatch(matchs, players) {
             <span class="d-inline-flex gap-2 align-items-center text-light p-1 rounded" style="background-color: #222222;">
               <a href="profile.html?steamid=${s.steamId}"><img src="${s.avatar}" width="20" height="20" class="rounded"></a>
               ${s.displayName}
-              <span class="text-secondary ms-1">(<span class="text-danger">${elos}</span>)</span>
+              <span class="text-secondary ms-1">[<span class="text-danger">${elos}</span>]</span>
             </span>
           </div>
         `;
@@ -261,7 +257,7 @@ async function viewMatch(matchs, players) {
               <span class="d-inline-flex gap-2 p-1 align-items-center text-light rounded" style="background-color: #222222;">
                 <a href="profile.html?steamid=${inf.steamId}"><img src="${inf.avatar}" width="20" height="20" class="rounded"></a>
                 ${inf.displayName}
-                <span class="text-secondary ms-1">(<span class="text-danger">${elos}</span>)</span>
+                <span class="text-secondary ms-1">[<span class="text-danger">${elos}</span>]</span>
               </span>
             </div>
           `;

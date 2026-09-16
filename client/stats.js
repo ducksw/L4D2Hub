@@ -33,6 +33,7 @@ async function renderTable(array) {
         <th scope="col">Loser</th>
         <th scope="col">Match</th>
         <th scope="col">Stats</th>
+        <th scope="col">Profile</th>
       </tr>
     </thead>
   `;
@@ -44,7 +45,7 @@ async function renderTable(array) {
         <td><a href="${player.profileurl}" target="_blank"><img src="${player.avatar}" class="rounded" style="max-width: 100%; width: 25px;"></a></td>
         <td class="text-light" style="white-space: normal; word-break: break-word;">${player.displayName}</td>
         <td class="text-warning">${player.steamId}</td>
-        <td class="text-secondary">(<b class="text-danger">${player.elo}</b>)</td>
+        <td class="text-secondary">[<span class="text-danger">${player.elo}</span>]</td>
         <td>${player.damage}</td>
         <td>${player.kills}</td>
         <td>${player.win}</td>
@@ -52,6 +53,7 @@ async function renderTable(array) {
         <td>${player.losser}</td>
         <td>${player.match}</td>
         <td><a href="player.html?steamid=${player.steamId}" class="text-decoration-none" id="stats_link">Stats</a></td>
+        <td><a href="profile.html?steamid=${player.steamId}" class="text-decoration-none" id="stats_link"><img src="./image/profile.svg"></a></td>
       </tr>
     `;
   });

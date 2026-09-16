@@ -1,4 +1,5 @@
 import { API_URL } from "./config.js";
+import { formatDate } from "./helpers.js";
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("steamid");
@@ -33,7 +34,7 @@ async function profile(player, match) {
   }
 
   ret += `
-    <div class="d-flex justify-content-between align-items-center p-2">
+    <div class="d-flex justify-content-between align-items-center p-2" id="box_profile_res">
       <div class="d-flex position-relative me-3 gap-3 align-items-center">
       <div class="border rounded border-secondary" style=" position: absolute; width: 133px; height: 133px; transform: rotate(3deg);"></div>
         <img src="${player.avatar}" class="rounded" style=" position: relative; width: 130px; object-fit: cover;">
@@ -43,21 +44,30 @@ async function profile(player, match) {
         </span>
         <div class="d-flex flex-column justify-content-center">
           <span class="text-light fs-2 fw-bold" style="white-space: normal;word-break: break-word;">${player.displayName}</span>
-          <span class="text-secondary small">${player.steamId}</span>
+          <div>
+            <span class="text-secondary">${player.steamId}</span>
+              <i id="btn_copy" class="bi bi-copy ms-2 text-light" 
+              style="cursor: pointer;" 
+              data-bs-toggle="tooltip" 
+              data-bs-placement="bottom" 
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Copy ID">
+            </i>
+          </div>
         </div>
       </div>
       
-      <div class="d-flex align-items-start gap-3">
+      <div class="d-flex align-items-start gap-3" id="box_stat_res">
         <div class="d-flex justify-content-center align-items-center card_elo flex-column">
           <div class="fw-bold text-light border-bottom border-dark w-100 pb-1">ELO</div>
           <div class="text-secondary d-flex align-items-center justify-content-center mt-2 w-100 bg-osi p-1 rounded">
-            (<span class="text-danger">${player.elo}</span>)
+            [<span class="text-danger">${player.elo}</span>]
           </div>
         </div>
 
         <div class="d-flex justify-content-center align-items-center card_steam flex-column">
           <div class="fw-bold text-light border-bottom border-dark w-100 pb-1">STEAM</div>
-          <a href="${player.profileurl}" class="d-flex gap-2 text-light text-decoration-none d-flex align-items-center justify-content-center mt-2 w-100 bg-osi p-1 rounded steam_link">
+          <a href="${player.profileurl}" target="_blank" class="d-flex gap-2 text-light text-decoration-none d-flex align-items-center justify-content-center mt-2 w-100 bg-osi p-1 rounded steam_link">
             <img src="../image/steam_icon.svg"> Profile
           </a>
         </div>
@@ -75,9 +85,12 @@ async function profile(player, match) {
 
   pf.innerHTML = ret;
 
+  const tooltipTriggerList = pf.querySelectorAll('[data-bs-toggle="tooltip"]');
+  [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
   stat.innerHTML = `
     <div class="d-flex flex-column p-3">
-      <nav class="d-flex gap-2 mb-3">
+      <nav class="d-flex gap-2 mb-3" id="nav_profile_stat">
         <button class="nav_link active text-light d-flex align-items-center gap-2 border-0" data-target="stats">
           <span class="circle_red"></span> Competitive Stats
         </button>
@@ -88,6 +101,7 @@ async function profile(player, match) {
           <span class="circle_red"></span> Matches
         </button>
       </nav>
+
 
       <!-- Contenedores de contenido -->
       <div id="stats" class="tab-content mt-3">
@@ -189,7 +203,7 @@ async function profile(player, match) {
       </div>
 
       <div id="matches" class="tab-content d-none mt-3">
-        <div id="box_match"></div>
+        <div class="d-flex flex-column gap-3" id="box_match"></div>
       </div>
     </div>
   `;
@@ -202,18 +216,63 @@ async function profile(player, match) {
 	);
 
   if (!matchesFound.length) {
-		box_match.innerHTML = `<span class="text-secondary">No hay partidas.</span>`;
-		return;
-	}
+    box_match.innerHTML = `<span class="text-secondary">No hay partidas.</span>`;
+  }
 
-  for (const m of matchesFound.reverse()) {
-    const allPlayersInMatch = [...m.survivors.players, ...m.infecteds.players];
+  // cantidad de partidos jugados
+  box_match.innerHTML += `
+    <div class="d-flex text-light gap-1 p-1">
+      <span>Total de partidos jugados:</span>
+      <span>${player.match}</span>
+    </div>
+  `;
 
-    for (const p of allPlayersInMatch) {
-      if (p.steamId === player.steamId) {
-        console.log(m);
-        break;
+  if (matchesFound.length > 0) {
+    for (const match of matchesFound.reverse()) {
+      const matchId = match._id;
+      const match_poinst_s = match.survivors.points;
+      const match_poinst_i = match.infecteds.points;
+
+      let lv = "";
+      if (match.live) {
+        lv = "Live";
+      } else {
+        lv = "Finish";
       }
+
+      console.log(player.match);
+
+      box_match.innerHTML += `
+        <div class="d-flex justify-content-between gap-4 p-custom2 rounded-custom small" style="background-color: #1a1a1a;">
+          <div class="d-flex flex-column">
+            <span class="text-danger">ID</span>
+            <span class="text-warning">${matchId}</span>
+          </div>
+          <div class="d-flex flex-column">
+            <span class="text-danger">GAME MODE</span>
+            <span class="text-warning">Competitive</span>
+          </div>
+          <div class="d-flex flex-column">
+            <span class="text-danger">CAMPAIGN</span>
+            <span class="text-warning">${match.map_name}</span>
+          </div>
+          <div class="d-flex flex-column">
+            <span class="text-danger">STARTED AT</span>
+            <span class="text-warning">${formatDate(match.createdAt)}</span>
+          </div>
+          <div class="d-flex flex-column">
+            <span class="text-danger">RESULT</span>
+            <div class="d-flex text-secondary gap-1"">
+              <span class="text-primary">${match_poinst_s}</span> -
+              <span class="text-danger">${match_poinst_i}</span>
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <span class="text-danger">STATUS</span>
+            <span class="text-warning">${lv}</span>
+          </div>
+        </div>
+      `;
     }
   }
 
@@ -233,6 +292,15 @@ async function profile(player, match) {
   });
 }
 
+async function copy() {
+  try {
+    await navigator.clipboard.writeText(id);
+    console.log("COPY");
+  } catch (error) {
+    console.log("ERROR", error)
+  }
+}
+
 async function init() {
   const response = await fetch(API_URL + "/players?steamid="+id)
   const response_match = await fetch(API_URL + "/match");
@@ -245,6 +313,10 @@ async function init() {
   profile(player, match)
 
   title.textContent = "Profile - " + player.displayName; // title html
+
+  btn_copy.onclick = () => {
+    copy();
+  }
 }
 
 window.onload = init;

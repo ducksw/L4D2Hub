@@ -7,16 +7,30 @@ header.innerHTML = `
 <div class="d-flex w-100">
   <nav class="d-flex align-items-center w-100 gap-2">
     <a href="index.html"><img style="max-width: 100%; width: 200px;" class="p-2" src="./image/title.png"></a>
-    <div class="d-flex gap-3">
+    <div class="d-flex gap-3 align-items-center" id="nav">
       <a href="index.html" class="text-warning text-decoration-none">Home</a>
       <a href="stats.html" class="text-warning text-decoration-none">Stats</a>
       <a href="noticias.html" class="text-warning text-decoration-none">Noticias</a>
       <a href="liga.html" class="text-warning text-decoration-none">Liga/Champions</a>
       <a href="faq.html" class="text-warning text-decoration-none">FAQ</a>
+      <div class="dropdown">
+        <a href="#" class="text-danger p-1 rounded text-decoration-none dropdown-toggle more_box" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          More
+        </a>
+        <ul class="dropdown-menu bg-prin border border-black">
+          <div class="d-flex flex-column gap-2">
+            <li>
+              <a class="dropdown-item drop-link text-warning d-flex gap-2" href="maps.html"><img src="./image/maps.svg" style="max-width: 100%; width: 20px;">Maps</a>
+            </li>
+            <li>
+              <a class="dropdown-item drop-link text-warning d-flex gap-2" target="_blank" href="https://discord.gg/5ThYEdqYuV"><img src="./image/discord_icon.svg">Discord</a>
+            </li>
+          </div>
+        </ul>
+      </div>
     </div>
 
     <div class="d-flex ms-auto" id="prof">
-      hola
     </div>
   </nav>
 </div>
@@ -67,7 +81,7 @@ async function osi() {
         <div class="d-flex align-items-center gap-2" style="margin-left: 10px; white-space: normal; word-break: break-word; }">
           <a href="profile.html?steamid=${key.steamId}" style="width: 30px; height: 30px;"><img src="${key.avatar}" style="max-width: 100%; width: 30px; height: 30px;" class="rounded border border-dark"></a>
           <span class="text-danger">${key.displayName}</span>
-          <span class="text-secondary">(<span class="text-danger">${key.elo}</span>)</span>
+          <span class="text-secondary">[<span class="text-danger">${key.elo}</span>]</span>
         </div>
       `;
     }
