@@ -45,7 +45,7 @@ async function renderTable(array) {
         <td><a href="${player.profileurl}" target="_blank"><img src="${player.avatar}" class="rounded" style="max-width: 100%; width: 25px;"></a></td>
         <td class="text-light" style="white-space: normal; word-break: break-word;">${player.displayName}</td>
         <td class="text-warning">${player.steamId}</td>
-        <td class="text-secondary">[<span class="text-danger">${player.elo}</span>]</td>
+        <td class="badge_default" style="margin-top: 13px;"><span>${player.elo}</span></td>
         <td>${player.damage}</td>
         <td>${player.kills}</td>
         <td>${player.win}</td>

@@ -243,8 +243,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderPlayerDetails(
       player,
       "kills",
-      "Kills",
-      "Kills / k",
+      "Instant Kills",
+      "(I) Kills / k",
       calculatePorcent(players, "kills", player.kills),
       "res-kill"
     );

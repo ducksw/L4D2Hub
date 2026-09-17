@@ -45,6 +45,11 @@ function viewProfile(players) {
   res.style.display = "none";
   res.classList.remove("d-flex");
 
+  let view_rank = ""
+  if (profile.rank) {
+    view_rank = `<img id="image_rank" src="./image/rank_${profile.rank.toLowerCase()}.svg" class="image_rank" style="width: 40px; height: 40px;">`;
+  }
+
   resProfile.innerHTML = `
     <div class="d-flex flex-column w-100">
       <div class="d-flex align-items-center w-100 justify-content-between p-2 title_profile_rounded border-bottom border-dark" style="background-color: #0d0d0d;" >
@@ -67,7 +72,7 @@ function viewProfile(players) {
 
 
           <span class="position-absolute top-0 start-100 translate-middle">
-            <img src="image/rank_${profile.rank.toLowerCase()}.svg" class="image_rank" style="width: 40px; height: 40px;">
+            ${view_rank}
           </span>
         </div>
         
@@ -81,7 +86,7 @@ function viewProfile(players) {
           <!-- ELO -->
           <div class="mt-3">
             <span style=" color: #555558; font-size: 13px; " > ELO </span>
-            <span class="ms-2 fw-bold text-secondary fs-6">[<span class="text-danger">${profile.elo}</span>]</span>
+            <span class="badge_default">${profile.elo}</span>
           </div>
         </div>
       </div>
@@ -89,7 +94,11 @@ function viewProfile(players) {
       <div class="mt-2" style=" height: 1px; margin: 0 15px; background: linear-gradient( 90deg, #dc3545, #333, transparent); " ></div>
 
       <div class="d-flex align-items-center justify-content-between px-3 py-2 small" >
-        <a href="profile.html?steamid=${profile.steamId}" class="text-primary text-decoration-none border border-dark rounded p-1"><img src="./image/profile.svg" style="max-width: 100%; width: 25px;"></a>
+        <div class="d-flex gap-2">
+          <a href="profile.html?steamid=${profile.steamId}" class="text-primary text-decoration-none border border-dark rounded p-1"><img src="./image/profile.svg" style="max-width: 100%; width: 25px;"></a>
+          <a href="#" class="text-primary text-decoration-none border border-dark rounded p-1"><img src="./image/history.svg" style="max-width: 100%; width: 25px;"></a>
+        </div>
+
         <span style=" color: #333;">//</span>
 
         <a href="#" id="log_out" class="text-primary text-decoration-none border border-dark rounded p-1"><img src="./image/log_out.svg" style="max-width: 100%; width: 25px;"></a>
@@ -154,7 +163,7 @@ async function list_players_index(players) {
           <span style="white-space: normal; word-break: break-word;">${key.displayName}</span>
         </div>
         <div class="d-flex" style="margin-right: 5px;">
-          <span class="text-secondary">[<span class="text-danger">${key.elo}</span>]</span>
+          <span class="badge_default">${key.elo}</span>
         </div>
       </a>
     `;
