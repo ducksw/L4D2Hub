@@ -1,5 +1,9 @@
-import { API_URL } from "./config.js";
+import { URL_WEB_APP_POST } from "./config.js";
+import { Players } from "../models/PlayersModels.js";
+import { Matchs } from "../models/MatchModels.js";
 import { formatDate } from "./helpers.js";
+
+const only = document.getElementById('only');
 
 const iconArrow = document.getElementById("icon_arrow");
 let ultimoScroll = 0;
@@ -78,17 +82,15 @@ function viewProfile(players) {
         
         <!-- INFO -->
         <div class="d-flex flex-column" style="min-width: 0; flex: 1;">
-
           <span class="text-light fw-bold fs-4" style="margin-top: 3px; white-space: normal; word-break: break-word;" > ${profile.displayName} </span>
-
           <div class="text-secondary" style=" font-size: 11px; letter-spacing: 1px; margin-top: 2px; " > STEAM PLAYER </div>
-
           <!-- ELO -->
           <div class="mt-3">
             <span style=" color: #555558; font-size: 13px; " > ELO </span>
             <span class="badge_default">${profile.elo}</span>
           </div>
         </div>
+
       </div>
 
       <div class="mt-2" style=" height: 1px; margin: 0 15px; background: linear-gradient( 90deg, #dc3545, #333, transparent); " ></div>
@@ -110,36 +112,56 @@ function viewProfile(players) {
   document.getElementById("log_out").onclick = logout;
 }
 
+const skeletonHTML = `
+  <div class="d-flex flex-column p-2 placeholder-wave">
+    <!-- Título esqueleto -->
+    <h2 class="title_osi mb-3">
+      <span class="placeholder col-8 bg-warning rounded"></span>
+    </h2>
+
+    <!-- Párrafos de texto esqueleto -->
+    <p class="mb-2">
+      <span class="placeholder col-12 bg-secondary rounded"></span>
+      <span class="placeholder col-12 bg-secondary rounded"></span>
+      <span class="placeholder col-10 bg-secondary rounded"></span>
+      <span class="placeholder col-6 bg-secondary rounded"></span>
+    </p>
+
+    <!-- Contenedor de la imagen esqueleto -->
+    <div class="d-flex justify-content-center my-3">
+      <div class="placeholder rounded bg-secondary" style="width: 400px; height: 250px; max-width: 100%;"></div>
+    </div>
+
+    <!-- Fecha esqueleto -->
+    <div class="d-flex justify-content-end mt-3">
+      <span class="placeholder col-3 bg-danger rounded"></span>
+    </div>
+  </div>
+`;
 
 function onlyNews(posts) {
-  let only = document.getElementById('only');
 
   let ret = `
-  <div class=" w-100">
-    <b class="d-flex justify-content-center fs-4 rounded p-2 w-100 title_osi" style="background: linear-gradient(135deg, #1a0000 0%, darkred 50%, #080808 100%);">
-        Ultimas Noticias
-    </b>
   `;
 
   const onlyPost = [...posts].reverse().slice(0, 1);
-
   onlyPost.forEach((post) => {
     ret += `
       <div class="p-2 mt-2">
         <h4 class="text-warning">
-          ${post.title}
+          ${post.TITLE}
         </h4>
         <p style="color: darkgrey;">
-          ${post.text}
+          ${post.TEXT}
         </p>
-        <img src="${post.imageLink}" style="display: flex; max-width: 100%; margin: auto;">
+        <img src="${post.IMAGELINK}" style="display: flex; max-width: 100%; margin: auto;">
 
         <div class="d-flex justify-content-between mt-5">
           <div>
-            <a class="text-decoration-none text-secondary link_hover" href="noticia.html?news=${post._id}">[View Post]</a>
+            <a class="text-decoration-none text-secondary link_hover" href="noticia.html?news=${post._ID}">[View Post]</a>
           </div>
           <div>
-            <span class="text-danger">${formatDate(post.createdAt)}</span>
+            <span class="text-danger">${formatDate(post.Timestamp)}</span>
           </div>
         </div>
       </div>
@@ -155,21 +177,33 @@ async function list_players_index(players) {
   const list_players = document.getElementById("list_players");
   const cant_players = document.getElementById("cant_players");
 
+  list_players.innerHTML = "";
+
   for (const key of players.sort((a, b) => b.elo - a.elo)) {
     list_players.innerHTML += `
       <a href="profile.html?steamid=${key.steamId}" class="d-flex link_hover_players text-decoration-none text-light justify-content-between align-items-center">
         <div class="d-flex gap-2 align-items-center">
-          <img src="${key.avatar}" class="rounded" style="max-width: 100%; width: 30px; height: 30px;">
+          <img src="${key.avatar}" style="max-width: 100%; width: 35px; height: 35px; border-radius: 25%;">
           <span style="white-space: normal; word-break: break-word;">${key.displayName}</span>
         </div>
         <div class="d-flex" style="margin-right: 5px;">
-          <span class="badge_default">${key.elo}</span>
+          <span id="badge" class="badge_default">${key.elo}</span>
         </div>
       </a>
     `;
+
+    const bd = document.getElementById("badge");
+    if (key.elo >= 1000) {
+      bd.classList.remove("badge_default");
+      bd.classList.add("badge_brown");
+    } else if (key.elo >= 2000) {
+      bd.classList.remove("badge_brown");
+      bd.classList.add("badge_purple");
+    }
   }
 
   cant_players.innerHTML = players.length;
+
 }
 
 async function viewMatch(matchs, players) {
@@ -227,9 +261,9 @@ async function viewMatch(matchs, players) {
       let ret = "";
 
       ret += `<div class="d-flex align-items-center gap-1 mb-1">`;
-      ret += `  <span class="text-secondary">${timeStr}</span>`;
-      ret += `  <span class="fw-bold ms-1 text-warning">L4D2Hub:</span>`;
-      ret += `  <span class="fw-bold text-primary">Survivors</span>`;
+      ret += `<span class="text-secondary">${timeStr}</span>`;
+      ret += `<span class="fw-bold ms-1 text-warning">L4D2Hub:</span>`;
+      ret += `<span class="fw-bold text-primary">Survivors</span>`;
 
       for (const s of survivors) {
         const p = players.find(player => player._id === s._id || player.steamId === s.steamId);
@@ -237,10 +271,10 @@ async function viewMatch(matchs, players) {
 
         ret += `
           <div class="d-flex" style="margin-left: 10px;">
-            <span class="d-inline-flex gap-2 align-items-center text-light p-1 rounded" style="background-color: #222222;">
+            <span class="d-inline-flex gap-2 align-items-center text-light p-1 rounded" style="background-color: #111111;">
               <a href="profile.html?steamid=${s.steamId}"><img src="${s.avatar}" width="20" height="20" class="rounded"></a>
               ${s.displayName}
-              <span class="text-secondary ms-1">[<span class="text-danger">${elos}</span>]</span>
+              <span class="badge_default">${elos}</span>
             </span>
           </div>
         `;
@@ -263,10 +297,10 @@ async function viewMatch(matchs, players) {
 
           retInfecteds += `
             <div class="d-flex" style="margin-left: 10px;">
-              <span class="d-inline-flex gap-2 p-1 align-items-center text-light rounded" style="background-color: #222222;">
+              <span class="d-inline-flex gap-2 p-1 align-items-center text-light rounded" style="background-color: #111111;">
                 <a href="profile.html?steamid=${inf.steamId}"><img src="${inf.avatar}" width="20" height="20" class="rounded"></a>
                 ${inf.displayName}
-                <span class="text-secondary ms-1">[<span class="text-danger">${elos}</span>]</span>
+                <span class="badge_default">${elos}</span>
               </span>
             </div>
           `;
@@ -279,12 +313,11 @@ async function viewMatch(matchs, players) {
       // --- LOG MAP ---
       let retMap = "";
       retMap += `<div class="d-flex align-items-center gap-2 mb-1">`;
-      retMap += `  <span class="text-secondary">${timeStr}</span>`;
-      retMap += `  <span class="fw-bold ms-1 text-warning">L4D2Hub:</span>`;
-      retMap += `  <span class="ms-1 text-light">Mapa seleccionado <b class="text-info">${map_name}</b></span>`;
+      retMap += `<span class="text-secondary">${timeStr}</span>`;
+      retMap += `<span class="fw-bold ms-1 text-warning">L4D2Hub:</span>`;
+      retMap += `<span class="ms-1 text-light">Mapa seleccionado <b class="text-info">${map_name}</b></span>`;
 
       log_map.innerHTML = retMap;
-
     }
   }
 
@@ -292,7 +325,6 @@ async function viewMatch(matchs, players) {
     survivol_image.src = "../image/none.jpg";
     infected_image.src = "../image/none.jpg"
   }
-
 }
 
 function getCurrentTime() {
@@ -314,27 +346,34 @@ function logout() {
 async function init() {
   const steam_id = localStorage.getItem("steamid");
 
-  const response = await fetch(API_URL + "/players");
-  const response_post = await fetch(API_URL + "/posts");
-  const response_match = await fetch(API_URL + "/match");
+  only.innerHTML = skeletonHTML
 
-  const players = await response.json();
-  const posts = await response_post.json();
-  const matchs = await response_match.json();
+  const players = Players;
+  const matchs = Matchs;
 
   list_players_index(players);
-  viewMatch(matchs, players);
+  viewProfile(players)
 
   if (steam_id) {
     viewProfile(players);
   }
 
-  onlyNews(posts);
+  list_players_index(players);
+
+  viewMatch(matchs, players);
+
 
   // icon up click
   icon_arrow.onclick = () => {
     up_arrow();
   }
+
+
+  // dejenlo siempre al ultimoxd
+  const response = await fetch(URL_WEB_APP_POST);
+  const posts = await response.json();
+  onlyNews(posts);
+
 }
 
 window.onload = init;

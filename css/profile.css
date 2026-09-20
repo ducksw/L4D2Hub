@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap');
 
 body {
   /* background-color: #111111; */
   background-color: black;
   color: white;
   padding: 10px;
-  font-family: "Source Code Pro";
+  font-family: "Cascadia Mono";
+  font-size: 14px;
 }
 
 .warning {

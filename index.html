@@ -34,12 +34,12 @@
 
       <!-- QUE ES L4D2Hub -->
       <div class="bg-prin w-50 p-custom text-center rounded-custom" id="l4d2hub_box">
-        <h5 class="text-primary title_osi">¿Que es L4D2 Hub?</h5>
-        <div class="text-light">
+        <h4 class="text-danger title_osi">¿Que es L4D2 Hub?</h4>
+        <div class="text-light mt-4">
           <p>Una página donde se recopilan y muestran estadísticas del <br /><b class="text-warning">modo
               competitivo</b> de la <b class="text-danger">Liga Bulls</b>.</p>
-          <p>Explora los <a href="stats.html">stats</a>, descubre los <a href="rankings.html">rankings</a> y,
-            sobre todo, no te pierdas la tabla oficial de la <b><a href="liga.html">Liga Bulls</a></b>.</p>
+          <p>Explora los <a href="stats.html" class="link_default">stats</a>, descubre los <a href="rankings.html" class="link_default">rankings</a> y,
+            sobre todo, no te pierdas la tabla oficial de la <b><a href="liga.html" class="link_default">Liga Bulls</a></b>.</p>
         </div>
       </div>
 
@@ -66,8 +66,8 @@
             <div class="d-flex flex-column justify-content-center gap-1 mt-3">
 
               <div class="d-flex justify-content-center align-items-center gap-2 responsive-vs-box">
-                <img src="" id="survivol_image" class="rounded image_versus" alt="Survivor">
-                <span class="text-primary" id="name_survivors"></span>
+                <img src="./image/none.jpg" id="survivol_image" class="rounded image_versus" alt="Survivor">
+                <span class="text-primary" id="name_survivors">Unknown</span>
               </div>
 
               <div class="mt-3">
@@ -85,8 +85,8 @@
             <div class="d-flex flex-column justify-content-center align-items-center gap-1 mt-3">
 
               <div class="d-flex justify-content-center align-items-center gap-2 responsive-vs-box">
-                <span class="text-danger" id="name_infecteds"></span>
-                <img src="" id="infected_image" class="rounded image_versus" alt="Infected">
+                <span class="text-danger" id="name_infecteds">Unknown</span>
+                <img src="./image/none.jpg" id="infected_image" class="rounded image_versus" alt="Infected">
               </div>
 
               <div class="mt-3">
@@ -178,10 +178,11 @@
   </section>
 
   <!-- NOTICIAS -->
-
-  <section class="d-flex gap-2 justify-content-between mt-3 text-light bg-prin rounded-custom p-custom sec ">
+  <section class="d-flex flex-column gap-2 justify-content-between mt-3 text-light bg-prin rounded-custom p-custom sec ">
+    <div class=" w-100">
+      <b class="d-flex justify-content-center fs-4 rounded p-2 w-100 title_osi" style="background: linear-gradient(135deg, #1a0000 0%, darkred 50%, #080808 100%);">Ultimas Noticias</b>
+    </div>
     <div id="only"></div>
-
   </section>
 
   <section class="d-flex flex-column gap-2 mt-3 text-light bg-prin rounded-custom p-custom sec sec2">

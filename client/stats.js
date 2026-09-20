@@ -1,4 +1,4 @@
-import { API_URL } from "./config.js";
+import { Players } from "../models/PlayersModels.js";
 
 let playersData = [];
 
@@ -18,7 +18,7 @@ async function downloadDataJSON(args, obj) {
 async function renderTable(array) {
   const res = document.getElementById('res');
 
-  let ret = `<table class="table-dark w-100">
+  let ret = `<table class="table-dark w-100 table_osi">
     <thead>
       <tr class="text-center border-bottom border-dark text-danger">
         <th scope="col">#</th>
@@ -33,7 +33,6 @@ async function renderTable(array) {
         <th scope="col">Loser</th>
         <th scope="col">Match</th>
         <th scope="col">Stats</th>
-        <th scope="col">Profile</th>
       </tr>
     </thead>
   `;
@@ -42,10 +41,10 @@ async function renderTable(array) {
     ret += `
       <tr class="text-center">
         <th class="p-3" scope="row">${index + 1}</th>
-        <td><a href="${player.profileurl}" target="_blank"><img src="${player.avatar}" class="rounded" style="max-width: 100%; width: 25px;"></a></td>
-        <td class="text-light" style="white-space: normal; word-break: break-word;">${player.displayName}</td>
+        <td><a href="profile.html?steamid=${player.steamId}"><img src="${player.avatar}" class="rounded" style="max-width: 100%; width: 25px;"></a></td>
+        <td class="text-light name_player_table">${player.displayName}</td>
         <td class="text-warning">${player.steamId}</td>
-        <td class="badge_default" style="margin-top: 13px;"><span>${player.elo}</span></td>
+        <td class="badge_default" style="margin-top: 14px;"><span>${player.elo}</span></td>
         <td>${player.damage}</td>
         <td>${player.kills}</td>
         <td>${player.win}</td>
@@ -53,7 +52,6 @@ async function renderTable(array) {
         <td>${player.losser}</td>
         <td>${player.match}</td>
         <td><a href="player.html?steamid=${player.steamId}" class="text-decoration-none" id="stats_link">Stats</a></td>
-        <td><a href="profile.html?steamid=${player.steamId}" class="text-decoration-none" id="stats_link"><img src="./image/profile.svg"></a></td>
       </tr>
     `;
   });
@@ -71,15 +69,12 @@ document.getElementById("searchInput").addEventListener("input", e => {
 });
 
 async function init() {
-  const response = await fetch(API_URL + "/players");
-  playersData = await response.json();
-
-  renderTable(playersData);
-
   const get_steamid = localStorage.getItem("steamid");
+  playersData = Players;
+
   if (get_steamid) {
     steam_id.innerHTML = get_steamid;
-    my_stats.href = "player.html?steamid="+get_steamid;
+    my_stats.href = "player.html?steamid=" +get_steamid;
   } else {
     steam_id.innerHTML = "unknown";
     my_stats.onclick = () => {
@@ -87,7 +82,10 @@ async function init() {
     }
   }
 
+  renderTable(playersData)
+
   download_data.onclick = () => downloadDataJSON({ filename: "DATA_L4D2HUB.json" }, playersData);
+
 }
 
 window.onload = init;

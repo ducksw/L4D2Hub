@@ -1,3 +1,4 @@
+import { exportCONST } from "./helpers.js";
 import { API_URL } from "./config.js";
 
 const input_steamid = document.getElementById("input_steamid");
@@ -107,6 +108,8 @@ async function add_players(params) {
 async function init() {
   const response = await fetch(API_URL+"/players");
   playersData = await response.json();
+  
+  console.log("players data", playersData);
 
   list_players(playersData);
 
@@ -117,6 +120,10 @@ async function init() {
       avatar: input_avatar.value,
       profileurl: input_profileurl.value,
     });
+  }
+
+  btn_export.onclick = () => {
+    exportCONST(playersData, "Players", "PlayersModels");
   }
 
   stat_online.innerHTML = playersData.length;

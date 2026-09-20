@@ -1,5 +1,4 @@
-import { API_URL } from "./config.js";
-// import { players } from '../models/player.js'
+import { Players } from "../models/PlayersModels.js";
 
 function calculatePorcent(key, low = false, players) {
   const MAX_ELO = 20000;
@@ -176,8 +175,7 @@ async function selectListPlayer(players) {
 }
 
 async function init() {
-  const response = await fetch(API_URL + "/players");
-  const players = await response.json();
+  const players = Players;
 
   // only boards
   renderLeaderboard(players, 'elo', 'elo-leaderboard', 'text-danger');

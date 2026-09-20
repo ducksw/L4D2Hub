@@ -1,4 +1,4 @@
-import { API_URL } from "./config.js";
+import { Players } from "../models/PlayersModels.js";
 
 const header = document.getElementById("header");
 const mobile = document.getElementById("mobile");
@@ -66,36 +66,36 @@ mobile.innerHTML = `
 `;
 
 async function osi() {
-  const get_profile = JSON.parse(localStorage.getItem("steamid"));
   const prof = document.getElementById("prof");
 
-  const response = await fetch(API_URL + "/players");
-  const players = await response.json();
+  const players = Players;
+  const get_profile = JSON.parse(localStorage.getItem("steamid"));
 
-  console.log(get_profile);
-
-  let ret = "";
-  for (const key of players) {
-    if (get_profile == key.steamId) {
-      let view_rank = ""
-      if (key.rank) {
-        view_rank = `<img id="image_rank" src="./image/rank_${key.rank.toLowerCase()}.svg"`;
-      } else {
-        view_rank = "";
-      }
-
-      ret += `
-        <div class="d-flex align-items-center gap-2" style="margin-left: 10px; white-space: normal; word-break: break-word; }">
-          <span class="badge_default"><span>${key.elo}</span></span>
-          <div style="height: 32px; width: 1px; background-color: #222222;"></div>
-          <a href="profile.html?steamid=${key.steamId}" style="width: 30px; height: 30px;"><img src="${key.avatar}" style="max-width: 100%; width: 30px; height: 30px;" class="rounded border border-dark"></a>
-          <span>${view_rank}</span>
-          <span class="text-danger">${key.displayName}</span>
-        </div>
-      `;
-    }
+  if (get_profile) {
+    prof.innerHTML = renderProfileCard(players, get_profile);
   }
-  prof.innerHTML = ret;
 }
+
+function renderProfileCard(playersList, steamId) {
+  const user = playersList.find((p) => p.steamId == steamId);
+  if (!user) return "";
+
+  const view_rank = user.rank 
+    ? `<img id="image_rank" src="./image/rank_${user.rank.toLowerCase()}.svg">` 
+    : "";
+
+  return `
+    <div class="d-flex align-items-center gap-2" style="margin-left: 10px; white-space: normal; word-break: break-word;">
+      <span class="badge_default"><span>${user.elo || 0}</span></span>
+      <div style="height: 32px; width: 1px; background-color: #222222;"></div>
+      <a href="profile.html?steamid=${user.steamId}" style="width: 30px; height: 30px;">
+        <img src="${user.avatar}" style="max-width: 100%; width: 30px; height: 30px;" class="rounded border border-dark">
+      </a>
+      <span>${view_rank}</span>
+      <span class="text-danger">${user.displayName}</span>
+    </div>
+  `;
+}
+
 
 osi();

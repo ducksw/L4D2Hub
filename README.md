@@ -18,3 +18,8 @@
 * 5000 = PLATINUM
 * 7000 = DIAMOND
 * 10000 = CHAMPION
+
+# LINKS
+
+* (LINK REGISTER PLAYER)[https://docs.google.com/forms/d/e/1FAIpQLSfzxoQJh06rA8ltq4FkOLcubCnkLKmP_MVnkHfWhH7U3WNlOA/viewform?usp=dialog]
+* (BUSCAR JUGADOR POR SU STEAM ID)[https://steamid.xyz/]

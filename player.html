@@ -24,9 +24,11 @@
   <div class="d-none justify-content-between gap-4 bg bg-black border border-dark p-2 rounded mb-3 header" id="mobile">
   </div>
 
-  <section
-    class="d-flex justify-content-between bg-prin p-custom mt-3 rounded-custom sec align-items-center">
-    <div class="d-flex justify-content-between w-25 gap-3">
+  <section class="d-flex flex-column flex-md-row justify-content-between bg-prin p-custom mt-3 rounded-custom sec align-items-center gap-3">
+    
+    <div id="res" class="order-1 order-md-2 player_select"></div>
+
+    <div class="d-flex w-100 w-md-50 gap-3 order-2 order-md-1">
       <div class="d-flex flex-column">
         <b class="text-secondary">Action</b>
         <a href="stats.html" class="link-info link_hover text-decoration-none">Stats Global</a>
@@ -37,9 +39,8 @@
         <b class="text-secondary">Download</b>
         <a href="#" id="download-stats" class="link-info text-decoration-none link_hover">Image (PNG)</a>
       </div>
-
     </div>
-    <div id="res"></div>
+
   </section>
 
   <main id="main" class="rounded">

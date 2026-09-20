@@ -1,5 +1,5 @@
+import { formatDate, exportCONST } from "./helpers.js";
 import { API_URL } from "./config.js";
-import { formatDate } from "./helpers.js";
 
 let survivors = []; // array suvivors
 let infecteds = []; // array infecteds
@@ -317,6 +317,10 @@ async function init() {
   const create_match = document.getElementById("create_match");
   create_match.onclick = () => {
     createMatch()
+  }
+
+  btn_export.onclick = () => {
+    exportCONST(matches, "Matchs", "MatchModels");
   }
 }
 

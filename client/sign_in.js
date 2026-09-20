@@ -1,10 +1,10 @@
-import { API_URL } from "./config.js";
+import { Players } from "../models/PlayersModels.js";
 
 const box_players = document.getElementById("box_players");
 
-async function init() {
-  const response = await fetch(API_URL + "/players");
-  const players = await response.json();
+function renderPlayers(players) {
+  box_players.innerHTML = ""; // Limpiar contenido previo
+
 
   for (const key of players) {
     box_players.innerHTML += `
@@ -23,6 +23,10 @@ async function init() {
     `;
   }
 
+  attachButtonEvents();
+}
+
+function attachButtonEvents() {
   const select = document.querySelectorAll(".select");
 
   select.forEach(btn => {
@@ -38,23 +42,29 @@ async function init() {
       });
 
       localStorage.setItem("steamid", steamId);
-      btn.textContent = "Load info..."
+      btn.textContent = "Load info...";
 
       callback(steamId, () => { 
-        btn.textContent = "Sign in..."
+        btn.textContent = "Sign in...";
 
         setTimeout(() => {
           location.href = "index.html";
         }, 1000);
       });
     }
-  })
+  });
 }
 
 function callback(steamId, callback) {
   setTimeout(() => {
     callback()
   }, 2000)
+} 
+
+async function init() {
+  const players = Players;
+
+  renderPlayers(players);
 }
 
 window.onload = init;

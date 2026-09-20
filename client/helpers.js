@@ -39,3 +39,24 @@ export function calculatePorcent(players, key, value) {
 	const max = MAX_VALUES[key] || 1;
 	return ((value / max) * 100).toFixed(2);
 }
+
+export function exportCONST(players, name_export, name) {
+  const jsonString = JSON.stringify(players, null, 2);
+
+  let cleanJsString = jsonString.replace(/"([^"]+)":/g, '$1:');
+
+  const fileContent = `export const ${name_export} = ${cleanJsString}`;
+
+
+  const  blob = new Blob([fileContent], { type: "text/javascript;charset=utf-8" });
+
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${name}.js`
+
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url)
+}

@@ -1,5 +1,6 @@
-import { API_URL } from "./config.js";
-import { calculatePorcent } from "./helpers.js";
+import { Players } from "../models/PlayersModels.js";
+import { Matchs } from "../models/MatchModels.js";
+import { calculatePorcent, formatDate } from "./helpers.js";
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("steamid");
@@ -13,13 +14,7 @@ async function share() {
 	alert("Link copiado");
 }
 
-async function init() {
-    const response = await fetch(API_URL + "/players");
-    const response_match = await fetch(API_URL + "/match");
-
-    const players = await response.json();
-    const matches = await response_match.json();
-
+async function renderProfile(players, matches) {
 	for (const player of players) {
 
 		if (player.steamId === id) {
@@ -32,7 +27,7 @@ async function init() {
 			let ret = `
 				<div>
 				<a href="index.html" style="font-size: 25px;">Volver</a><br/><br/>profile:<br/>
-                <h1>${player.displayName}</h1>
+				<h1>${player.displayName}</h1>
 				<a href="${player.avatar}"><img id="avatar_image" src="${player.avatar}"></a><br/>
 				<div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
 					<a href="#" id="public_link" style="text-decoration: none;">[Compartir link]</a>
@@ -43,9 +38,8 @@ async function init() {
 				nickname: <span><span class="dark">[<span class="danger">${player.displayName}</span>]</span></span><br/>
 				elo: <span><span class="dark">[<span class="danger">${player.elo}</span>]</span> - [${calculatePorcent(player, 'elo', player.elo)}%]</span><br/>
 				damage: <span><span class="dark">[<span class="danger">${player.damage}</span>]</span> - [${calculatePorcent(player, 'damage', player.damage)}%]</span><br/>
-				win: <span><span class="dark">[<span class="danger">${player.win}</span>]</span> - [${calculatePorcent(player, 'win', player.win)}%]</span><br/>
-				loser: <span><span class="dark">[<span class="danger">${player.losser}</span>]</span> - [${calculatePorcent(player, 'losser', player.losser)}%]</span><br/>
-				draw: <span><span class="dark">[<span class="danger">${player.draw}</span>]</span> - [${calculatePorcent(player, 'draw', player.draw)}%]</span><br/>
+				win: <span><span class="dark">[<span class="danger">${player.elo}</span>]</span> - [${calculatePorcent(player, 'win', player.win)}%]</span><br/>
+				loser: <span><span class="dark">[<span class="danger">${player.losser}</span>]</span> - [${calculatePorcent(player, 'losser', player.losser)}%]</span><br/> draw: <span><span class="dark">[<span class="danger">${player.draw}</span>]</span> - [${calculatePorcent(player, 'draw', player.draw)}%]</span><br/>
 				match: <span><span class="dark">[<span class="danger">${player.match}</span>]</span> - [${calculatePorcent(player, 'match', player.match)}%]</span><br/>
 				status: <span class="dark">[<span class="danger">${ac}</span>]</span><br/>
 				liga points: <span><span class="dark">[<span class="danger">${player.points}</span>]</span> - [${calculatePorcent(player, 'points', player.points)}%]</span><br/>
@@ -68,23 +62,21 @@ async function init() {
 				for (const matchs of matchesFound.reverse()) {
 					list_match.innerHTML += `
             <div>
-            <span>(Date) ${new Date(matchs.createdAt).toLocaleString("es-PE", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false
-              })} :</span> [<a href="match.html?gameid=${matchs._id}">${matchs._id}</a>]
+							<span>(Date) <span style="color: darkgrey;">${formatDate(matchs.createdAt)}</span></span> 
+							[<a href="match.html?gameid=${matchs._id}">${matchs._id}</a>]
             </div>
-        `;
-
-        console.log(matchs.createdAt);
-
+					`;
+					console.log(matchs.createdAt);
 				}
 			}
 
 			profile_box.innerHTML = ret;
+
+			// badges
+			if (player.badges.length) {
+			} else {
+				badges_box.innerHTML = "No tienes badges ganados";
+			}
 
 			// compartir link
 			const public_link = document.getElementById("public_link");
@@ -101,8 +93,13 @@ async function init() {
 			}
 		}
 	}
+}
 
+async function init() {
+	const players = Players;
+	const matchs = Matchs;
 
+	renderProfile(players, matchs);
 }
 
 window.onload = init;

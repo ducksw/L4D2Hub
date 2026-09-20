@@ -1,3 +1,9 @@
 export const API_URL = "http://localhost:3000/api";
 export const ID_DUCKS = "76561199093444412";
 export const ID_ALDO = "76561199153288700";
+export const URL_WEB_APP = "https://script.google.com/macros/s/AKfycbxJp3UZqzbfIokqe2IcaJn1rTyGLKecDrUKkCOLK8xf_Z17V3SEG7j1liXAkEMDT1eQ/exec";
+export const URL_WEB_APP_POST = "https://script.google.com/macros/s/AKfycbzNc3QhgTFdchx9lNGeu7uQfXEIv_6R7S8CQUHPPZhsEa7tw9_TuP2i9j0mlIZLpKU/exec";
+export const TIEMPO_EXPIRACION = 10 * 60 * 1000; // 10 minutos en milisegundos
+export const cachedData = localStorage.getItem("cached_players");
+export const cachedTime = localStorage.getItem("cached_players_time");
+export const ahora = Date.now();

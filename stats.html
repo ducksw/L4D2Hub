@@ -30,17 +30,22 @@
 
   <div id="alert"></div>
 
+  <section class="d-none align-items-center gap-2 bg-prin p-custom mt-3 rounded-custom inputSearchPlayersResponsive">
+    <span class="text-warning">Search:</span>
+    <input type="text" name="search" placeholder="Name" id="searchInput" class="input form-control bg bg-dark text-light border border-black focus-ring focus-ring-secondary">
+  </section>
+
   <section class="bg-prin p-custom mt-3 rounded-custom sec">
     <div class="d-flex justify-content-between align-items-center">
       <div>
-        <span class="text-warning">Steam Id: <span id="steam_id" class="text-danger"></span></span>
+        <span class="text-warning small">Steam Id: <span id="steam_id" class="text-danger"></span></span>
       </div>
       <div class="d-flex gap-2 text-decoration-none">
         <a href="#" id="my_stats" class="text-decoration-none text-info link_hover">My Stats</a> |
         <a href="rankings.html" class="text-decoration-none text-info link_hover">Rankings</a> |
         <a href="#" class="text-decoration-none text-info link_hover" id="download_data">Data(JSON)</a>
       </div>
-      <div class="d-flex align-items-center gap-2" id="form">
+      <div class="d-flex align-items-center gap-2 inputSearchPlayers" id="form">
         <span class="text-warning">Search:</span>
         <input type="text" name="search" placeholder="Name" id="searchInput" class="input form-control bg bg-dark text-light border border-black focus-ring focus-ring-secondary">
       </div>
